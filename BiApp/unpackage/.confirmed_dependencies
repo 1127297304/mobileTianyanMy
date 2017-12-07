@@ -1,0 +1,373 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/update.js",
+      "list.html",
+      "js/common/mui.min.js",
+      "images/myf.jpg",
+      "css/other/menuList.css",
+      "js/common/vue.js",
+      "images/close.jpg",
+      "images/line_13.png",
+      "images/menuBg.jpg",
+      "images/zt.jpg",
+      "images/line-bg.jpg",
+      "images/mylc.jpg",
+      "images/logoMenu.png",
+      "js/mine/newBlock.json",
+      "images/mj.jpg",
+      "images/xjd.jpg",
+      "images/lineRight.jpg",
+      "js/common/jquery2.0.js",
+      "js/mine/menu.js",
+      "images/ywgl.jpg",
+      "images/myr.jpg",
+      "images/jrcs.jpg",
+      "images/lineLeft.jpg",
+      "js/common/resetRem.js",
+      "images/sssj.jpg",
+      "js/mine/ceshiAjax.js"
+    ],
+    "refer": [
+      "index-menu.html",
+      "list.html",
+      "pages/mylc/dashboard.html",
+      "pages/mylc/pullfresh-tab.html"
+    ]
+  },
+  "examples/tab-webview-subpage-contact.html": {
+    "resources": [
+      "images/60x60.gif"
+    ],
+    "refer": []
+  },
+  "examples/tab-webview-main.html": {
+    "resources": [
+      "examples/tab-webview-subpage-about.html"
+    ],
+    "refer": [
+      "examples/tab-webview-subpage-setting.html",
+      "examples/tab-webview-subpage-chat.html",
+      "examples/tab-webview-subpage-contact.html",
+      "examples/tab-webview-subpage-about.html"
+    ]
+  },
+  "list.html": {
+    "refer": [
+      "examples/template.html",
+      "examples/tab-webview-main.html",
+      "examples/pullrefresh_main.html",
+      "examples/info.html",
+      "examples/accordion.html",
+      "examples/badges.html",
+      "examples/checkbox.html",
+      "examples/numbox.html",
+      "examples/card.html",
+      "examples/actionsheet.html",
+      "examples/actionsheet-plus.html",
+      "examples/dtpicker.html",
+      "examples/buttons.html",
+      "examples/ajax.html",
+      "examples/ad.html",
+      "examples/echarts.html",
+      "examples/im-chat.html",
+      "examples/feedback.html",
+      "examples/imageviewer.html",
+      "examples/indexed-list.html",
+      "examples/lazyload-image.html",
+      "examples/indexed-list-select.html",
+      "examples/locker-dom.html",
+      "examples/login.html",
+      "examples/slider-default.html",
+      "examples/dialog.html",
+      "examples/icons-extra.html",
+      "examples/icons.html",
+      "examples/grid-pagination.html",
+      "examples/input.html",
+      "examples/offcanvas-drag-left-plus-main.html",
+      "examples/media-list.html",
+      "examples/grid-default.html",
+      "examples/buttons-with-icons.html",
+      "examples/buttons-with-badges.html",
+      "examples/nav_transparent.html",
+      "examples/nav.html",
+      "examples/clouddb_wilddog.html",
+      "pages/template.html",
+      "pages/nav_transparent.html",
+      "pages/mylc/dashboard.html",
+      "pages/mylc/pullfresh-tab.html"
+    ],
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "examples/accordion.html",
+      "examples/input.html",
+      "js/common/mui.min.js",
+      "css/menuList.css",
+      "css/other/menuList.css",
+      "css/basic/mui.min.css",
+      "images/lineLeft.jpg",
+      "js/common/resetRem.js",
+      "images/close.jpg",
+      "images/menuBg.jpg",
+      "images/logoMenu.png",
+      "images/lineRight.jpg",
+      "js/mine/menu.js",
+      "js/common/vue.min.js",
+      "js/common/jquery2.0.js",
+      "js/mine/newBlock.json",
+      "images/myf.jpg",
+      "js/common/vue.js",
+      "images/mylc.jpg",
+      "images/mj.jpg",
+      "images/xjd.jpg",
+      "images/myr.jpg",
+      "images/jrcs.jpg",
+      "images/line_13.png",
+      "images/zt.jpg",
+      "images/ywgl.jpg",
+      "images/sssj.jpg",
+      "images/line-bg.jpg"
+    ]
+  },
+  "examples/pullrefresh_main.html": {
+    "resources": [
+      "examples/pullrefresh_sub.html"
+    ],
+    "refer": [
+      "examples/pullrefresh_sub.html"
+    ]
+  },
+  "examples/info.html": {
+    "resources": [
+      "images/qrcode.png",
+      "css/app.css"
+    ],
+    "refer": []
+  },
+  "examples/accordion.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/shuijiao.jpg",
+      "css/app.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/card.html": {
+    "resources": [
+      "images/logo.png"
+    ],
+    "refer": []
+  },
+  "examples/dtpicker.html": {
+    "resources": [
+      "js/mui.picker.min.js",
+      "css/mui.picker.min.css"
+    ],
+    "refer": []
+  },
+  "examples/echarts.html": {
+    "resources": [
+      "libs/echarts-all.js"
+    ],
+    "refer": []
+  },
+  "examples/im-chat.html": {
+    "resources": [
+      "js/mui.imageViewer.js",
+      "images/logo.png",
+      "css/mui.imageviewer.css",
+      "js/arttmpl.js"
+    ],
+    "refer": []
+  },
+  "examples/feedback.html": {
+    "resources": [
+      "css/feedback.css",
+      "js/feedback.js"
+    ],
+    "refer": []
+  },
+  "examples/imageviewer.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js"
+    ],
+    "refer": []
+  },
+  "examples/indexed-list.html": {
+    "resources": [
+      "css/mui.indexedlist.css",
+      "js/mui.indexedlist.js"
+    ],
+    "refer": []
+  },
+  "examples/lazyload-image.html": {
+    "resources": [
+      "images/60x60.gif",
+      "js/mui.lazyload.js",
+      "js/mui.lazyload.img.js"
+    ],
+    "refer": []
+  },
+  "examples/locker-dom.html": {
+    "resources": [
+      "js/mui.locker.js"
+    ],
+    "refer": []
+  },
+  "examples/login.html": {
+    "resources": [
+      "images/login-1.png"
+    ],
+    "refer": []
+  },
+  "examples/slider-default.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "images/shuijiao.jpg"
+    ],
+    "refer": []
+  },
+  "examples/checkbox.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/dialog.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/icons-extra.html": {
+    "resources": [
+      "fonts/mui-icons-extra.ttf",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/icons-extra.css"
+    ],
+    "refer": []
+  },
+  "examples/icons.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/buttons.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/offcanvas-drag-left-plus-main.html": {
+    "refer": [
+      "examples/offcanvas-drag-left-plus-menu.html"
+    ],
+    "resources": []
+  },
+  "examples/ajax.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/nav_transparent.html": {
+    "resources": [
+      "images/yuantiao.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/common/mui.min.js"
+    ],
+    "refer": []
+  },
+  "examples/numbox.html": {
+    "resources": [
+      "css/app.css",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/nav.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/badges.html": {
+    "resources": [
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "examples/input.html": {
+    "resources": [
+      "css/app.css"
+    ],
+    "refer": []
+  },
+  "examples/clouddb_wilddog.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/template.html": {
+    "resources": [
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "pages/nav_transparent.html": {
+    "resources": [
+      "js/common/mui.min.js",
+      "images/yuantiao.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "pages/mylc/dashboard.html": {
+    "resources": [
+      "js/common/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/yuantiao.jpg"
+    ],
+    "refer": []
+  }
+}

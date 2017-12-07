@@ -1,0 +1,287 @@
+//金融超市-实时数据header
+.chooseBlock{
+    .showTime{
+        text-align: center;
+        span{
+            padding-left: 0.7rem;
+            display: inline-block;
+            line-height: 0.95rem;
+            height: 0.95rem;
+            font-size: 0.3rem;
+            color: white;
+            background: url(../../images/showTime.png) left center no-repeat;
+            background-size: 0.44rem 0.44rem;
+        }
+    }
+}
+
+//调整金融超市中当月累计、历史累计ul的样式
+.dataBlock ul{
+    height: 1rem;
+    padding-top: 0;
+}
+
+//金融超市实时数据中所有的消息框
+.dataBlock.tipBlock{
+    height: 4.5rem;
+    .tip{
+        height: 1.5rem;
+        background: url(../../images/tipBg.png) no-repeat center center;
+        background-size: 80% auto;
+        padding-top: .25rem;
+        color: #666666;
+        span{
+            display: block;
+            font-size: 0.28rem;
+            line-height: 0.6rem;
+            color: #333333;
+            small{
+                font-size: 0.26rem;
+                color: #666666;
+                padding-left: .1rem;
+            }
+        }
+        em{
+            font-size: 0.3rem;
+        }
+    }
+}
+
+//金融超市实时数据中投资金额消息框
+.dataBlock.tipBlock.addNew{
+    height: 6.2rem;
+    border-top: 0.2rem solid #f0f0f3;
+    ul{
+        padding-top: 0.15rem;
+    }
+}
+
+//针对没有当月累积、历史累计的模块     改变高度
+.dataBlock.tipBlock.noCurMonthHistory{
+    height: 3.5rem;
+}
+
+//用户动态的筛选维度增加样式
+.userBlock{
+    margin-top: .1rem;
+}
+
+//投资金额
+.dataBlock.tou{
+    &::before{
+        background-image: url(../../images/tou.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/bluepig.png);
+        }
+    }
+    
+}
+
+//首投金额
+.dataBlock.shouje{
+    &::before{
+        background-image: url(../../images/shou.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/bluepig.png);
+        }
+    }
+    
+}
+
+//首投用户数
+.dataBlock.shouyh{
+    &::before{
+        background-image: url(../../images/shou.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/shoutou.png);
+        }
+    }
+    
+}
+
+//投资用户数
+.dataBlock.touPeo{
+    &::before{
+        background-image: url(../../images/tou.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/touHead.png);
+        }
+    }
+    
+}
+
+//注册用户数
+.dataBlock.zhu{
+    &::before{
+        background-image: url(../../images/zhu.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/zhuce.png);
+        }
+    }
+    
+}
+
+//充值用户数
+.dataBlock.chong{
+    &::before{
+        background-image: url(../../images/chong.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/chHead.png);
+        }
+    }
+    
+}
+
+//提现用户数
+.dataBlock.ti{
+    &::before{
+        background-image: url(../../images/tixian.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/money.png);
+        }
+    }
+    
+}
+
+//提现金额
+.dataBlock.tiMoney{
+    &::before{
+        background-image: url(../../images/tixian.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/pig.png);
+        }
+    }
+    
+}
+
+//认证用户数
+.dataBlock.ren{
+    &::before{
+        background-image: url(../../images/ren.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/ok.png);
+        }
+    }
+    
+}
+
+//进件用户数
+.dataBlock.jin{
+    &::before{
+        background-image: url(../../images/jin.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/jinjian.png);
+        }
+    }
+    
+}
+
+//系统通过用户数
+.dataBlock.sys{
+    &::before{
+        background-image: url(../../images/xi.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/pass.png);
+        }
+    }
+    
+}
+
+//电核通过用户数
+.dataBlock.tel{
+    &::before{
+        background-image: url(../../images/dian.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/tel.png);
+        }
+    }
+    
+}
+
+//放款用户数
+.dataBlock.fang{
+    &::before{
+        background-image: url(../../images/fang.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/fangkuan.png);
+        }
+    }
+    
+}
+
+//交易金额
+.dataBlock.pay{
+    &::before{
+        background-image: url(../../images/jiao.png);
+    }
+    h5{
+        em{
+            background-image: url(../../images/pig.png);
+        }
+    }
+    
+}
+
+//用户动态的标题
+.user.userSpecial{
+    padding-left: 0.32rem;
+    &::before{
+        content: '';
+        left: 0.2rem;
+    }
+    .question{
+        right: 0.2rem;
+    }
+}
+
+//标题下的tab选项卡修改样式
+.common-tabBlock .tableTitle {
+    margin-top: 0;
+}
+
+//弹框初始时隐藏
+#financialRealTimeDataBox{
+    display: none;
+}
+
+//金融超市-实时数据指标说明
+.financialRealTimeDataBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+            p{
+                text-align: center;
+            }
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}

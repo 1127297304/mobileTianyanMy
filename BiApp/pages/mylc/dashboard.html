@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/progress.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/mylcYwgl.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">业务概览-美易理财</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+					<span></span>
+				</div>
+			</div>
+		</header>
+		
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		
+		<!--内容-->
+		<!--日、月概览指标说明-->
+	    <div id="DayAndMonthOverviewQuesBox" class="sysQuesBox DayAndMonthOverviewQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">核心指标说明</h5>
+				<ul class="popDetailUl">
+					<li class="marginBot">
+						<span class="popLeft">日实际投资金额</span>
+						<span class="popRight">统计日期当日的实际投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日充值金额</span>
+						<span class="popRight">选定日期当天的充值金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日提现金额</span>
+						<span class="popRight">选定日期当天的申请提现金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日满标金额</span>
+						<span class="popRight">选定日期当天的满标产品的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日到期金额</span>
+						<span class="popRight">选定日期当天的到期投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日投资人数</span>
+						<span class="popRight">选定日期当天的投资用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">当日投资单数</span>
+						<span class="popRight">选定日期当天的投资订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">月累计投资金额</span>
+						<span class="popRight">截止选定日期当月累计的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">充值金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的充值金额</span>
+					</li>
+					<li>
+						<span class="popLeft">提现金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的申请提现金额</span>
+					</li>
+					<li>
+						<span class="popLeft">满标金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的满标产品的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">到期金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的到期投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">投资人数累计</span>
+						<span class="popRight">截止选定日期当月累计的投资用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">投资单数累计</span>
+						<span class="popRight">截止选定日期当月累计的投资订单数量</span>
+					</li>
+				</ul>
+				<div class="close" id="DayAndMonthOverviewClose"></div>
+			</div>
+	    </div>
+		<div class="mui-content">
+			<!--日概览、月概览选项卡切换-->
+			<!--第一块选项卡-->
+			<div class="common-tabBlock firstCont">
+				<h5 class="user">
+	            	核心指标
+	            	<span class="question" id="DayAndMonthOverviewQues"></span>
+	            </h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	 日概览
+				        </a>
+				        <a class="mui-control-item ">
+							月概览
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail dateArea">
+					<div class=" dayAmount show" id="topDay">
+						<div>
+							<h5>实际投资金额(万元)</h5>
+							<h2 class="top-mid" v-cloak>
+								<span>{{big}}</span><small>{{small}}</small>
+							</h2>
+							<div class="top-bot">
+								<div class="bot-left">
+									上月同比：<b :class="topDayData.basis > 0 ? 'up' : 'down' " v-cloak>{{topDayData.basis}}%</b><em></em>
+								</div>
+								<div class="bot-rit">
+									昨日环比：<b :class="topDayData.relativeRatio > 0 ? 'up' : 'down' " v-cloak>{{topDayData.relativeRatio}}%</b><em></em>
+								</div>
+							</div>
+						</div>
+						<div class="dataDetail">
+							<div class="horiBlock clear">
+								<div>
+									<span>充值金额(万元)</span>
+									<h4 v-cloak>{{topDayData.dayDepositAmount}}</h4>
+									<span>满标金额(万元)</span>
+									<h4 v-cloak>{{topDayData.dayScaleAmount}}</h4>
+									<span>投资人数</span>
+									<h4 v-cloak>{{topDayData.dayInvestCount}}</h4>
+								</div>
+								<div>
+									<span>提现金额(万元)</span>
+									<h4  v-cloak>{{topDayData.dayWithdrawAmount}}</h4>
+									<span>到期金额(万元)</span>
+									<h4  v-cloak>{{topDayData.dayDueAmount}}</h4>
+									<span>投资单数</span>
+									<h4  v-cloak>{{topDayData.dayInvestTransCount}}</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="monthAmount " >
+						<!--进度条-->
+			          	<div class="mui-content ph-progress-data">
+							<ul class="mui-table-view mui-grid-view paddBotFive">
+								<li class="mui-table-view-cell mui-col-xs-12 ph-progress-wrapper paddTopSix" id="progress2">
+									<div class="ph-progress-text mui-clearfix mui-grid-view">
+										<h5 class="ph-progress-timePercent mui-pull-left ">时间进度:<span>-</span></h5>
+										<h5 class="ph-progress-donePercent mui-pull-left mui-col-xs-3.5 ">KPI完成率:<span>-</span></h5>
+										<!--<h5 class="ph-progress-donePercent mui-pull-left mjje "><span id="sumMoney"></span>&nbsp;<span>(万元)</span></h5>-->
+									</div>
+									<div class="ph-progress">
+										<div class="ph-progress-total mui-pull-left"></div>
+										<div class="ph-progress-plan"></div>
+										<div class="ph-progress-actual"></div>
+									</div>
+									<div class="ph-progress-legend">
+										<!--<lable class="ph-progress-plan ">时间进度</lable>
+										<lable class="ph-progress-total ">KPI</lable>-->
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+						<!--数值部分-->
+						<div id="topMonth">
+							<div class="progressData">
+								<div class="realCom">
+									<span>实际进度(万元)</span>
+									<h4 class="real" v-cloak>
+										<span class="big">{{comBig}}</span><small>{{comSmall}}</small>
+									</h4>
+								</div>
+								<div class="totleCom">
+									<span>KPI(万元)</span>
+									<h4 v-cloak>
+										<span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+									</h4>
+								</div>
+							</div>
+							<div class="dataDetail" id="dataDetail">
+								<div class="horiBlock clear">
+									<div>
+										<span>充值金额累计(万元)</span>
+										<h4 v-cloak>{{topMonthData.monthDepositAmount}}</h4>
+										<span>满标金额累计(万元)</span>
+										<h4 v-cloak>{{topMonthData.monthScaleAmount}}</h4>
+										<span>投资人数累计</span>
+										<h4 v-cloak>{{topMonthData.monthInvestCount}}</h4>
+									</div>
+									<div>
+										<span>提现金额累计(万元)</span>
+										<h4  v-cloak>{{topMonthData.monthWithdrawAmount}}</h4>
+										<span>到期金额累计(万元)</span>
+										<h4  v-cloak>{{topMonthData.monthDueAmount}}</h4>
+										<span>投资单数累计</span>
+										<h4  v-cloak>{{topMonthData.monthInvestTransCount}}</h4>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<!--图表区域-->
+			<!--第二块选项卡-->
+			<div class="common-tabBlock secondCont">
+				<h5 class="user">
+	            	投资分析
+	            	<!--<span class="question" id=""></span>-->
+	            </h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	 投资增量
+				        </a>
+				        <a class="mui-control-item ">
+							首投占比
+				        </a>
+				        <a class="mui-control-item ">
+							提现占比
+				        </a>
+				        <a class="mui-control-item ">
+							预约增量
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<p class="totalMoney">月目标投资金额：<span id="monthTarget">-</span>万元</p>
+						<div class="echartDetail" id="tzzl"></div>
+					</div>
+					<div class="">
+						<div class="wdChoose" id="showUserPicker">
+							<b>指标类型：</b>
+							<a id="userResult" class="pickerRe">首投金额</a>
+						</div>
+						<div class="echartDetail" id="stzb"></div>
+					</div>
+					<div class="">
+						<div class="echartDetail" id="txtb"></div>
+					</div>
+					<div class="">
+						<div class="echartDetail" id="yyzl"></div>
+					</div>
+				</div>
+			</div>
+			<!--第三块-->
+			<div class="common-tabBlock thirdCont">
+				<h5 class="user">
+	            	用户分析
+	            	<!--<span class="question" id=""></span>-->
+	            </h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	用户规模
+				        </a>
+				        <a class="mui-control-item ">
+							新增用户
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdChoose nopull" id="showUserPicker">
+							<b>统计维度：</b>
+							<a id="userResult" class="pickerRe">全部渠道</a>
+						</div>
+						<div class="echartDetail" id="yhgm"></div>
+					</div>
+					<div class="">
+						<div class="wdChoose nopull" id="showUserPicker">
+							<b>统计维度：</b>
+							<a id="userResult" class="pickerRe">全部渠道</a>
+						</div>
+						<div class="echartDetail" id="xzyh"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!--第四块-->
+			<div class="common-tabBlock fourthCont ">
+				<h5 class="user">
+	            	地域分布
+	            	<!--<span class="question" id=""></span>-->
+	            </h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	地域分布-投资金额
+				        </a>
+				        <a class="mui-control-item ">
+							地域分布-投资人数
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="echartDetail" id="dytzje"></div>
+					</div>
+					<div>
+						<div class="echartDetail" id="dytzrs"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/common/progress.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/mylc-ywgl.js"></script>
+
+	</body>
+
+</html>

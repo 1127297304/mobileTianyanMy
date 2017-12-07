@@ -1,0 +1,419 @@
+{
+	"code": 200,
+	"data": {
+		"status": "ok",
+		"datainfo": {
+			"all": {
+				"premium_amt": {
+					"total_val": 11111111.11,
+					"year_qoq": "+44%",
+					"month_qoq": "0",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 10
+							},
+							{
+								"name": "理财类",
+								"value": 12
+							},
+							{
+								"name": "非车保障类",
+								"value": 3
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "111111.09",
+							"rate": "+22.11%",
+							"month_qoq": "0",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "222222.09",
+							"rate": "-10.10%",
+							"month_qoq": "+12.00%",
+							"year_qoq": "-9.18%"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "232222.09",
+							"rate": "-12.10%",
+							"month_qoq": "0",
+							"year_qoq": "∞"
+						}
+					]
+				},
+				"insure_customer_num": {
+					"total_val": "2222111.11",
+					"year_qoq": "+24%",
+					"month_qoq": "0",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 28
+							},
+							{
+								"name": "理财类",
+								"value": 18
+							},
+							{
+								"name": "非车保障类",
+								"value": 10
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "311131.09",
+							"rate": "+23.11%",
+							"month_qoq": "0",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "444222.09",
+							"rate": "-11.10%",
+							"month_qoq": "+2.00%",
+							"year_qoq": "-1.18%"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "555222.09",
+							"rate": "-15.10%",
+							"month_qoq": "+10.11",
+							"year_qoq": "∞"
+						}
+					]
+				},
+				"insure_order_num": {
+					"total_val": "111.11",
+					"year_qoq": "-14%",
+					"month_qoq": "0",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 128
+							},
+							{
+								"name": "理财类",
+								"value": 18
+							},
+							{
+								"name": "非车保障类",
+								"value": 10
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "111131.09",
+							"rate": "+3.11%",
+							"month_qoq": "-2%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "444222.09",
+							"rate": "-1.10%",
+							"month_qoq": "+2.00%",
+							"year_qoq": "-11.18%"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "665222.09",
+							"rate": "-5.10%",
+							"month_qoq": "+17.11%",
+							"year_qoq": "∞"
+						}
+					]
+				}
+			},
+			"online": {
+				"premium_amt": {
+					"total_val": "12211.11",
+					"year_qoq": "-4%",
+					"month_qoq": "+10.02%",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 6
+							},
+							{
+								"name": "理财类",
+								"value": 18
+							},
+							{
+								"name": "非车保障类",
+								"value": 110
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "23131.09",
+							"rate": "+31.11%",
+							"month_qoq": "-20%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "224222.09",
+							"rate": "-11.10%",
+							"month_qoq": "+2.00%",
+							"year_qoq": "0"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "665222.09",
+							"rate": "-5.10%",
+							"month_qoq": "+1.11%",
+							"year_qoq": "∞"
+						}
+					]
+				},
+				"insure_customer_num": {
+					"total_val": "1112211.11",
+					"year_qoq": "-41%",
+					"month_qoq": "+12.02%",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 116
+							},
+							{
+								"name": "理财类",
+								"value": 18
+							},
+							{
+								"name": "非车保障类",
+								"value": 110
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "723131.09",
+							"rate": "+1.11%",
+							"month_qoq": "-20%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "224222.09",
+							"rate": "-1.10%",
+							"month_qoq": "+2.00%",
+							"year_qoq": "0"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "665222.09",
+							"rate": "-0.10%",
+							"month_qoq": "+1.11%",
+							"year_qoq": "∞"
+						}
+					]
+				},
+				"insure_order_num": {
+					"total_val": "7772211.11",
+					"year_qoq": "-1.01%",
+					"month_qoq": "+2.02%",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 16
+							},
+							{
+								"name": "理财类",
+								"value": 12
+							},
+							{
+								"name": "非车保障类",
+								"value": 110
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "723131.09",
+							"rate": "+1.11%",
+							"month_qoq": "-120%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "224222.09",
+							"rate": "-12.10%",
+							"month_qoq": "+12.00%",
+							"year_qoq": "0"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "665222.09",
+							"rate": "-90.10%",
+							"month_qoq": "+100.11%",
+							"year_qoq": "∞"
+						}
+					]
+				}
+			},
+			"offline": {
+				"premium_amt": {
+					"total_val": "122222211.11",
+					"year_qoq": "-84%",
+					"month_qoq": "+110.02%",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 26
+							},
+							{
+								"name": "理财类",
+								"value": 18
+							},
+							{
+								"name": "非车保障类",
+								"value": 10
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "13131.09",
+							"rate": "+1.11%",
+							"month_qoq": "-20%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "222.09",
+							"rate": "-11.10%",
+							"month_qoq": "+2.00%",
+							"year_qoq": "0"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "5222.09",
+							"rate": "-5.10%",
+							"month_qoq": "+1.11%",
+							"year_qoq": "∞"
+						}
+					]
+				},
+				"insure_customer_num": {
+					"total_val": "2211.11",
+					"year_qoq": "-1%",
+					"month_qoq": "0",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 116
+							},
+							{
+								"name": "理财类",
+								"value": 18
+							},
+							{
+								"name": "非车保障类",
+								"value": 10
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "723131.09",
+							"rate": "+0.11%",
+							"month_qoq": "-0.6%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "224222.09",
+							"rate": "-1.10%",
+							"month_qoq": "+2.00%",
+							"year_qoq": "0"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "665222.09",
+							"rate": "-0.01%",
+							"month_qoq": "+1.11%",
+							"year_qoq": "∞"
+						}
+					]
+				},
+				"insure_order_num": {
+					"total_val": "882211.11",
+					"year_qoq": "-1.01%",
+					"month_qoq": "+12.02%",
+					"pie_chart": {
+						"pie_data":[
+							{
+								"name": "车险类",
+								"value": 6
+							},
+							{
+								"name": "理财类",
+								"value": 112
+							},
+							{
+								"name": "非车保障类",
+								"value": 10
+							}
+						],
+						"pie_list":["车险类","理财类","非车保障类"]
+					},
+					"prod_list":[
+						{
+							"prod_name": "理财类(万元)",
+							"index_val": "3131.09",
+							"rate": "+1.11%",
+							"month_qoq": "-120%",
+							"year_qoq": "∞"
+						},
+						{
+							"prod_name": "非车保障类(万元)",
+							"index_val": "2242.09",
+							"rate": "-12.10%",
+							"month_qoq": "+1.00%",
+							"year_qoq": "0"
+						},
+						{
+							"prod_name": "车险类(万元)",
+							"index_val": "665222.09",
+							"rate": "∞",
+							"month_qoq": "+1.11%",
+							"year_qoq": "∞"
+						}
+					]
+				}
+			}
+		}
+	}
+}

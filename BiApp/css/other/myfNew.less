@@ -1,0 +1,391 @@
+p{
+    margin: 0;
+}
+//公共样式
+.on{
+  display: block;
+}
+.off{
+  display: none;
+}
+//清除浮动
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+//点击切换模块显示隐藏
+.user.change{
+    .toggle{
+        -webkit-transform: rotate(180deg);
+        -webkit-transition: transform .2s;
+    }
+}
+//初始化只显示第一个模块   其余模块隐藏
+//.user:not(.firstShow)+div{
+//  display: none;
+//}
+//业绩概览-产品类型
+.productType{
+    //background: #F7F7F7;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-top: .25rem;
+    li{
+        text-align: center;
+        margin-bottom: .15rem;
+        border: 1px solid lightblue;
+        border-radius: 8px;
+        width: 33%;
+        p{
+            &:first-child{
+                span{
+                    font-size: .28rem;
+                    color: #333;
+                }
+            }
+            &:last-child{
+                span{
+                    font-size: .26rem;
+                }
+            }
+        }
+        &.on{
+            background: lightblue;
+            p{
+                span{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.common-tabBlock .echartDetail{
+    margin-bottom: .15rem;
+}
+
+//风控概览-率
+.risk_management{
+    li{
+        text-align: center;
+        margin-bottom: .2rem;
+        &:first-child{
+            margin-top: .3rem;
+        }
+        span{
+            display: inline-block;
+            font-size:.26rem; 
+            text-align: center;
+            width: 20%;
+            &:nth-of-type(1),&:nth-of-type(3){
+                font-weight: bold;
+            }
+            &:nth-of-type(1){
+                text-decoration: underline;
+            }
+            &.red{
+                color: #FF5252;
+            }
+            &.green{
+                color: #0CBD4C;
+            }
+        }
+    }
+}
+//运营概览产品信息
+.operation{
+    li{
+        &:first-child{
+            margin-top: .3rem;
+            span{
+                font-weight: bolder;
+                &:nth-of-type(1){
+                    text-decoration: none;
+                }
+            }
+        }
+        text-align: center;
+        margin-bottom: .2rem;
+        span{
+            display: inline-block;
+            font-size:.26rem; 
+            text-align: center;
+            width: 32%;
+            &:nth-of-type(1){
+                text-decoration: underline;
+            }
+            &.red{
+                color: #FF5252;
+            }
+            &.green{
+                color: #0CBD4C;
+            }
+        }
+    }
+}
+//选项卡选项的padding值
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+  &.four{
+    padding: 0 8px;
+  }
+}
+//大区、城市明细列表
+.cityWrap{
+  .cityTop{
+    li{
+      float: left;
+      margin: .1rem .13rem;
+      width: 2.1rem;
+      height: .6rem;
+      line-height: .6rem;
+      text-align: center;
+      color: #3E4FF9;
+      border: 1px solid #4152FA;
+      border-radius: 34px;
+      font-size: .26rem;
+      &.active{
+        background: #769DF5;
+        color:#fff;
+      }
+    }
+  }
+  .cityMain{
+    background: #F7F7F7;
+    margin-bottom: .1rem;
+    h4{
+      padding: .2rem 0 .2rem .4rem;
+      font-size: .3rem;
+      font-weight: normal;
+      color: #3E4FF9;
+      position: relative;
+      margin-bottom: 0;
+      .toggle{
+            right: 2%;
+            -webkit-transform: rotate(180deg);
+            -webkit-transition: transform .2s;
+      }
+      &.change{
+            .toggle{
+                -webkit-transform: rotate(0deg);
+                -webkit-transition: transform .2s;
+            }
+      }
+    }
+    .tbHead{
+      width: 100%;
+      padding: 0 .2rem;
+      border-bottom: 1px #D4D4D4 solid;
+      color: #666;
+      li{
+        width: 100%;
+        span{
+          float: left;
+          padding: .1rem 0;
+          width: 33.3%;
+          text-align: center;
+          font-size: .26rem;
+        }
+        &.fontL{
+          span{
+            font-size: .4rem;
+            color: #333;
+          }
+        }
+      }
+    }
+    .tbBody{
+      padding: 0 .2rem;
+      li{
+        width: 100%;
+        border-bottom: 1px #D4D4D4 dashed;
+        &:last-of-type{
+          border-bottom:0;
+        }
+        span{
+          float: left;
+          padding: .1rem 0;
+          width: 33.3%;
+          text-align: center;
+          font-size: .26rem;
+        }
+      }
+    }
+  }
+}
+
+//日概览的样式
+.dayAmount{
+    h5{
+        font-size: 0.3rem;
+        color: #333333;
+        text-align: center;
+        padding-top: 0.2rem;
+        text-decoration: underline;
+    }
+    .top-mid{
+        text-align: center;
+        font-size: 0.6rem;
+        padding-top: 0.2rem;
+        small{
+            font-size: 0.44rem;
+        }
+    }
+    .top-bot {
+        height: 0.6rem;
+        margin-top: 0.3rem;
+        font-size: 0.28rem;
+        color: #333333;
+        em{
+            display: inline-block;
+            height: 0.21rem;
+            width: 0.15rem;
+        }
+        div{
+            width: 50%;
+            border-right: 1px solid #E1E1E1;
+            &:first-child{
+                padding-right: 0.3rem;
+                float: left;
+                text-align: right;
+            }
+            &:last-child{
+                border-right: none;
+                padding-left: 0.3rem;
+                float: left;
+                text-align: left;
+            }
+        }
+        b{
+            font-size: 0.3rem;
+            padding-right: 0.1rem;
+            &.up{
+                color: #FF5252;
+                &+em{
+                    background: url(../../images/up.png) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+            &.down{
+                color: #0CBD4C;
+                &+em{
+                    background: url(../../images/down.png) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+        }
+    }
+}
+
+//弹框初始时隐藏
+#DayAndMonthOverviewQuesBox,#businessOverviewQuesBox,#riskOverviewQuesBox,#operationOverviewQuesBox{
+    display: none;
+}
+
+//弹框样式需单独调整的地方
+.DayAndMonthOverviewQuesBox,.riskOverviewQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}
+//运营概览
+.operationOverviewQuesBox{
+    .popDetailUl{
+        li:last-child{
+            margin-bottom: 0.4rem;
+        }
+    }
+    .close{
+        bottom: -30%;
+    }
+};
+//电器活动
+.machineQuesBox{
+  .popDetailUl{
+    li:last-child{
+      margin-bottom: 0.4rem;
+    }
+  }
+  .close{
+    bottom: -15%;
+  }
+};
+//设置初始显示记录  其余部分默认隐藏
+.showRest ~ * {
+    display: none;
+}
+//无业务数据提示
+.noInfo{
+    font-size: .26rem;
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+//地域分析模块 切换除3C电器分期以外的tab选项卡时 点击更多显示其他省份的弹框
+.show.par{
+    position: relative;
+    .areaRest{
+        width: 100%;
+        top: 22%;
+        background: rgba(87,106,118,1);
+        position: absolute;
+        padding-top: 0;
+        ul{
+            padding: .15rem 0;
+            .close{
+                height: .7rem;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: .46rem;
+                    height: .46rem;
+                    background: url(../../images/close2.png) no-repeat;
+                    background-size: 100% auto;
+                    right: 2%;
+                    top: 50%;
+                    margin-top: -0.23rem;
+                }
+            }
+            li{
+                float: left;
+                margin: .1rem .13rem;
+                width: 2.1rem;
+                height: .6rem;
+                line-height: .6rem;
+                text-align: center;
+                color: white;
+                border: 1px solid white;
+                border-radius: 34px;
+                font-size: .28rem;
+                &.active{
+                    background: white;
+                    color: #769DF5;
+                }
+            }
+        }
+    }
+}
+//地域分析模块、业绩概览当图表信息为空时
+.echartDetail.area{
+    text-align: center;
+    line-height: 5rem;
+    font-size: .26rem;
+    font-weight: bold;
+}
+//业绩概览的丁格尔图高度增加
+#yjgl{
+    height: 5.2rem;
+};

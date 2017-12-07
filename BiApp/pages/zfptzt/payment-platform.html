@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+    <link rel="stylesheet" href="../../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../../css/mui.poppicker.css" />
+    <link rel="stylesheet" href="../../css/calendar.css" />
+    <link rel="stylesheet" href="../../css/progress.css" />
+    <link rel="stylesheet" href="../../css/newCommon.css" />
+    <link rel="stylesheet" href="../../css/other/payment-platform.css" />
+    <script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+</head>
+<body>
+    <header id="header" class="mui-bar mui-bar-nav commonHeader">
+    <!--标题-->
+    <div class="title" >
+        <a class="mui-action-back"></a>
+        <h1 class="mui-title">支付平台专题</h1>
+       <!-- <a href="##"></a>-->
+    </div>
+    <!--全局维度和日期选择-->
+    <div class="chooseBlock">
+        <div class="dateChange">
+            <input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+            <span></span>
+        </div>
+    </div>
+</header>
+    <!--遮罩-->
+     <div class="mask">
+     <div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+ </div>
+    <!--点击整体进行维度选择时出现遮罩-->
+    <div class="mark" id="mark"></div>
+
+    <!--内容-->
+    <div class="mui-content">
+       <!-- 业务线-数据概览标题-->
+        <div class="common-tabBlock1">
+            <h5 class="user" >业务线-数据概览</h5>
+        </div>
+        <!-- 业务线-数据概览数据部分-->
+        <div class="common-tabBlock secondCont">
+           <!-- 选项部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active active">美易分</a>
+                    <a class="mui-control-item ">美借</a>
+                    <a class="mui-control-item ">美易车</a>
+                </div>
+            </div>
+            <!-- 数据部分-->
+            <div class="dataDetail1" id="dataDetail1">
+                <div class="horiBlock clear">
+                    <div>
+                        <span>交易总笔数</span>
+                        <h4 v-cloak>{{Data.nReceiptTotal}}</h4>
+                        <span>交易成功笔数</span>
+                        <h4 v-cloak>{{Data.nReceiptSuccess}}</h4>
+                        <span>交易笔数成功率</span>
+                        <h4 v-cloak>{{Data.rateCountSuccess}}%</h4>
+                    </div>
+                    <div>
+                        <span>交易总金额(万元)</span>
+                        <h4  v-cloak>{{Data.sReceiptTotal}}</h4>
+                        <span>交易成功金额(万元)</span>
+                        <h4  v-cloak>{{Data.sReceiptSuccess}}</h4>
+                        <span>交易金额成功率</span>
+                        <h4  v-cloak>{{Data.rateSumSuccess}}%</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!--  业务线-成功率-->
+        <div class="common-tabBlock thirdCont">
+            <!--  业务线-成功率标题部分-->
+            <h5 class="user" >业务线-成功率</h5>
+
+            <!-- 选项部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active active">美易分</a>
+                    <a class="mui-control-item ">美借</a>
+                    <a class="mui-control-item ">美易车</a>
+                </div>
+            </div>
+           <!-- 数据部分-->
+            <div class="tabBlockDetail">
+                <div class="show">
+                    <ul id="khChooseItem" class="chooseItem" >
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="myf1"></div>
+                </div>
+                <div>
+                    <ul id="khChooseItem2" class="chooseItem" >
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="mj1"></div>
+                </div>
+                <div>
+                    <ul id="khChooseItem3" class="chooseItem">
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="myc1"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支付渠道-数据概览标题-->
+        <div class="common-tabBlock1">
+            <h5 class="user" >支付渠道-数据概览</h5>
+        </div>
+        <!-- 支付渠道-数据概览数据部分-->
+        <div class="common-tabBlock forthCont">
+            <!-- 选项部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active active">联通优势</a>
+                    <a class="mui-control-item ">广银联</a>
+                    <a class="mui-control-item ">易宝</a>
+                    <a class="mui-control-item ">快付通</a>
+                </div>
+            </div>
+            <!-- 数据部分-->
+            <div class="dataDetail1" id="dataDetail2">
+                <div class="horiBlock clear">
+                    <div>
+                        <span>交易总笔数</span>
+                        <h4 v-cloak>{{Data.nReceiptTotal}}</h4>
+                        <span>交易成功笔数</span>
+                        <h4 v-cloak>{{Data.nReceiptSuccess}}</h4>
+                        <span>交易笔数成功率</span>
+                        <h4 v-cloak>{{Data.rateCountSuccess}}%</h4>
+                    </div>
+                    <div>
+                        <span>交易总金额(万元)</span>
+                        <h4  v-cloak>{{Data.sReceiptTotal}}</h4>
+                        <span>交易成功金额(万元)</span>
+                        <h4  v-cloak>{{Data.sReceiptSuccess}}</h4>
+                        <span>交易金额成功率</span>
+                        <h4  v-cloak>{{Data.rateSumSuccess}}%</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支付渠道-成功率-->
+        <div class="common-tabBlock fifthCont">
+            <!--  业务线-成功率标题部分-->
+            <h5 class="user" >支付渠道-成功率</h5>
+
+            <!-- 选项部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active active">联通优势</a>
+                    <a class="mui-control-item ">广银联</a>
+                    <a class="mui-control-item ">易宝</a>
+                    <a class="mui-control-item ">快付通</a>
+                </div>
+            </div>
+            <!-- 数据部分-->
+            <div class="tabBlockDetail">
+                <div class="show">
+                    <ul id="khChooseItem4" class="chooseItem" >
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="ltys1"></div>
+                </div>
+                <div>
+                    <ul id="khChooseItem5" class="chooseItem" >
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="gyl1"></div>
+                </div>
+                <div>
+                    <ul id="khChooseItem6" class="chooseItem">
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="yb1"></div>
+                </div>
+                <div>
+                    <ul id="khChooseItem7" class="chooseItem">
+                        <li class="on" data-value="transactionNum">交易笔数</li>
+                        <li data-value="transactionMoney">交易金额</li>
+                    </ul>
+                    <div class="echartDetail clear" id="kft1"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="../../js/common/mui.min.js"></script>
+    <script src="../../js/common/jquery2.0.js"></script>
+    <script src="../../js/common/vue.js"></script>
+    <script src="../../js/common/echarts.min.js"></script>
+    <!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+    <script src="../../js/common/mui.picker.all.js"></script>
+    <script src="../../js/common/ceshiAjax.js"></script>
+    <script src="../../js/common/china.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/common/progress.js"></script>
+    <script src="../../js/common/newCalendar.js"></script>
+    <script src="../../js/mine/payment-platform.js"></script>
+
+</body>
+</html>

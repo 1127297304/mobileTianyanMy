@@ -1,0 +1,284 @@
+//美易车的日期展示无需选择
+.chooseBlock .dateChange{
+    line-height: 0.95rem;
+    text-align: center;
+    em{
+        color: white;
+        font-size: 0.3rem;
+        padding-left: 1rem;
+    }
+}
+
+//改变美易车维度、日期选择的宽度
+.common-tabBlock .tabBlockDetail{
+    .wdBox{
+        height: 2.2rem;
+        display:-webkit-flex;
+        display:flex;
+        -webkit-flex-wrap:wrap;
+        flex-wrap:wrap;
+        -webkit-justify-content:space-around;
+        justify-content:space-around;
+        -webkit-align-items:center;
+        align-items:center;
+        &.area{
+            margin-bottom: .1rem;
+            .aboutDate,.wdChoose{
+                width: 30%;
+            }
+        }
+    }
+    .aboutDate,.wdChoose{
+        width: 40%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .wdChoose{
+        text-align: center;
+        a{
+            float: initial;
+        }
+    }
+    .aboutDate{
+        height: 0.9rem;
+        position: relative;
+        background: #F7F7F7;
+        input{
+            margin: 0;
+            height: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;
+            position: relative;
+            z-index: 2;
+            border-radius: 0;
+            font-size: 0.26rem;
+            color: #333333;
+            font-weight: normal;
+            text-align: center;
+            //趋势类型、地域分布中   年只可选2017年以后的  所以暂时置灰不可选
+            &.disabled{
+                background: #eeeded;
+                color: black;
+            }
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            background: url(../../images/blackTriangle.png) no-repeat;
+            width: 0.28rem;
+            height: 0.16rem;
+            background-size: 100% auto;
+            top: 50%;
+            right: 3%;
+            margin-top: -0.08rem;
+            z-index: 1;
+        }
+    }
+    
+}
+
+//大区列表名称
+.areaName{
+    clear: both;
+    li{
+        width: 30%;
+        margin: .1rem .1rem;
+        height: .6rem;
+        line-height: .6rem;
+        text-align: center;
+        float: left;
+        font-size: .28rem;
+        border: 1px solid #4152FA;
+        border-radius: 34px;
+        color: #3E4FF9;
+        &.active{
+            background: #769DF5;
+            color: #fff;
+        }
+    }
+}
+
+//大区详情
+.mapBlock{
+    border-top: 1px solid #F7F7F7;
+    border-bottom: 1px solid #F7F7F7;
+    margin-bottom: .2rem;
+}
+.areaCityList{
+    background: #F7F7F7;
+    padding-top: .05rem;
+}
+.blockTitle{
+    font-weight: normal;
+    text-align: center;
+    font-size: 0.3rem;
+    color: #3E4FF9;
+    padding-bottom: .15rem;
+    padding-top: .25rem;
+    margin-bottom: .15rem;
+    margin-top: 0;
+}
+.detailBlock{
+    margin-bottom: .1rem;
+    h4{
+        padding: .3rem 0 .15rem .28rem;
+        font-size: .3rem;
+        font-weight: normal;
+        color: #3E4FF9;
+    }
+    .tableNameList{
+        width: 100%;
+        padding: 0 .2rem;
+        border-bottom: 1px #D4D4D4 solid;
+        li span{
+            float: left;
+            padding-bottom: .1rem;
+            text-align: center;
+            font-size: .26rem;
+            text-align: center;
+            color: #333333;
+            &:first-child{
+                width: 23%;
+            }
+            &:nth-of-type(2){
+                width: 25%;
+            }
+            &:nth-of-type(3){
+                width: 29%;
+            }
+            &:nth-of-type(4){
+                width: 23%;
+            }
+        }
+    }
+    .cityList{
+        padding: 0 .2rem;
+        li{
+            border-bottom: 1px #D4D4D4 dashed;
+            width: 100%;
+            span,button{
+                color: #333333;
+                float: left;
+                text-align: center;
+                font-size: 0.26rem;
+                padding: .1rem 0;
+                &:first-child{
+                    width: 23%;
+                }
+                &:nth-of-type(2){
+                    width: 25%;
+                }
+                &:nth-of-type(3){
+                    width: 29%;
+                }
+                &:nth-of-type(4){
+                    width: 23%;
+                }
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+            button{
+                border:none;
+                background: transparent;
+            }
+        }
+        &.popCityList{
+            li{
+                span:first-child{
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+//弹框初始时隐藏       暂时未用
+#DayAndMonthOverviewQuesBox,#userQuesBox,#centreQuesBox{
+    display: none;
+}
+
+//城市列表点击出现弹框时的关闭按钮
+.closePar{
+    position: relative;
+}
+.close{
+    position: absolute;
+    width: .46rem;
+    height: .46rem;
+    background: url(../../images/close2.png) no-repeat;
+    background-size: 100% auto;
+    right: 2%;
+    top: 50%;
+    margin-top: -0.23rem;
+}
+
+//设置弹框居中
+.fourthCont{
+    position: relative;
+}
+.popLoadingBlock{
+    height: 50px;
+    background: rgba(87,106,118,0.7);
+    position: absolute;
+    border-radius: 10px;
+    top: 49%;
+    width: 50%;
+    left: 25%;
+    z-index: 2;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+    display: none;
+}
+.popBlock{
+    width: 95%;
+    position: absolute;
+    background: rgba(87,106,118,0.9);
+    left: 2.5%;
+    z-index:2;
+    h4{
+        color: lightblue;
+    }
+    .tableNameList{
+        li{
+            span{
+                color: white;
+            }
+        }
+    }
+    .cityList{
+        li{
+            span{
+                color: white;
+            }
+        }
+    }
+}
+
+//逾期率-趋势类型中     若数据为空则显示暂无数据
+.qsNoInfo{
+    text-align: center;
+    font-size: .3rem;
+    line-height: 5rem;
+}
+
+//设置局部日期选择插件
+.mui-dtpicker{
+    background-color: white;   
+}
+.mui-dtpicker-title h5{
+    background-color: white;   
+}
+
+//暂无数据提示
+.noInfo{
+    font-size: .3rem;
+    text-align: center;
+    color: #333333;
+}

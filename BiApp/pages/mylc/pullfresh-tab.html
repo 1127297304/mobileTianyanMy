@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/dropload.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/mylcSssj.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+	
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">实时数据-美易理财</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="showTime">
+					<span id="showNowDate">-</span>
+				</div>
+			</div>
+		</header>
+	
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		
+		<!--指标说明-->
+	    <div id="realTimeDataBox" class="sysQuesBox realTimeDataBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">指标说明</h5>
+				<ul class="popDetailUl">
+					<li>
+						<span class="popLeft">投资金额</span>
+						<span class="popRight">实时投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">一手标金额</span>
+						<span class="popRight">实时投资非债转产品的金额</span>
+					</li>
+					<li class="marginBotLess">
+						<span class="popLeft">二手标金额</span>
+						<span class="popRight">实时投资债转产品的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">首投金额</span>
+						<span class="popRight">实时首次投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当月累计投资金额</span>
+						<span class="popRight">自当月1日起截止提取时点的累计投资金额</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">历史累计投资金额</span>
+						<span class="popRight">截止提取时点的累计投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">注册用户数</span>
+						<span class="popRight">实时注册人数</span>
+					</li>
+					<li>
+						<span class="popLeft">当月累计注册用户数</span>
+						<span class="popRight">自当月1日起截止提取时点的累计注册人数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">历史累计注册用户数</span>
+						<span class="popRight">截止提取时点的累计注册人数</span>
+					</li>
+					<li>
+						<span class="popLeft">充值用户数</span>
+						<span class="popRight">实时充值用户数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">新增注册且充值用户数</span>
+						<span class="popRight">实时的当日注册且充值的人数</span>
+					</li>
+					<li>
+						<span class="popLeft">当月累计充值用户数</span>
+						<span class="popRight">自当月1日起截止提取时点的累计充值人数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">历史累计充值用户数</span>
+						<span class="popRight">截止提取时点的累计充值人数</span>
+					</li>
+					<li>
+						<span class="popLeft">投资用户数</span>
+						<span class="popRight">实时投资用户数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">新增注册且投资用户数</span>
+						<span class="popRight">实时的当日注册且投资的人数</span>
+					</li>
+					<li>
+						<span class="popLeft">当月累计投资用户数</span>
+						<span class="popRight">自当月1日起截止提取时点的累计投资人数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">历史累计投资用户数</span>
+						<span class="popRight">截止提取时点的累计投资人数</span>
+					</li>
+					<li>
+						<span class="popLeft">提现用户数</span>
+						<span class="popRight">实时提现人数</span>
+					</li>
+					<li>
+						<span class="popLeft">当月累计提现用户数</span>
+						<span class="popRight">自当月1日起截止提取时点的累计提现人数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">历史累计提现用户数</span>
+						<span class="popRight">截止提取时点的累计提现人数</span>
+					</li>
+					<li>
+						<span class="popLeft">提现金额</span>
+						<span class="popRight">实时用户申请提现的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当月累计提现金额</span>
+						<span class="popRight">自当月1日起截止提取时点的累计申请提现的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">历史累计提现金额</span>
+						<span class="popRight">截止提取时点的累计申请提现的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">活跃用户数</span>
+						<span class="popRight">实时登录用户数</span>
+					</li>
+				</ul>
+				<div class="close" id="realTimeDataClose"></div>
+			</div>
+		</div>
+		
+		<!--里边为真实显示的DOM内容-->
+		<div class="mui-content">
+			<h5 class="user userSpecial">
+            	核心指标
+            	<span class="question" id="realTimeDataQues"></span>
+            </h5>
+			<!--第一块	数据部分-->
+			<div id="topArea">
+				<div class="dataBlock tou tipBlock addNew">
+					<h5>
+						<em></em>
+						<span>投资金额(万元)</span>
+					</h5>
+					<h3 v-cloak>{{topArea.realTimeInvestAmount}}</h3>
+					<div class="tip">
+						<span><a>首投金额/占比：</a><a><em v-cloak>{{topArea.realTimeFirstInvestAmount}}</em>/<em v-cloak>{{topArea.realFirstInvestAmountRate}}%</em></a></span>
+						<span><a>一手标金额/占比：</a><a><em v-cloak>{{topArea.realTimeFirstHandAmount}}</em>/<em v-cloak>{{topArea.realTimeFirstHandAmountRate}}%</em></a></span>
+						<span><a>二手标金额/占比：</a><a><em v-cloak>{{topArea.realTimeSecondHandAmount}}</em>/<em v-cloak>{{topArea.realTimeSecondHandAmountRate}}%</em></a></span>
+					</div>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{topArea.monthInvestAmount}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{topArea.totalInvestAmount}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dataBlock zhu">
+					<h5>
+						<em></em>
+						<span>注册用户数</span>
+					</h5>
+					<h3 v-cloak>{{topArea.realTimeRegisterUserCount}}</h3>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{topArea.monthRegisterUserCount}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{topArea.totalRegisterUserCount}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dataBlock chong tipBlock">
+					<h5>
+						<em></em>
+						<span>充值用户数</span>
+					</h5>
+					<h3 v-cloak>{{topArea.realTimeDepositQuantity}}</h3>
+					<div class="tip">
+						<span>新增注册且充值用户/占比：<em v-cloak>{{topArea.realTimeRegisterAndDepositCount}}</em>/<em v-cloak>{{topArea.realTimeNewUserRate}}%</em></span>
+					</div>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{topArea.monthDepositQuantity}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{topArea.totalDepositQuantity}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dataBlock touPeo tipBlock">
+					<h5>
+						<em></em>
+						<span>投资用户数</span>
+					</h5>
+					<h3 v-cloak>{{topArea.realTimeInvestQuantity}}</h3>
+					<div class="tip">
+						<span>新增注册且投资用户/占比：<em v-cloak>{{topArea.realTimeFirstInvestQuantity}}</em>/<em v-cloak>{{topArea.realFirstInvestQuantityRate}}%</em></span>
+					</div>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{topArea.monthInvestQuantity}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{topArea.totalInvestQuantity}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dataBlock ti">
+					<h5>
+						<em></em>
+						<span>提现用户数</span>
+					</h5>
+					<h3 v-cloak>{{topArea.userWithdrawCurrentday}}</h3>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{topArea.userWithdrawCurrentmonth}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{topArea.userWithdrawAllhistory}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dataBlock tiMoney">
+					<h5>
+						<em></em>
+						<span>提现金额(万元)</span>
+					</h5>
+					<h3 v-cloak>{{topArea.userWithdrawamtCurrentday}}</h3>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{topArea.userWithdrawamtCurrentmonth}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{topArea.userWithdrawamtAllhistory}}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<!--第二块	图表部分-->
+			<div>
+				<!--用户动态-->
+				<div class="common-tabBlock firstCont">
+					<h5 class="user">
+						时段趋势
+					</h5>
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					    <div class="mui-scroll">
+					        <a class="mui-control-item mui-active active">
+					           	 时段趋势
+					        </a>
+					        <a class="mui-control-item ">
+								累计趋势
+					        </a>
+					    </div>
+					</div>
+					<div class="tabBlockDetail">
+						<div class="show">
+							<div class="userBlock">
+								<div class="chooseDate">
+									<span>对比日期</span>
+									<div>
+										<input type="text" class="calendars changeDate multiple" id="calendars" value="-" format="mm-dd">
+										<input type="text" class="calendars changeDate multiple" id="calendarsTwo" value="-" format="mm-dd">
+										<input type="text" class="calendars changeDate multiple" id="calendarsThree" value="-" format="mm-dd">
+									</div>
+								</div>
+								<div class="wdChange">
+									<b>用户指标</b>
+									<div id="showUserPicker" class="showUserCh">
+										<a id="userResult" class="pickerRe" data-value="zc">注册用户数</a>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="echartDetail" id="yhdt"></div>
+						</div>
+						<div>
+							<div class="userBlock">
+								<div class="chooseDate">
+									<span>对比日期</span>
+									<div>
+										<input type="text" class="calendars changeDate multiple" id="calendarsTotal" value="-" format="mm-dd">
+										<input type="text" class="calendars changeDate multiple" id="calendarsTotalTwo" value="-" format="mm-dd">
+										<input type="text" class="calendars changeDate multiple" id="calendarsTotalThree" value="-" format="mm-dd">
+									</div>
+								</div>
+								<div class="wdChange">
+									<b>用户指标</b>
+									<div id="showUserPickerTotal" class="showUserCh">
+										<a id="userResultTotal" class="pickerRe" data-value="zc">注册用户数</a>
+									</div>
+								</div>
+							</div>
+							<div class="echartDetail" id="yhdtTotal"></div>
+						</div>
+					</div>
+				</div>
+				
+				<!--产品端动态-->
+				<div class="common-tabBlock">
+					<h5 class="user">
+						产品端动态
+					</h5>
+					<div class="tabBlockDetail">
+						<div class="show">
+							<div class="wdChoose" id="showProductPicker">
+								<b>指标类型：</b>
+								<a id="productResult" class="pickerRe">投资额</a>
+							</div>
+							<div class="echartDetail" id="stzb"></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/dropload.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/mylc-realTime.js"></script>
+	
+	</body>
+
+</html>

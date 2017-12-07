@@ -1,0 +1,68 @@
+//本月累计  环比
+.dateArea {
+    .top-bot{
+        div:first-child{
+            width: 100%;
+            float: initial;
+            text-align: center;
+        }
+    }
+    .dataDetail .horiBlock div{
+        width: 33.3%;
+        text-align: center;
+        &:first-child{
+            text-align: center;
+            padding-right: 0;
+            
+        }
+        &:nth-of-type(2){
+            border-right: 1px dotted #D3D3D3;
+        }
+        &:last-child{
+            text-align: center;
+            padding-left: 0;
+        }
+    }
+}
+
+//PD、交易件数   环比
+.dataDetail{
+    .horiBlock{
+        p{
+            font-size: 0.26rem;
+            margin-top: 0.16rem;
+            margin-bottom: 0;
+            em{
+                display: inline-block;
+                height: 0.21rem;
+                width: 0.15rem;
+            }
+            b{
+                padding-right: 0.1rem;
+            }
+            .up{
+                color: #FF5252;
+                &+em{
+                    background: url(../../images/up.png) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+            .down{
+                color: #0CBD4C;
+                &+em{
+                    background: url(../../images/down.png) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+        }
+    }
+}
+
+//改变tab标签的宽度    正好可以显示四个
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+    padding: 0px 10px;
+}
+/*
+.dataDetail .horiBlock .dataDetailLeft{
+    border-right: 1px dotted #D3D3D3;
+}*/

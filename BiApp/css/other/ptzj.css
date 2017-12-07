@@ -1,0 +1,151 @@
+.tableTitle.ptzj {
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  padding: 0 0.2rem;
+}
+.tableTitle.ptzj > div {
+  width: 49%;
+  background: #EFF4FF;
+  padding-left: .15rem;
+  border: 1px solid #3E4FF9;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding-top: 0.1rem;
+  padding-bottom: .1rem;
+}
+.tableTitle.ptzj > div:first-child {
+  margin-right: 0.11rem;
+}
+.tableTitle.ptzj > div.active {
+  background: white;
+  position: relative;
+  border-bottom: 2px solid white;
+  bottom: -1px;
+}
+.tableTitle.ptzj > div span {
+  font-size: 0.26rem;
+}
+.tableTitle.ptzj > div span em {
+  padding-left: .2rem;
+}
+.tableTitle.ptzj > div h5 {
+  font-size: 0.5rem;
+  padding-top: 0.1rem;
+  margin: 0;
+  padding-bottom: .1rem;
+  color: #222328;
+}
+.tableBlock {
+  width: 100%;
+}
+.tableBlock thead th {
+  width: 27%;
+  font-size: 0.28rem;
+  font-weight: normal;
+  color: #666666;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+.tableBlock thead tr {
+  border-bottom: 1px solid #CCCCCC;
+}
+.tableBlock thead tr th:first-child {
+  width: 19%;
+}
+.tableBlock tbody tr {
+  border-bottom: 1px solid #CCCCCC;
+}
+.tableBlock tbody tr:last-child {
+  border: none;
+}
+.tableBlock tbody tr.pullMore {
+  border-bottom: none;
+}
+.tableBlock tbody td {
+  color: #333333;
+  text-align: center;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.26rem;
+}
+.tableBlock tbody td.red {
+  color: #FF5252;
+}
+.tableBlock tbody td.green {
+  color: #0CBD4C;
+}
+.pullMore td:last-child {
+  position: relative;
+}
+.pullMore td:last-child:after {
+  content: '';
+  height: 0.16rem;
+  width: 0.28rem;
+  position: absolute;
+  background: url(../../images/blackTriangle.png) no-repeat;
+  background-size: 100% auto;
+  top: 50%;
+  margin-top: -0.08rem;
+  right: 0;
+  -webkit-transform: rotate(0deg);
+  -webkit-transition: transform .2s;
+}
+.pullMore.active td:last-child:after {
+  -webkit-transform: rotate(180deg);
+  -webkit-transition: transform .2s;
+}
+.pullMore ~ * {
+  display: none;
+}
+.chooseItem {
+  width: 3.2rem;
+  height: 0.62rem;
+  overflow: hidden;
+  float: right;
+  line-height: 0.58rem;
+  border: 1px solid #256DFF;
+  border-radius: 0.5rem;
+  margin-top: .1rem;
+}
+.chooseItem li {
+  float: left;
+  font-size: 0.28rem;
+  width: 33.3%;
+  border-right: 1px solid #256DFF;
+  color: #4152F8;
+  background: white;
+  text-align: center;
+}
+.chooseItem li.on {
+  background: #EFF4FF;
+}
+.chooseItem li:last-child {
+  border: none;
+}
+.tabBlockDetail {
+  clear: both;
+}
+.echartDetail {
+  clear: both;
+}
+.common-tabBlock .tableTitle {
+  margin-top: 0;
+}
+.red {
+  color: #FF5252;
+}
+.green {
+  color: #0CBD4C;
+}
+#platformMoneyQuesBox {
+  display: none;
+}
+.platformMoneyQuesBox .infoDetail {
+  height: 68%;
+}
+.platformMoneyQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.platformMoneyQuesBox .infoDetail .close {
+  bottom: -10%;
+}

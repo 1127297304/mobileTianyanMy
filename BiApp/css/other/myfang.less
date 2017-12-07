@@ -1,0 +1,114 @@
+p{
+    margin: 0;
+}
+//公共样式
+//清除浮动
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+//业绩概览-产品类型
+.productType{
+    //background: #F7F7F7;
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+    li{
+        text-align: center;
+        margin-bottom: .15rem;
+        border: 1px solid lightblue;
+        border-radius: 8px;
+        width: 23.5%;
+        p{
+            color: #333333;
+            span{
+                font-size: .26rem;
+                &.up{
+                    color: #FF5252;
+                }
+                &.down{
+                    color: #0CBD4C;
+                }
+                &.init{
+                    color: #333333;
+                }
+            }
+        }
+        &.on{
+            background: lightblue;
+            p{
+                span{
+                    color: #fff;
+                    &.up{
+                        color: #FF5252;
+                    }
+                    &.down{
+                        color: #0CBD4C;
+                    }
+                    &.init{
+                        color: #333333;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.common-tabBlock .echartDetail{
+    margin-bottom: .15rem;
+}
+
+//选项卡选项的padding值
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+  &.four{
+    padding: 0 23.8px;
+  }
+}
+
+//弹框初始时隐藏
+#DayAndMonthOverviewQuesBox,#businessOverviewQuesBox,#riskOverviewQuesBox{
+    display: none;
+}
+
+//弹框样式需单独调整的地方
+.DayAndMonthOverviewQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}
+.riskOverviewQuesBox{
+    .popDetailUl{
+        padding-bottom: 0;
+    }
+    .close{
+        bottom: -40%;
+    }
+}
+
+//无业务数据提示
+.noInfo{
+    font-size: .26rem;
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+//地域分析模块、业绩概览当图表信息为空时
+.echartDetail.area{
+    text-align: center;
+    line-height: 5rem;
+    font-size: .26rem;
+    font-weight: bold;
+}

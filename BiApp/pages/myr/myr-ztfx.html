@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+    <link rel="stylesheet" href="../../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../../css/mui.poppicker.css" />
+    <link rel="stylesheet" href="../../css/calendar.css" />
+    <link rel="stylesheet" href="../../css/progress.css" />
+    <link rel="stylesheet" href="../../css/newCommon.css" />
+    <link rel="stylesheet" href="../../css/other/myr-ztfx.css" />
+    <script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+</head>
+<body>
+    <header id="header" class="mui-bar mui-bar-nav commonHeader">
+    <!--标题-->
+    <div class="title" >
+        <a class="mui-action-back"></a>
+        <h1 class="mui-title">专题分析-美易融</h1>
+       <!-- <a href="##"></a>-->
+    </div>
+    <!--全局维度和日期选择-->
+    <div class="chooseBlock">
+        <div class="dateChange">
+            <input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+            <span></span>
+        </div>
+    </div>
+</header>
+
+    <!--遮罩-->
+    <div class="mask">
+        <div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+    </div>
+    <!--点击整体进行维度选择时出现遮罩-->
+    <div class="mark" id="mark"></div>
+    <!--内容-->
+    <div class="mui-content">
+        <!--第一块选项卡-->
+        <div class="common-tabBlock1 firstCont">
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active active">小贷</a>
+                    <a class="mui-control-item">保理</a>
+                </div>
+            </div>
+        </div>
+        <div id="qhhz">
+            <div class="xiaodai xuan on">
+                <div class="tabBlockDetail2 common-tabBlock">
+                    <h5 class="user">历史累计</h5>
+                    <div class="show">
+                        <div class="wdChoose" id="showUserPickerItem1">
+                            <!-- <b>筛选维度：</b>-->
+                            <a id="userResultItem1" class="pickerRe">累计在贷余额</a>
+                        </div>
+                        <h3 class="xdlsTotalMoney real" id="xdlsTotalMoney" v-cloak>
+                            <span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+                        </h3>
+                        <div class="echartDetail" id="xdlsle"></div>
+                    </div>
+                </div>
+                <div class="tabBlockDetail2 common-tabBlock">
+                    <h5 class="user">月累计</h5>
+                    <div class="show">
+                        <div class="dataDetail1" id="dataDetail1">
+                            <div class="horiBlock clear" id="xdchong">
+                                <div>
+                                    <p>月应还金额(万元)</p>
+                                    <h4 class="xdyhje" v-cloak>
+                                        <span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <p>月实还金额(万元)</p>
+                                    <h4 class="xdshje" v-cloak>
+                                        <span class="big">{{comBig}}</span><small>{{comSmall}}</small>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="echartDetail" id="xdyele"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="baoli xuan off">
+                <div class="tabBlockDetail2 common-tabBlock">
+                    <h5 class="user">历史累计</h5>
+                    <div class="show">
+                        <div class="wdChoose" id="showUserPickerItem2">
+                            <!-- <b>筛选维度：</b>-->
+                            <a id="userResultItem2" class="pickerRe">累计在贷余额</a>
+                        </div>
+                        <h3 class="bllsTotalMoney real" id="bllsTotalMoney" v-cloak>
+                            <span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+                        </h3>
+                        <div class="echartDetail" id="bllsle"></div>
+                    </div>
+                </div>
+                <div class="tabBlockDetail2 common-tabBlock">
+                    <h5 class="user">月累计</h5>
+                    <div class="show">
+                        <div class="blsh">
+                            <span>月实还金额(万元)</span>
+                            <h4 class="blyshje" id="blyshje" v-cloak>
+                                <span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+                            </h4>
+                        </div>
+                        <div class="echartDetail" id="blyele"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="../../js/common/mui.min.js"></script>
+    <script src="../../js/common/jquery2.0.js"></script>
+    <script src="../../js/common/vue.js"></script>
+    <script src="../../js/common/echarts.min.js"></script>
+    <!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+    <script src="../../js/common/mui.picker.all.js"></script>
+    <script src="../../js/common/ceshiAjax.js"></script>
+    <script src="../../js/common/china.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/common/progress.js"></script>
+    <script src="../../js/common/newCalendar.js"></script>
+    <script src="../../js/mine/myr-ztfx.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+    <link rel="stylesheet" href="../../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../../css/mui.poppicker.css" />
+    <link rel="stylesheet" href="../../css/calendar.css" />
+    <link rel="stylesheet" href="../../css/progress.css" />
+    <link rel="stylesheet" href="../../css/newCommon.css" />
+    <link rel="stylesheet" href="../../css/other/fund.css" />
+    <script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+</head>
+<body>
+<!--头部-->
+<header id="header" class="mui-bar mui-bar-nav commonHeader">
+    <!--标题-->
+    <div class="title" >
+        <a class="mui-action-back"></a>
+        <h1 class="mui-title">业务概览-基金</h1>
+        <!--<a href="#"></a>-->
+    </div>
+    <!--全局维度和日期选择-->
+    <div class="chooseBlock">
+        <div class="showTime">
+            <span id="showNowDate"></span>
+        </div>
+    </div>
+</header>
+
+<!--遮罩-->
+<div class="mask">
+    <div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+</div>
+
+<!--此处是指标说明-->
+<!--核心数据指标说明-->
+<div id="userQuesBox" class="sysQuesBox userQuesBox off">
+    <div class="infoDetail">
+        <h5 class="popDetailHeader">核心数据指标说明</h5>
+        <ul class="popDetailUl">
+            <li>
+                <span class="popLeft">日统计总交易金额</span>
+                <span class="popRight">T-1日所有交易确认金额（线上交易金额+线下交易金额）。</span>
+            </li>
+            <li>
+                <span class="popLeft">日统计线上交易金额</span>
+                <span class="popRight">T-1日所有线上（认购确认金额+申购确认金额+定投确认金额）</span>
+            </li>
+            <li class="marginBotLess">
+                <span class="popLeft">日统计线下交易金额</span>
+                <span class="popRight">T-1日所有线下交易总金额</span>&nbsp;&nbsp;
+            </li>
+            <li>
+                <span class="popLeft">日统计总交易账号数</span>
+                <span class="popRight">T-1日，线上（认购确认+申购确认+定投确认）的交易账号数</span>
+            </li>
+            <li>
+                <span class="popLeft">日统计总交易单数</span>
+                <span class="popRight">T-1日所有交易单数（线上交易单数+线下交易单数）。</span>
+            </li>
+
+            <li>
+                <span class="popLeft">日统计线上交易单数</span>
+                <span class="popRight">T-1日所有线上（认购确认单数+申购确认单数+定投确认单数）。</span>
+            </li>
+            <li>
+                <span class="popLeft">日统计线下交易单数</span>
+                <span class="popRight">T-1日所有线下（认购确认单数+申购确认单数+定投确认单数）。</span>
+            </li>
+            <li>
+                <span class="popLeft">月统计总交易金额</span>
+                <span class="popRight">统计当月的累计交易确认金额（线上交易金额+线下交易金额）。</span>
+            </li>
+
+
+
+            <li>
+                <span class="popLeft">月统计线上交易金额</span>
+                <span class="popRight">统计当月的线上（认购确认金额+申购确认金额+定投确认金额）。</span>
+            </li>
+            <li>
+                <span class="popLeft">月统计线下交易金额</span>
+                <span class="popRight">统计当月的线下（认购确认金额+申购确认金额+定投确认金额）</span>
+            </li>
+            <li>
+                <span class="popLeft">月统计总交易账号数</span>
+                <span class="popRight">统计当月，（认购确认+申购确认+定投确认）交易账号数。</span>
+            </li>
+            <li>
+                <span class="popLeft">月统计总交易单数</span>
+                <span class="popRight">统计当月，认购确认单数+申购确认单数+定投确认单数。</span>
+            </li>
+            <li>
+                <span class="popLeft">月统计线上交易单数</span>
+                <span class="popRight">统计当月的线上（认购确认单数+申购确认单数+定投确认单数）。</span>
+            </li>
+            <li>
+                <span class="popLeft">月统计线下交易单数</span>
+                <span class="popRight">统计当月的线下（认购确认单数+申购确认单数+定投确认单数）。</span>
+            </li>
+            <li>
+                <span class="popLeft">年统计总交易金额</span>
+                <span class="popRight">统计本年的累计交易确认金额（线上交易金额+线下交易金额）。</span>
+            </li>
+
+
+
+            <li>
+                <span class="popLeft">年统计线上交易金额</span>
+                <span class="popRight">统计本年的线上（认购确认金额+申购确认金额+定投确认金额）。</span>
+            </li>
+            <li>
+                <span class="popLeft">年统计线下交易金额</span>
+                <span class="popRight">统计本年的线下（认购确认金额+申购确认金额+定投确认金额）。</span>
+            </li>
+            <li>
+                <span class="popLeft">年统计总交易账号数</span>
+                <span class="popRight">统计本年，（认购确认+申购确认+定投确认）交易账号数。</span>
+            </li>
+            <li>
+                <span class="popLeft">年统计总交易单数</span>
+                <span class="popRight">统计本年，认购确认单数+申购确认单数+定投确认单数。</span>
+            </li>
+            <li>
+                <span class="popLeft">年统计线上交易单数</span>
+                <span class="popRight">统计本年的线上（认购确认单数+申购确认单数+定投确认单数）。</span>
+            </li>
+            <li>
+                <span class="popLeft">年统计线下交易单数</span>
+                <span class="popRight">统计本年的线下（认购确认单数+申购确认单数+定投确认单数）。</span>
+            </li>
+        </ul>
+        <div class="close" id="userClose"></div>
+    </div>
+</div>
+<!--交易分析指标说明-->
+<div id="userQuesBox2" class="sysQuesBox userQuesBox off">
+    <div class="infoDetail">
+        <h5 class="popDetailHeader">交易分析指标说明</h5>
+        <ul class="popDetailUl">
+            <li>
+                <span class="popLeft">线上交易金额</span>
+                <span class="popRight">统计日线上整体交易金额(交易金额=认购确认金额+申购确认金额+定投确认金额)。</span>
+            </li>
+            <li>
+                <span class="popLeft">线上各产品类型交易金额</span>
+                <span class="popRight">统计日线上各类产品交易金额总和（交易金额=认购确认金额+申购确认金额+定投确认金额）</span>
+            </li>
+            <li>
+                <span class="popLeft">线上交易账号数</span>
+                <span class="popRight">统计日线上整体交易账号数（交易账号数=认购确认交易账号数+申购确认交易账号数+定投确认交易账号数）。</span>
+            </li>
+            <li>
+                <span class="popLeft">线上各类型交易账号数</span>
+                <span class="popRight">统计日线上各类产品交易账号数总和（交易账号数=认购确认交易账号数+申购确认交易账号数+定投确认交易账号数）</span>
+            </li>
+            <li>
+                <span class="popLeft">线上交易单数</span>
+                <span class="popRight">统计日线上整体交易单数（交易单数=认购确认交易单数+申购确认交易单数+定投确认交易单数）</span>
+            </li>
+            <li>
+                <span class="popLeft">线上各类型交易单数</span>
+                <span class="popRight">统计日线上各类产品交易单数总和（交易单数=认购确认交易单数+申购确认交易单数+定投确认交易单数）</span>
+            </li>
+
+
+
+            <li>
+                <span class="popLeft">线下整体交易金额</span>
+                <span class="popRight">统计日线下整体交易金额。</span>&nbsp;&nbsp;
+            </li>
+            <li>
+                <span class="popLeft">线下产品交易金额</span>
+                <span class="popRight">统计日线下各类产品交易金额。</span>&nbsp;&nbsp;
+            </li>
+            <li>
+                <span class="popLeft">线下整体交易单数</span>
+                <span class="popRight">统计日线下整体交易单数。</span>&nbsp;&nbsp;
+            </li>
+            <li>
+                <span class="popLeft">线下产品交易单数</span>
+                <span class="popRight">统计日线下各类产品交易单数。</span>&nbsp;&nbsp;
+            </li>
+        </ul>
+        <div class="close" id="userClose2"></div>
+    </div>
+</div>
+<!--累计开放用户数指标说明-->
+<div class="duan">
+    <div id="userQuesBox3" class="sysQuesBox userQuesBox off">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">累计开户数指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">累计开户数</span>
+                    <span class="popRight">累计开户用户数。</span>&nbsp;&nbsp;
+                </li>
+            </ul>
+            <div class="close" id="userClose3"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="mui-content">
+    <!--此处是核心数据部分-->
+    <div class="common-tabBlock firstCont ">
+        <h5 class="user">
+            核心数据
+            <span class="question" id="userQues"></span>
+        </h5>
+        <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+            <div class="mui-scroll">
+                <a class="mui-control-item mui-active active">日</a>
+                <a class="mui-control-item ">月</a>
+                <a class="mui-control-item ">年</a>
+            </div>
+        </div>
+        <div class="tabBlockDetail">
+            <div class="show showEchartinfo">
+                <div class="userBlock clearfix userBlockOne">
+                    <div class="chooseDate1">
+                        <span class="timeBT">时间维度</span>
+                        <input type="text" class="aboutDate1 btn mui-btn mui-btn-block"  id="calendarsRi" readonly="readonly">
+                    </div>
+                </div>
+                <div class="userBlock clearfix userBlockOne off">
+                    <div class="chooseDate1">
+                        <span class="timeBT">时间维度</span>
+                        <input type="text" class="aboutDate1 btn mui-btn mui-btn-block" id="calendarsYue" readonly="readonly">
+                    </div>
+                </div>
+                <div class="userBlock clearfix userBlockOne off">
+                    <div class="chooseDate1">
+                        <span class="timeBT">时间维度</span>
+                        <input type="text" class="aboutDate1 btn mui-btn mui-btn-block" id="calendarsNian"  readonly="readonly">
+                    </div>
+                </div>
+                <div id="centerData" class="clearfix">
+                    <div class="dataBlock1 tou clearfix">
+                        <h5>
+                            <em></em>
+                            <span>总交易金额(万元)</span>
+                        </h5>
+                        <h3  v-cloak>
+                            <span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+                        </h3>
+                        <ul>
+                            <li>
+                                <span>线上交易金额(万元)</span>
+                                <span v-cloak>{{onlineprice}}</span>
+                            </li>
+                            <li>
+                                <span>线下交易金额(万元)</span>
+                                <span v-cloak>{{outlineprice}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dataBlock1 zhu">
+                        <h5>
+                            <em></em>
+                            <span>总交易单数</span>
+                        </h5>
+                        <h3 v-cloak>
+                            <span class="big">{{comBig}}</span><small>{{comSmall}}</small>
+                        </h3>
+                        <ul>
+                            <li>
+                                <span>线上交易单数</span>
+                                <span v-cloak>{{onlinenum}}</span>
+                            </li>
+                            <li>
+                                <span>线下交易单数</span>
+                                <span v-cloak>{{outlinenum}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dataBlock1 zhu last">
+                        <h5>
+                            <em></em>
+                            <span>总交易账户数</span>
+                        </h5>
+                        <h3 v-cloak class="zhahuZong">
+                            <span class="big">{{huBig}}</span><small>{{huSmall}}</small>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--此处是交易分析部分-->
+    <div  class="common-tabBlock secondCont ">
+        <h5 class="user">
+            交易分析
+            <span class="question" id="userQuesJY"></span>
+        </h5>
+        <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+            <div class="mui-scroll segmentedControlOne">
+                <a class="mui-control-item mui-active active">线上交易</a>
+                <a class="mui-control-item ">线下交易</a>
+            </div>
+        </div>
+        <div class="tabBlockDetail2">
+            <div class="show tabBlockDetailShu">
+                <div class="userBlock clearfix userBlockNew">
+                    <div class="chooseDate">
+                        <span>时间维度</span>
+                        <div>
+                            <input type="text" class="aboutDate1 multiple btn mui-btn mui-btn-block" id="calendarsOnline" readonly="readonly">
+                        </div>
+
+                    </div>
+                    <div class="wdChange">
+                        <b>业务维度</b>
+                        <div id="showUserPickerOn" class="showUserCh">
+                            <a id="userResultOn" class="pickerRe" data-value="010">交易金额</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="echartDetail" id="onLine"></div>
+            </div>
+            <div class="off tabBlockDetailShu">
+                <div class="userBlock clearfix userBlockNew">
+                    <div class="chooseDate">
+                        <span>时间维度</span>
+                        <div>
+                            <input type="text" class="aboutDate1 multiple btn mui-btn mui-btn-block" id="calendarsOffline" readonly="readonly">
+                        </div>
+
+                    </div>
+                    <div class="wdChange">
+                        <b>业务维度</b>
+                        <div id="showUserPickeroff" class="showUserCh">
+                            <a id="userResultoff" class="pickerRe" data-value="010">交易金额</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="echartDetail" id="offLine"></div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--此处是累计户数-->
+    <div  class="common-tabBlock thirdCont ">
+        <h5 class="user">
+            累计开户数
+            <span class="question" id="userQuesLJ"></span>
+        </h5>
+        <div class="tabBlockDetail3">
+            <div class="userBlock clearfix">
+                <div class="chooseDate1">
+                    <span class="timeBT">时间维度</span>
+                    <input type="text" class="aboutDate1 btn mui-btn mui-btn-block" id="calendarsLJ" readonly="readonly">
+                </div>
+            </div>
+            <div class="echartDetail" id="account"></div>
+        </div>
+
+
+    </div>
+</div>
+
+    <script src="../../js/common/mui.min.js"></script>
+    <script src="../../js/common/jquery2.0.js"></script>
+    <script src="../../js/common/vue.js"></script>
+    <script src="../../js/common/echarts.min.js"></script>
+    <!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+    <script src="../../js/common/mui.picker.all.js"></script>
+    <script src="../../js/common/ceshiAjax.js"></script>
+    <script src="../../js/common/china.js"></script>
+    <!--如果页面中有进度条则引入下面两个链接-->
+    <!--<script src="../../js/common/util.js"></script>
+    <script src="../../js/common/progress.js"></script>-->
+    <script src="../../js/common/newCalendar.js"></script>
+    <script src="../../js/mine/fund.js"></script>
+</body>
+</html>

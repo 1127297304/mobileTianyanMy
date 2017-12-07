@@ -1,0 +1,77 @@
+.clear {
+  clear: both;
+}
+.common-tabBlock1 {
+  padding: 0 0.2rem;
+}
+.dataDetail1 {
+  background: white;
+}
+.dataDetail1 .horiBlock {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.dataDetail1 .horiBlock .teli {
+  width: 100%;
+  text-align: center;
+}
+.dataDetail1 .horiBlock .teli li:nth-of-type(1) {
+  font-size: 0.26rem;
+}
+.dataDetail1 .horiBlock .teli li:nth-of-type(2) {
+  font-size: 0.4rem;
+  font-weight: bold;
+}
+.dataDetail1 .horiBlock div {
+  float: left;
+  width: 50%;
+}
+.dataDetail1 .horiBlock div:nth-of-type(1) {
+  text-align: right;
+  padding-right: 0.4rem;
+  border-right: dashed 1px #bcbcbc;
+}
+.dataDetail1 .horiBlock div:nth-of-type(2) {
+  padding-left: 0.4rem;
+  text-align: left;
+}
+.dataDetail1 span {
+  font-size: 0.26rem;
+  color: #666666;
+  display: block;
+  padding-top: 0.15rem;
+  padding-bottom: 0.1rem;
+}
+.dataDetail1 h4 {
+  color: black;
+  font-size: 0.4rem;
+  font-weight: bold;
+  color: #222328;
+}
+.chooseItem {
+  width: 3.2rem;
+  height: 0.62rem;
+  overflow: hidden;
+  float: right;
+  line-height: 0.58rem;
+  border: 1px solid #256DFF;
+  border-radius: 0.5rem;
+  margin-top: 0.2rem;
+}
+.chooseItem li {
+  float: left;
+  font-size: 0.28rem;
+  width: 50%;
+  border-right: 1px solid #256DFF;
+  color: #4152F8;
+  background: white;
+  text-align: center;
+}
+.chooseItem li.on {
+  background: #EFF4FF;
+}
+.chooseItem li:last-child {
+  border: none;
+}

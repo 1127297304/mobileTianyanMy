@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<!--<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />-->
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/ptzj.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">平台资金专题</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+					<span></span>
+				</div>
+			</div>
+		</header>
+		
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		
+		<!--内容-->
+		<!--日、月概览指标说明-->
+	    <div id="platformMoneyQuesBox" class="sysQuesBox platformMoneyQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">指标说明</h5>
+				<ul class="popDetailUl">
+					<li>
+						<span class="popLeft">充值用户数</span>
+						<span class="popRight">选定日期当天充值成功的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">充值笔数</span>
+						<span class="popRight">选定日期当天充值成功的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">充值金额</span>
+						<span class="popRight">选定日期当天充值成功的充值金额</span>
+					</li>
+					<li>
+						<span class="popLeft">到期用户数</span>
+						<span class="popRight">选定日期当天投资到期的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">到期笔数</span>
+						<span class="popRight">选定日期当天投资到期的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">到期金额</span>
+						<span class="popRight">选定日期当天投资到期的本金+利息</span>
+					</li>
+					<li>
+						<span class="popLeft">返现用户数</span>
+						<span class="popRight">选定日期当天获得奖券、奖励金的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">返现笔数</span>
+						<span class="popRight">选定日期当天获得奖券、奖励金的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">返现金额</span>
+						<span class="popRight">选定日期当天获得奖券、奖励金的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">余额用户数</span>
+						<span class="popRight">截止选定日期当天，账户可用余额>0的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">余额金额</span>
+						<span class="popRight">截止选定日期当天，账户可用余额>0的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">提现用户数</span>
+						<span class="popRight">选定日期当天申请提现的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">提现笔数</span>
+						<span class="popRight">选定日期当天申请提现的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">提现金额</span>
+						<span class="popRight">选定日期当天申请提现的提现金额</span>
+					</li>
+					<li>
+						<span class="popLeft">新手用户数</span>
+						<span class="popRight">选定日期当天购买新手标的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">新手笔数</span>
+						<span class="popRight">选定日期当天购买新手标的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">新手金额</span>
+						<span class="popRight">选定日期当天购买新手标的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">预约用户数</span>
+						<span class="popRight">选定日期当天购买预约标的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">预约笔数</span>
+						<span class="popRight">选定日期当天购买预约标的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">预约金额</span>
+						<span class="popRight">选定日期当天购买预约标的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">债转用户数</span>
+						<span class="popRight">选定日期当天购买债转标的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">债转笔数</span>
+						<span class="popRight">选定日期当天购买债转标的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">债转金额</span>
+						<span class="popRight">选定日期当天购买债转标的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">线下用户数</span>
+						<span class="popRight">选定日期当天购买线下专享标的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">线下笔数</span>
+						<span class="popRight">选定日期当天购买线下专享标的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">线下金额</span>
+						<span class="popRight">选定日期当天购买线下专享标的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">定期用户数</span>
+						<span class="popRight">选定日期当天购买定期理财标的用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">定期笔数</span>
+						<span class="popRight">选定日期当天购买定期理财标的订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">定期金额</span>
+						<span class="popRight">选定日期当天购买定期理财标的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">首投同比</span>
+						<span class="popRight">首投金额/上周同一天的首投金额</span>
+					</li>
+					<li>
+						<span class="popLeft">复投同比</span>
+						<span class="popRight">复投金额/上周同一天的复投金额</span>
+					</li>
+				</ul>
+				<div class="close" id="platformMoneyClose"></div>
+			</div>
+	    </div>
+		<div class="mui-content">
+			<!--流入资金、流出资金选项卡切换-->
+			<!--第一块选项卡-->
+			<div class="common-tabBlock firstCont">
+		    	<h5 class="user">
+					日平台运营资金(万元)
+					<span class="question" id="platformMoneyQues"></span>
+				</h5>
+			    <div class="tableTitle ptzj">
+			        <div class="active">
+			        	<span>流入资金</span>
+			        	<div id= "lrzj">
+			        		<h5 v-cloak>{{big}}</h5>
+			           		<span>昨日环比<em :class="lrzj.lrzjHb > 0 ? 'red' : 'green' " v-cloak>{{lrzj.lrzjHb ? lrzj.lrzjHb : '-'}}%</em></span>
+			        	</div>
+			        </div>
+			        <div class="">
+						<span>流出资金</span>
+						<div id = "lczj">
+							<h5 v-cloak>{{big}}</h5>
+			           		<span>昨日环比<em :class="lczj.lczjHb > 0 ? 'red' : 'green' " v-cloak>{{lczj.lczjHb ? lczj.lczjHb : '-'}}%</em></span>
+						</div>
+			        </div>
+				</div>
+				
+				<div class="tabBlockDetail dateArea" id="topTable">
+					<div class="show">
+						<!--流入资金-->
+						<table class="tableBlock" border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>类型</th><th>用户数(环比)</th><th>笔数(环比)</th><th>金额(环比)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(value,index) in topMonthData.lrzjList">
+									<td>{{value.type}}</td>
+									<td :class=" value.yhsHb.indexOf('-') > 0 ? 'green' : 'red' ">{{value.yhsHb}}</td>
+									<td :class=" value.bsHb.indexOf('-') > 0 ? 'green' : 'red' ">{{value.bsHb}}</td>
+									<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' ">{{value.jeHb}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<!--流出资金-->
+						<table class="tableBlock" border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>类型</th><th>用户数(环比)</th><th>笔数(环比)</th><th>金额(环比)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(value,index) in topMonthData.lczjList" :class=" index == '2'? 'pullMore' : ''" @click="doTo($event,index)">
+									<td v-cloak>{{value.type}}</td>
+									<td :class=" value.yhsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.yhsHb}}</td>
+									<td :class=" value.bsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.bsHb}}</td>
+									<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			<!--图表区域-->
+			
+			<!--客户转化率模块-->
+			<div class="common-tabBlock">
+				<h5 class="user">
+					客户转化率
+				</h5>
+				<ul id="khChooseItem" class="chooseItem" style="margin-top:0">
+					<li class="on" data-value="day">日</li>
+					<li data-value="week">周</li>
+					<li data-value="month">月</li>
+				</ul>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="echartDetail" id="khzhl"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!--第二块选项卡-->
+			<div class="common-tabBlock secondCont">
+				<h5 class="user">
+					流出资金占比
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	 金额
+				        </a>
+				        <a class="mui-control-item ">
+							客户数
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<ul id="lcjeChooseItem" class="chooseItem">
+							<li class="on" data-value="day">日</li>
+							<li data-value="week">周</li>
+							<li data-value="month">月</li>
+						</ul>
+						<div class="echartDetail" id="tzzl"></div>
+					</div>
+					<div class="">
+						<ul id="lckhChooseItem" class="chooseItem">
+							<li class="on" data-value="day">日</li>
+							<li data-value="week">周</li>
+							<li data-value="month">月</li>
+						</ul>
+						<div class="echartDetail" id="stzb"></div>
+					</div>
+				</div>
+			</div>
+			<!--第三块-->
+			<div class="common-tabBlock thirdCont">
+				<h5 class="user">
+					首复投对比
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	金额
+				        </a>
+				        <a class="mui-control-item ">
+							笔数
+				        </a>
+				        <a class="mui-control-item ">
+							客户数
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="echartDetail" id="yhgm"></div>
+					</div>
+					<div class="">
+						<div class="echartDetail" id="xzyh"></div>
+					</div>
+					<div class="">
+						<div class="echartDetail" id="txtb"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!--第四块-->
+			<div class="common-tabBlock fourthCont ">
+				<h5 class="user">
+					投资产品偏好
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	金额
+				        </a>
+				        <a class="mui-control-item ">
+							笔数
+				        </a>
+				        <a class="mui-control-item ">
+							客户数
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<ul id="tzjeChooseItem" class="chooseItem">
+							<li class="on" data-value="day">日</li>
+							<li data-value="week">周</li>
+							<li data-value="month">月</li>
+						</ul>
+						<div class="echartDetail" id="dytzje"></div>
+					</div>
+					<div class="">
+						<ul id="tzbsChooseItem" class="chooseItem">
+							<li class="on" data-value="day">日</li>
+							<li data-value="week">周</li>
+							<li data-value="month">月</li>
+						</ul>
+						<div class="echartDetail" id="dytzrs"></div>
+					</div>
+					<div class="">
+						<ul id="tzkhChooseItem" class="chooseItem">
+							<li class="on" data-value="day">日</li>
+							<li data-value="week">周</li>
+							<li data-value="month">月</li>
+						</ul>
+						<div class="echartDetail" id="yyzl"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<!--<script src="../../js/common/mui.picker.all.js"></script>-->
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/ptzj.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,295 @@
+/*此处是公共样式*/
+//清楚浮动公共样式
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+.on{  display: block;  };
+.off{  display: none;  };
+.green{  color: green;  };
+.red{  color: red;  };
+.right{  float: right;  }
+/*此处是顶部时间样式*/
+.chooseBlock .wen{
+  width: 45%;
+  float: left;
+  text-align: right;
+  height: 0.95rem;
+  line-height: 0.95rem;
+  color: #ffffff;
+  font-size: 0.27rem;
+};
+.chooseBlock .showTime{
+  width: 55%;
+  float: right;
+  text-align: left;
+  padding-top: 0.22rem;
+  span{
+    padding-left: .7rem;
+    display: inline-block;
+    height: .5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
+    color: white;
+    //background: url(../../images/showTime.png) left top no-repeat;
+    background-size: .44rem .44rem;
+  }
+};
+/*此处是系统分析的样式*/
+.xtfxsj{
+  width: 100%;
+  margin-top: 0.31rem;
+  table{
+    width: 100%;
+    .head1{
+      border-bottom: 1px solid #BABABA;
+    };
+    .data1,.data2,.data3,.data4{
+      text-align: center;
+    }
+  };
+  td{
+    height: 0.5rem;
+  };
+  th{
+    font-size: 0.3rem;
+    font-weight: normal;
+  }
+}
+/*此处是流程图的样式*/
+.LCT{
+  margin-top: 0.2rem;
+  width: 100%;
+
+}
+.LCT h1{
+  background-color: #EFF4FF;
+  font-size: 0.3rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size:0.3rem;
+  margin:0;
+
+}
+#chart-container{
+  height: 14rem;
+  width: 100%;
+  /* padding-top: 0.5rem;*/
+  /* background: #F7F7F7;*/
+}
+#chart-container .same{
+  height: 1.3rem;
+  width: 32%;
+}
+
+#chart-container .same p{
+  margin:0;
+  font-size: 0.22rem;
+  font-weight: bold;
+  text-align:center;
+  height:33% ;
+}
+#chart-container .same .p1{
+  background: #769DF5;
+  color:white;
+  height: 34%;
+}
+#chart-container .same .p2{
+  opacity: 0.48;
+  background: #ABCAFF;
+  font-family: PingFangSC-Regular;
+  color: black;
+}
+.jjl1{
+  position: relative;
+  left: 36%;
+  border: 1px solid #5292FF;
+}
+.wangge1,.wangge3,.wangge5{
+  height: 0.5rem;
+  width: 69%;
+  position: relative;
+  left: 15.5%;
+  margin-top: 0.2rem;
+  border-top: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+}
+.wangge2{
+  width: 1px;
+  height: 0.7rem;
+  background-color:#5292FF;
+  position: relative;
+  left: 50%;
+  top: -0.21rem;
+};
+.wangge4{
+  width: 1px;
+  height: 2.05rem;
+  background-color:#5292FF;
+  position: relative;
+  left: 50%;
+  top: -320%;
+};
+.wangge6{
+  width: 1px;
+  height: 0.7rem;
+  background-color:#5292FF;
+  position: relative;
+  left: 50%;
+  top: -0.21rem;
+};
+.wangge7{
+  height: 0.5rem;
+  width: 35%;
+  position: relative;
+  left: 50%;
+  margin-top: 0.2rem;
+  border-top: 1px solid #5292FF;
+ /* border-left: 1px solid #5292FF;*/
+  border-right: 1px solid #5292FF;
+};
+.wangge8{
+  width: 1px;
+  height: 2.05rem;
+  background-color:#5292FF;
+  position: relative;
+  /*left: 50%;*/
+  top: -320%;
+};
+
+.zjl2,.fll3,.zpl4{
+  display: inline-block;
+  border: 1px solid #5292FF;
+}
+#chart-container .zpl5{
+  position: relative;
+  width: 32%;
+  left:66.9%;
+  top:-0.1%;
+  border-bottom: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+};
+#chart-container .tgl12{
+  position: relative;
+  width: 32%;
+  left:66.9%;
+  top:-0.1%;
+  border-bottom: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+};
+.dhl6,.shl7,.zpl8{
+  display: inline-block;
+  border: 1px solid #5292FF;
+}
+.jdl9,.qxl10,.tgl11{
+  display: inline-block;
+  border: 1px solid #5292FF;
+}
+.pickerRe{
+  font-size: 0.3rem;
+  color: #333333;
+}
+.newWrap{
+  float: left;
+  width:2.04rem;
+  margin-right:.14rem;
+  &:last-of-type{
+    float: right;
+    margin-right: 0;
+  }
+}
+.Bian{
+  border-bottom: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+}
+.deleteMiddle{
+  position: relative;
+  left: 33%;
+};
+.Middle{
+  margin-left: 34%;
+};
+/*此处是时段趋势的样式部分*/
+.chooseDate .changeDate.multiple {
+  display: block;
+  width: 33.3%;
+}
+.userBlock .chooseDate > div {
+  display: -webkit-box;
+}
+.userBlock .chooseDate .changeDate.multiple:first-child {
+  text-align: right;
+}
+.userBlock .chooseDate .changeDate.multiple:last-child {
+  text-align: left;
+}
+.userBlock .chooseDate:after {
+  background: url('') no-repeat;
+
+}
+
+/*此处是指标说明弹框的样式部分*/
+.question{
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 0.42rem;
+  background: url(../../images/question.png) no-repeat right center;
+  background-size: auto 100%;
+  top: 50%;
+  margin-top: -0.21rem;
+};
+/*弹框初始时隐藏*/
+#sysQuesBox,#userQuesBox,#centreQuesBox,#sysQuesBox2{
+  display: none;
+};
+//提示框样式
+.centreQuesBox{
+  .infoDetail{
+    height: 68%;
+    .popDetailUl{
+      overflow-y: scroll;
+    }
+    .close{
+      bottom: -10%;
+    }
+  }
+};
+.centreQuesBox2{
+  .infoDetail{
+    height: 60%;
+    .popDetailUl{
+      overflow-y: scroll;
+    }
+    .close{
+      bottom: -10%;
+    }
+  }
+};
+
+.Name1{
+  text-align: left;
+};
+.single{
+    position: relative;
+    top: 0.4rem;
+};
+#sdqs1{
+  width: 100%;
+  height: 5rem;
+  text-align: center;
+  line-height: 5rem;
+  font-size: 0.4rem;
+  color:#666;
+  /*  background-color:#0099ff ;*/
+};
+#sdqs1 img{
+  margin-top: 15%;
+  height:60%;
+  width:45%;
+}

@@ -1,0 +1,334 @@
+p {
+  margin: 0;
+}
+.on {
+  display: block;
+}
+.off {
+  display: none;
+}
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.user.change .toggle {
+  -webkit-transform: rotate(180deg);
+  -webkit-transition: transform .2s;
+}
+.productType {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  margin-top: .25rem;
+}
+.productType li {
+  text-align: center;
+  margin-bottom: .15rem;
+  border: 1px solid lightblue;
+  border-radius: 8px;
+  width: 33%;
+}
+.productType li p:first-child span {
+  font-size: .28rem;
+  color: #333;
+}
+.productType li p:last-child span {
+  font-size: .26rem;
+}
+.productType li.on {
+  background: lightblue;
+}
+.productType li.on p span {
+  color: #fff;
+}
+.common-tabBlock .echartDetail {
+  margin-bottom: .15rem;
+}
+.risk_management li {
+  text-align: center;
+  margin-bottom: .2rem;
+}
+.risk_management li:first-child {
+  margin-top: .3rem;
+}
+.risk_management li span {
+  display: inline-block;
+  font-size: .26rem;
+  text-align: center;
+  width: 20%;
+}
+.risk_management li span:nth-of-type(1),
+.risk_management li span:nth-of-type(3) {
+  font-weight: bold;
+}
+.risk_management li span:nth-of-type(1) {
+  text-decoration: underline;
+}
+.risk_management li span.red {
+  color: #FF5252;
+}
+.risk_management li span.green {
+  color: #0CBD4C;
+}
+.operation li {
+  text-align: center;
+  margin-bottom: .2rem;
+}
+.operation li:first-child {
+  margin-top: .3rem;
+}
+.operation li:first-child span {
+  font-weight: bolder;
+}
+.operation li:first-child span:nth-of-type(1) {
+  text-decoration: none;
+}
+.operation li span {
+  display: inline-block;
+  font-size: .26rem;
+  text-align: center;
+  width: 32%;
+}
+.operation li span:nth-of-type(1) {
+  text-decoration: underline;
+}
+.operation li span.red {
+  color: #FF5252;
+}
+.operation li span.green {
+  color: #0CBD4C;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item.four {
+  padding: 0 8px;
+}
+.cityWrap .cityTop li {
+  float: left;
+  margin: .1rem .13rem;
+  width: 2.1rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  color: #3E4FF9;
+  border: 1px solid #4152FA;
+  border-radius: 34px;
+  font-size: .26rem;
+}
+.cityWrap .cityTop li.active {
+  background: #769DF5;
+  color: #fff;
+}
+.cityWrap .cityMain {
+  background: #F7F7F7;
+  margin-bottom: .1rem;
+}
+.cityWrap .cityMain h4 {
+  padding: .2rem 0 .2rem .4rem;
+  font-size: .3rem;
+  font-weight: normal;
+  color: #3E4FF9;
+  position: relative;
+  margin-bottom: 0;
+}
+.cityWrap .cityMain h4 .toggle {
+  right: 2%;
+  -webkit-transform: rotate(180deg);
+  -webkit-transition: transform .2s;
+}
+.cityWrap .cityMain h4.change .toggle {
+  -webkit-transform: rotate(0deg);
+  -webkit-transition: transform .2s;
+}
+.cityWrap .cityMain .tbHead {
+  width: 100%;
+  padding: 0 .2rem;
+  border-bottom: 1px #D4D4D4 solid;
+  color: #666;
+}
+.cityWrap .cityMain .tbHead li {
+  width: 100%;
+}
+.cityWrap .cityMain .tbHead li span {
+  float: left;
+  padding: .1rem 0;
+  width: 33.3%;
+  text-align: center;
+  font-size: .26rem;
+}
+.cityWrap .cityMain .tbHead li.fontL span {
+  font-size: .4rem;
+  color: #333;
+}
+.cityWrap .cityMain .tbBody {
+  padding: 0 .2rem;
+}
+.cityWrap .cityMain .tbBody li {
+  width: 100%;
+  border-bottom: 1px #D4D4D4 dashed;
+}
+.cityWrap .cityMain .tbBody li:last-of-type {
+  border-bottom: 0;
+}
+.cityWrap .cityMain .tbBody li span {
+  float: left;
+  padding: .1rem 0;
+  width: 33.3%;
+  text-align: center;
+  font-size: .26rem;
+}
+.dayAmount h5 {
+  font-size: 0.3rem;
+  color: #333333;
+  text-align: center;
+  padding-top: 0.2rem;
+  text-decoration: underline;
+}
+.dayAmount .top-mid {
+  text-align: center;
+  font-size: 0.6rem;
+  padding-top: 0.2rem;
+}
+.dayAmount .top-mid small {
+  font-size: 0.44rem;
+}
+.dayAmount .top-bot {
+  height: 0.6rem;
+  margin-top: 0.3rem;
+  font-size: 0.28rem;
+  color: #333333;
+}
+.dayAmount .top-bot em {
+  display: inline-block;
+  height: 0.21rem;
+  width: 0.15rem;
+}
+.dayAmount .top-bot div {
+  width: 50%;
+  border-right: 1px solid #E1E1E1;
+}
+.dayAmount .top-bot div:first-child {
+  padding-right: 0.3rem;
+  float: left;
+  text-align: right;
+}
+.dayAmount .top-bot div:last-child {
+  border-right: none;
+  padding-left: 0.3rem;
+  float: left;
+  text-align: left;
+}
+.dayAmount .top-bot b {
+  font-size: 0.3rem;
+  padding-right: 0.1rem;
+}
+.dayAmount .top-bot b.up {
+  color: #FF5252;
+}
+.dayAmount .top-bot b.up + em {
+  background: url(../../images/up.png) no-repeat;
+  background-size: auto 100%;
+}
+.dayAmount .top-bot b.down {
+  color: #0CBD4C;
+}
+.dayAmount .top-bot b.down + em {
+  background: url(../../images/down.png) no-repeat;
+  background-size: auto 100%;
+}
+#DayAndMonthOverviewQuesBox,
+#businessOverviewQuesBox,
+#riskOverviewQuesBox,
+#operationOverviewQuesBox {
+  display: none;
+}
+.DayAndMonthOverviewQuesBox .infoDetail,
+.riskOverviewQuesBox .infoDetail {
+  height: 68%;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .popDetailUl,
+.riskOverviewQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .close,
+.riskOverviewQuesBox .infoDetail .close {
+  bottom: -10%;
+}
+.operationOverviewQuesBox .popDetailUl li:last-child {
+  margin-bottom: 0.4rem;
+}
+.operationOverviewQuesBox .close {
+  bottom: -30%;
+}
+.machineQuesBox .popDetailUl li:last-child {
+  margin-bottom: 0.4rem;
+}
+.machineQuesBox .close {
+  bottom: -15%;
+}
+.showRest ~ * {
+  display: none;
+}
+.noInfo {
+  font-size: .26rem;
+  text-align: center;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+.show.par {
+  position: relative;
+}
+.show.par .areaRest {
+  width: 100%;
+  top: 22%;
+  background: #576a76;
+  position: absolute;
+  padding-top: 0;
+}
+.show.par .areaRest ul {
+  padding: .15rem 0;
+}
+.show.par .areaRest ul .close {
+  height: .7rem;
+  position: relative;
+}
+.show.par .areaRest ul .close::after {
+  content: '';
+  position: absolute;
+  width: .46rem;
+  height: .46rem;
+  background: url(../../images/close2.png) no-repeat;
+  background-size: 100% auto;
+  right: 2%;
+  top: 50%;
+  margin-top: -0.23rem;
+}
+.show.par .areaRest ul li {
+  float: left;
+  margin: .1rem .13rem;
+  width: 2.1rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 34px;
+  font-size: .28rem;
+}
+.show.par .areaRest ul li.active {
+  background: white;
+  color: #769DF5;
+}
+.echartDetail.area {
+  text-align: center;
+  line-height: 5rem;
+  font-size: .26rem;
+  font-weight: bold;
+}
+#yjgl {
+  height: 5.2rem;
+}

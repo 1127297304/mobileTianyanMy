@@ -1,0 +1,773 @@
+/*此处是页面顶部时间的样式*/
+.clear{
+  clear: both;
+}
+//清楚浮动公共样式
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+//右浮动公共样式
+.right{
+  float: right;
+}
+//公共样式
+.on{
+  display: block;
+}
+.off{
+  display: none;
+}
+.green{
+  color: green;
+}
+.red{
+  color: red;
+}
+.chooseBlock{
+  &>div{
+    width: 100%;
+    float: left;
+  }
+  .showTime{
+    padding-top: .2rem;
+    text-align: center;
+    span{
+      padding-left: .7rem;
+      display: inline-block;
+      height: .5rem;
+      line-height: 0.5rem;
+      font-size: 0.3rem;
+      color: white;
+      //background: url(../../images/showTime.png) left top no-repeat;
+      background-size: .44rem .44rem;
+    }
+  }
+
+}
+
+//用户动态的标题
+.user{
+  height: 0.6rem;
+  line-height: 0.6rem;
+  color: #3E4FF9;
+  font-size: 0.3rem;
+  position: relative;
+  padding-left: 0.12rem;
+  &::before{
+    content: '';
+    position: absolute;
+    width: 0.08rem;
+    height: 0.24rem;
+    background: #3E4FF9;
+    left: 0;
+    top: 50%;
+    margin-top: -0.12rem;
+  }
+}
+.question{
+    position: absolute;
+    right: 0;
+    width: 1rem;
+    height: 0.42rem;
+    background: url(../../images/question.png) no-repeat right center;
+    background-size: auto 100%;
+    top: 50%;
+    margin-top: -0.21rem;
+};
+.question1{
+  position: absolute;
+  right: 8%;
+  width: 1rem;
+  height: 0.42rem;
+  background: url(../../images/question.png) no-repeat right center;
+  background-size: auto 100%;
+  top: 50%;
+  margin-top: -0.21rem;
+};
+
+.common-tabBlock{
+  width:100%;
+}
+//用户分析表一 样式
+.common-tabBlock .yhfxtb {
+  position: relative;
+  width:80%;
+  height: 2.5rem;
+}
+.common-tabBlock .yhfxtbsj {
+  width:100%;
+  height: 3rem;
+
+}
+.tabBlockDetail{
+  /* 添加产品维度，所以暂时去掉padding-top的样式*/
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
+  height: 6.3rem;
+ /* height: 6.8rem;*/
+}
+.yhfxtbsj span{
+  display:block;
+  float: left;
+  font-family: PingFangSC-Regular;
+  font-size: 0.3rem;
+  /*font-size: 14px;*/
+  color: #333333;
+  height:0.8rem;
+  line-height: 0.8rem;
+}
+.yhfxtbsj .small span{
+  font-family: PingFangSC-Regular;
+ /* font-size: 14px;*/
+ /* font-size: 0.25rem;*/
+  font-size: 0.3rem;
+  color: #333333;
+}
+//用户分析表二 样式
+.common-tabBlock .yhfxtb2 {
+  position: relative;
+  width:80%;
+  height: 2.5rem;
+
+}
+.common-tabBlock .yhfxtbsj2 {
+  width:100%;
+  height: 2.5rem;
+}
+.yhfxtbsj2 span{
+  display:block;
+  float: left;
+  font-family: PingFangSC-Regular;
+  font-size: 0.3rem;
+ /* font-size: 14px;*/
+ /* font-size:0.25rem;*/
+  color: #333333;
+  height:0.8rem;
+  line-height: 0.8rem;
+}
+
+.yhfxtbsj2 .fuhesmall span{
+  font-size: 0.3rem;
+  /*font-size:14px;*/
+}
+.tabBlockDetailX{
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
+ /* height: 6.3rem;*/
+ /* height: 4.8rem;*/
+  height: 4rem;
+  overflow: hidden;
+  .wdChoose{
+    margin-top: 0.1rem;
+    height: 0.9rem;
+    background: #F7F7F7;
+    line-height: 0.9rem;
+    padding: 0 0.18rem;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      background: url(../../images/blackTriangle.png) no-repeat;
+      width: 0.28rem;
+      height: 0.16rem;
+      background-size: 100% auto;
+      top: 50%;
+      right: 3%;
+      margin-top: -0.08rem;
+    }
+    b,a{
+      font-size: 0.26rem;
+      color: #333333;
+      font-weight: normal;
+    }
+    b{
+      float: left;
+    }
+    a{
+      float: right;
+      padding-right: 8%;
+    }
+  }
+}
+
+//筛选维度  日、周、月的公共样式
+.chooseItem{
+  width: 3.5rem;
+  height: 0.62rem;
+  overflow: hidden;
+  float: left;
+  line-height: 0.58rem;
+  border: 1px solid #256DFF;
+  border-radius: 0.5rem;
+  margin-top: 0.2rem;
+  li{
+    float: left;
+    font-size: 0.28rem;
+    width: 33.3%;
+    border-right: 1px solid #256DFF;
+    color: #4152F8;
+    background: white;
+    text-align: center;
+    &.on{
+      background: #EFF4FF;
+    }
+    &:last-child{
+      border: none;
+    }
+  }
+}
+.chooseItem1{
+  width: 3.5rem;
+  height: 0.62rem;
+  overflow: hidden;
+  float: right;
+  line-height: 0.58rem;
+  border: 1px solid #256DFF;
+  border-radius: 0.5rem;
+  margin-top:0.2rem;
+  li{
+    float: left;
+    font-size: 0.28rem;
+    width: 33.3%;
+    border-right: 1px solid #256DFF;
+    color: #4152F8;
+    background: white;
+    text-align: center;
+    &.on{
+      background: #EFF4FF;
+    }
+    &:last-child{
+      border: none;
+    }
+  }
+}
+.chooseItemX{
+  width: 3.2rem;
+  height: 0.62rem;
+  overflow: hidden;
+  float: right;
+  line-height: 0.58rem;
+  border: 1px solid #256DFF;
+  border-radius: 0.5rem;
+  li{
+    float: left;
+    font-size: 0.28rem;
+    width: 33.3%;
+    border-right: 1px solid #256DFF;
+    color: #4152F8;
+    background: white;
+    text-align: center;
+    &.on{
+      background: #EFF4FF;
+    }
+    &:last-child{
+      border: none;
+    }
+  }
+}
+.chooseItemX1{
+  width: 100%;
+  height: 0.8rem;
+}
+//系统分析样式
+.xtfxsj{
+  width: 100%;
+ /* background: #F7F7F7;*/
+ /* height: 7rem;*/
+  margin-top: 0.31rem;
+
+}
+.xtfxsj table{
+  width: 100%;
+}
+.xtfxsj td{
+  height: 0.5rem;
+
+
+};
+.xtfxsj th{
+  font-size: 0.3rem;
+  font-weight: normal;
+
+}
+.head1,.head2{
+  border-bottom: 1px solid #BABABA;
+}
+.center1{
+  text-align: center;
+}
+//流程图样式
+.LCT{
+  margin-top: 0.2rem;
+  width: 100%;
+
+}
+.LCT h1{
+  background-color: #EFF4FF;
+  font-size: 0.3rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size:0.3rem;
+  margin:0;
+
+}
+.tabBlockDetail3{
+  padding-bottom: 0.3rem;
+};
+.tabBlockDetail3 th{
+  text-align: center;
+  font-size: 0.3rem;
+  font-weight: normal;
+}
+.tabBlockDetail3 td{
+  height: 0.5rem;
+  background: #F7F7F7;
+  text-align: center;
+  font-size: 0.28rem;
+}
+/*.Name1{
+  text-align: left;
+}*/
+.data1,.data2,.data3,.data4{
+  text-align: center;
+}
+
+#chart-container{
+  height: 11rem;
+  width: 100%;
+ /* padding-top: 0.5rem;*/
+ /* background: #F7F7F7;*/
+}
+#chart-container .same{
+  height: 1.3rem;
+  width: 32%;
+}
+
+#chart-container .same p{
+  margin:0;
+  font-size: 0.22rem;
+  font-weight: bold;
+  text-align:center;
+  height:33% ;
+}
+#chart-container .same .p1{
+  background: #769DF5;
+  color:white;
+  height: 34%;
+}
+#chart-container .same .p2{
+  opacity: 0.48;
+  background: #ABCAFF;
+  font-family: PingFangSC-Regular;
+  color: black;
+}
+.jjl1{
+  position: relative;
+  left: 36%;
+  border: 1px solid #5292FF;
+}
+.wangge1,.wangge3,.wangge5{
+  height: 0.5rem;
+  width: 69%;
+  position: relative;
+  left: 15.5%;
+  margin-top: 0.2rem;
+  border-top: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+}
+.wangge2{
+  width: 1px;
+  height: 0.7rem;
+  background-color:#5292FF;
+  position: relative;
+  left: 50%;
+  top: -0.21rem;
+}
+.wangge4{
+  width: 1px;
+  height: 2.05rem;
+  background-color:#5292FF;
+  position: relative;
+  left: 50%;
+  top: -320%;
+}
+.wangge6{
+  width: 1px;
+  height: 0.7rem;
+  background-color:#5292FF;
+  position: relative;
+  left: 50%;
+  top: -0.21rem;
+}
+
+.zjl2,.fll3,.zpl4{
+  display: inline-block;
+  border: 1px solid #5292FF;
+}
+#chart-container .zpl5{
+  position: relative;
+  width: 32%;
+  left:66.9%;
+  top:-0.1%;
+  border-bottom: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+};
+#chart-container .tgl12{
+  position: relative;
+  width: 32%;
+  left:66.9%;
+  top:-0.1%;
+  border-bottom: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+};
+.dhl6,.shl7,.zpl8{
+  display: inline-block;
+  border: 1px solid #5292FF;
+}
+.jdl9,.qxl10,.tgl11{
+  display: inline-block;
+  border: 1px solid #5292FF;
+}
+.pickerRe{
+  font-size: 0.3rem;
+  color: #333333;
+}
+
+.userBlock{
+  margin-top: 0.25rem;
+  height: 1.2rem;
+  .chooseDate,.wdChange{
+    position: relative;
+    float: left;
+    width: 45%;
+    height: 100%;
+    text-align: center;
+    background: #F7F7F7;
+    &:after{
+      content:'';
+      background: url(../../images/blackTriangle.png) no-repeat;
+      width: 0.28rem;
+      height: 0.16rem;
+      background-size: 100% auto;
+      position: absolute;
+      right: 5.5%;
+      bottom: 22%;
+    }
+  };
+
+  .changeDate{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    margin-bottom: 0;
+    border:none;
+    background: none;
+    font-size: 0.3rem;
+    color: #333333;
+    text-align: center;
+    padding: 0;
+  };
+  .chooseDate{
+    margin-right: 10%;
+    span{
+      font-size: 0.26rem;
+      display: block;
+      color: #666666;
+    };
+    div{
+      height: 0.8rem;
+      line-height:0.8rem ;
+    }
+  };
+  .wdChange{
+    b{
+      display: block;
+      font-size: 0.26rem;
+      font-weight: normal;
+      color: #666666;
+    }
+    .pickerRe{
+      font-size: 0.3rem;
+      color: #333333;
+    }
+    .showUserCh{
+      height: 0.8rem;
+      line-height:0.8rem ;
+    }
+  };
+
+};
+.chooseMK{
+  width: 100%;
+  background-color: red;
+  .wdChange{
+    display: inline-block;
+    width: 30%;
+
+  };
+  .middle{
+    margin: 0 5% 0 5%;
+  }
+};
+
+
+
+.mui-content{
+  position: absolute;
+}
+.dropload-up{
+  position: relative;
+};
+.bfhj2{
+  text-align: right;
+}
+.bfhj3{
+  text-align: right;
+};
+
+.chooseBlock .showTime{
+  width: 55%;
+  float: right;
+  text-align: left;
+  padding-top: 0.22rem;
+}
+.chooseBlock .wen{
+  width: 45%;
+  float: left;
+  text-align: right;
+  height: 0.95rem;
+  line-height: 0.95rem;
+  color: #ffffff;
+  font-size: 0.27rem;
+  /*padding-top: .2rem;*/
+}
+.SM{
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.3rem;
+  text-align: center;
+  color: #6d6d72;
+}
+.newWrap{
+  float: left;
+  width:2.04rem;
+  margin-right:.14rem;
+  &:last-of-type{
+    float: right;
+    margin-right: 0;
+  }
+}
+.Bian{
+  border-bottom: 1px solid #5292FF;
+  border-left: 1px solid #5292FF;
+  border-right: 1px solid #5292FF;
+}
+
+//提示框样式
+.centreQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}
+
+.userQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+};
+.yuJingBox{
+  .infoDetail{
+    height: 60%;
+    .popDetailUl{
+      overflow-y: scroll;
+    }
+    .close{
+      bottom: -10%;
+    }
+  }
+};
+//弹框初始时隐藏
+#sysQuesBox,#userQuesBox,#centreQuesBox,#yujingBox{
+    display: none;
+};
+.mui-pciker-list li{
+  font-size: 0.2rem;
+}
+
+.userBlock1{
+  margin-top: 0.25rem;
+  height: 2.8rem;
+  .chooseDate1,.wdChange1{
+    position: relative;
+    width: 100%;
+    height: 45%;
+    text-align: center;
+    background: #F7F7F7;
+    &:after{
+      content:'';
+      /*background: url(../../images/blackTriangle.png) no-repeat;*/
+      width: 0.28rem;
+      height: 0.16rem;
+      background-size: 100% auto;
+      position: absolute;
+      right: 2%;
+      bottom: 22%;
+    }
+  };
+  .changeDate{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    margin-bottom: 0;
+    border:none;
+    background: none;
+    font-size: 0.3rem;
+    color: #333333;
+    text-align: center;
+    padding: 0;
+  };
+  .chooseDate1{
+    margin-right: 10%;
+    span{
+      font-size: 0.26rem;
+      display: block;
+      color: #666666;
+    };
+    div{
+      height: 0.8rem;
+      line-height:0.8rem ;
+    }
+  };
+  .wdChange1{
+    margin-top: 0.25rem;
+    b{
+      display: block;
+      font-size: 0.26rem;
+      font-weight: normal;
+      color: #666666;
+    }
+    .pickerRe{
+      font-size: 0.3rem;
+      color: #333333;
+    }
+    .showUserCh{
+      height: 0.8rem;
+      line-height:0.8rem ;
+    }
+  };
+
+}
+//预警记录弹框
+.smallTipsBox{
+    .popDetailHeader{
+        background: none;
+        position: relative;
+        color: white;
+    }
+    .popDetailUl.warn{
+        li{
+            span{
+                color: white;
+                &:first-child{
+                    width: 24%;
+                    left: 6%;
+                }
+                &:last-child{
+                    margin-left: 30%;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    z-index:2;
+    background: rgba(87,106,118,0.7);
+    width: 88%;
+    left: 50%;
+    margin-left: -44%;
+    position: absolute;
+    .close{
+        position: absolute;
+        width: .46rem;
+        height: .46rem;
+        background: url(../../images/close2.png) no-repeat;
+        background-size: 100% auto;
+        right: 2%;
+        top: 50%;
+        margin-top: -0.23rem;
+    }
+}
+#tabBlockDetail3{
+    position: relative;
+}
+//预警记录详情的下拉三角    点击时切换旋转
+.pullMore{
+    position: absolute;
+  position: absolute;
+  right: 15%;
+  top:50%;
+    &:after{
+        content: '';
+        height: 0.16rem;
+        width: 0.28rem;
+        position: absolute;
+        background: url(../../images/blackTriangle.png) no-repeat;
+        background-size: 100% auto;
+        top: 50%;
+        margin-top: -0.08rem;
+        right: 0%;
+        -webkit-transform: rotate(0deg);
+        -webkit-transition: transform .2s;
+    }
+}
+.pullMore.active{
+    &:after{
+        -webkit-transform: rotate(180deg);
+        -webkit-transition: transform .2s;
+    }
+}
+//设置初始预警记录部分默认隐藏
+.showRest ~ * {
+    display: none;
+};
+
+.NameZ{
+  text-align: left;
+};
+
+#sdqs1,#ljqsLoad{
+  width: 100%;
+  height: 5rem;
+  text-align: center;
+  line-height: 5rem;
+  font-size: 0.4rem;
+  color:#666;
+/*  background-color:#0099ff ;*/
+};
+#sdqs1 img{
+  margin-top: 15%;
+  height:60%;
+  width:45%;
+}
+#ljqsLoad img{
+  margin-top: 15%;
+  height:60%;
+  width:45%;
+}
+
+/*xxx
+结束*/

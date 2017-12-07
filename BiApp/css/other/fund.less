@@ -1,0 +1,264 @@
+/*此处是页面顶部时间的样式*/
+.clear{
+  clear: both;
+};
+//清楚浮动公共样式
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+//右浮动公共样式
+.right{
+  float: right;
+}
+//公共样式
+.on{
+  display: block;
+}
+.off{
+  display: none;
+}
+.green{
+  color: green;
+}
+.red{
+  color: red;
+}
+
+.userBlock .chooseDate1, .userBlock .wdChange1 {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #F7F7F7;
+}
+.tabBlockDetail{
+  margin-top: 3%;
+}
+.chooseDate1 .timeBT{
+  display: block;
+  width: 27%;
+  float: left;
+  padding-top: 4%;
+  text-align: left;
+  padding-left: 3%;
+  font-size: .26rem;
+}
+.chooseDate1 .changeDate{
+   display:block;
+   height: 100%;
+   width: 62%;
+   float: right;
+  text-align: right;
+  padding-right: 8%;
+ }
+.userBlock .chooseDate1:after, .userBlock .wdChange1:after {
+  content: '';
+  background: url('') no-repeat;
+  width: 0.28rem;
+  height: 0.16rem;
+  background-size: 100% auto;
+  position: absolute;
+  right: 8%;
+  bottom: 20%;
+};
+
+/*#centerData{
+ margin-top: 7%;
+}*/
+
+
+.dataBlock1{
+  height: 3.2rem;
+  border-bottom: 0.2rem solid #f0f0f3;
+  text-align: center;
+  position: relative;
+  padding-top: 0.2rem;
+  &::before{
+    content: '';
+    position: absolute;
+    width: 1.02rem;
+    height: 0.96rem;
+    background-size: auto 100%;
+    left: 0;
+    top: 0;
+  }
+  h5{
+    margin-top: 0;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    em,span{
+      display: block;
+    }
+    em{
+     /* background: url(../../images/tuisong.png) no-repeat;*/
+      width: 0.58rem;
+      height: 0.58rem;
+      background-size: 100% auto;
+    }
+    span{
+      padding-left: 0.1rem;
+      font-size: 0.28rem;
+    }
+  }
+  h3{
+    font-size: 0.56rem;
+    margin-top: 0;
+  }
+  ul{
+    height: 1.2rem;
+    padding-top: 0.1rem;
+    li{
+      float: left;
+      width: 50%;
+      &:first-child{
+        border-right: 1px solid #D3D3D3 ;
+        text-align: right;
+        padding-right: 0.28rem;
+      }
+      &:last-child{
+        text-align: left;
+        padding-left: 0.28rem;
+      }
+      span{
+        display: block;
+        &:first-child{
+          font-size: 0.26rem;
+          color: #666666;
+        }
+        &:last-child{
+          font-size: 0.4rem;
+          color: #333333;
+        }
+      }
+    }
+  }
+}
+.last{
+  border-bottom: 0rem solid #f0f0f3;
+};
+//投资金额
+.dataBlock1.tou{
+  h5{
+    em{
+      background-image: url(../../images/bluepig.png);
+    }
+  }
+
+}
+//注册用户数
+.dataBlock1.zhu{
+  h5{
+    em{
+      background-image: url(../../images/zhuce.png);
+    }
+  }
+
+}
+.userBlockNew{
+  margin-top: 0.2rem;
+};
+
+.tabBlockDetail3{
+  margin-top: 0.2rem;
+};
+.dataBlock1 .zhahuZong{
+  margin-top: 10%;
+}
+
+.userQuesBox .infoDetail {
+  height: 60%;
+}
+
+.userQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+  padding-bottom: 0.1rem;
+}
+.duan .userQuesBox .infoDetail {
+  height: 13%;
+}
+
+.duan .userQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+  padding-bottom: 0.1rem;
+}
+
+.duan .infoDetail .close {
+  position: absolute;
+  width: .5rem;
+  height: .5rem;
+  background: url(../../images/close2.png) no-repeat;
+  background-size: 100% auto;
+  bottom: -46%;
+  left: 50%;
+  margin-left: -0.25rem;
+}
+
+.chooseBlock .showTime span {
+  padding-left: 0.7rem;
+  display: inline-block;
+  line-height: 0.95rem;
+  height: 0.95rem;
+  font-size: 0.3rem;
+  color: white;
+  background: url(../../images/showTime.png) left center no-repeat;
+  background-size: 0.44rem 0.44rem;
+}
+.chooseBlock .showTime {
+  text-align: center;
+}
+.userBlockOne{
+  height: 1rem;
+  background-color: #F7F7F7;
+}
+.tabBlockDetail3 .aboutDate1,.userBlockOne .aboutDate1{
+  display: block;
+  height: 100%;
+  width: 62%;
+  float: right;
+  text-align: right;
+  padding-right: 8%;
+  margin-bottom: 0;
+  border: none;
+  background: none;
+  font-size: 0.3rem;
+  color: #333333;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  tap-highlight-color:rgba(0,0,0,0);
+  /*-webkit-tap-highlight-color:rgba(0,0,0,0);*/
+ /* -webkit-tap-highlight-color:transparent;*/
+/*  -webkit-appearance: none ;
+  -webkit-user-select: none;
+  outline: none;*/
+ /* background-color: #F7F7F7;*/
+};
+
+.userBlockNew .aboutDate1 {
+  height: 0.58rem;
+  margin-bottom: 0;
+  border: none;
+  background: none;
+  font-size: 0.3rem;
+  color: #333333;
+  text-align: center;
+  padding: 0;
+  background-color: #F7F7F7;
+/*  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  tap-highlight-color:rgba(0,0,0,0);*/
+};
+/*
+
+input{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  tap-highlight-color:rgba(0,0,0,0);
+ !* -webkit-tap-highlight-color:transparent;*!
+  -webkit-appearance: none ;
+ !* -webkit-tap-highlight-color:rgba(255,0,0,0);*!
+  -webkit-user-select: none;
+  outline: none;
+}*/

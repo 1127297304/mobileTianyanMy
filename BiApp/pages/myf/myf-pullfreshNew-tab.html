@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+    <link rel="stylesheet" href="../../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../../css/mui.poppicker.css" />
+    <link rel="stylesheet" href="../../css/calendar.css" />
+    <link rel="stylesheet" href="../../css/dropload.css" />
+    <link rel="stylesheet" href="../../css/newCommon.css" />
+    <link rel="stylesheet" href="../../css/other/myf-pullfreshNew-tab.css"/>
+    <script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+</head>
+<body>
+    <header id="header" class="mui-bar mui-bar-nav commonHeader">
+        <!--标题-->
+        <div class="title" >
+            <a class="mui-action-back"></a>
+            <h1 class="mui-title">实时数据-美易分</h1>
+            <!-- <a href="##"></a>-->
+        </div>
+        <!-- 时间部分-->
+        <div class="chooseBlock">
+            <div class="wen">更新时间:</div>
+            <div class="showTime">
+                <span id="showNowDate">-</span>
+            </div>
+        </div>
+    </header>
+    <!--遮罩-->
+    <div class="mask">
+        <div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+    </div>
+    <!--点击整体进行维度选择时出现遮罩-->
+    <div class="mark" id="mark"></div>
+    <!--系统分析重点指标说明-->
+    <div id="sysQuesBox" class="sysQuesBox centreQuesBox2">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">系统分析重点指标说明</h5>
+            <ul class="popDetailUl"  style="padding-top: .2rem;padding-bottom:0;">
+                <li>
+                    <span class="popLeft">系统进件数</span>
+                    <span class="popRight">当日进件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过件数</span>
+                    <span class="popRight">当日进件当日通过所有审批的件数，含系统直批</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过金额(万元)</span>
+                    <span class="popRight">当日进件当日通过所有审批的金额，含系统直批</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过率</span>
+                    <span class="popRight">当日进件当日通过所有审批的件数/当日进件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">放款件数</span>
+                    <span class="popRight">当日进件当日通过审批当日放款的件数</span>
+                </li>
+                <li >
+                    <span class="popLeft">放款金额(万元)</span>
+                    <span class="popRight">当日进件当日通过审批当日放款的金额</span>
+                </li>
+                <li>
+                    <span class="popLeft">件均</span>
+                    <span class="popRight">当日进件当日通过审批当日放款的金额/当日进件当日通过审批当日放款的件数</span>
+                </li>
+            </ul>
+            <div class="close" id="sysClose"></div>
+        </div>
+    </div>
+    <!--核心流程指标说明-->
+    <div id="centreQuesBox" class="sysQuesBox centreQuesBox">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">核心流程指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">进件件数</span>
+                    <span class="popRight">当日进件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直拒件数</span>
+						<span class="popRight">当日进件当日系统拒绝件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直批件数</span>
+						<span class="popRight">当日进件当日系统直批件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直批率</span>
+                    <span class="popRight">系统直批率=系统直批件数/进件件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">人工审核分流件数</span>
+                    <span class="popRight">当日进件当日进入人工审核阶段的件数</span>
+                </li>
+                <!--<li>
+                    <span class="popLeft">初审审核件数</span>
+                    <span class="popRight">当日进件当日初审审核件数</span>
+                </li>-->
+                <li>
+                    <span class="popLeft">初审拒绝件数</span>
+                    <span class="popRight">当日进件当日初审拒绝件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">初审补件件数</span>
+                    <span class="popRight">当日进件当日初审补件件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">初审通过件数</span>
+                    <span class="popRight">当日进件当日初审通过件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">初审其他</span>
+                    <span class="popRight">人工审核分流件数-拒绝件数-通过件数，包括用户放弃等</span>
+                </li>
+                <li>
+                    <span class="popLeft">待电核审核件数</span>
+                    <span class="popRight">初审通过件数-电审审核件数</span>&nbsp;&nbsp;&nbsp;
+                </li>
+                <li>
+                    <span class="popLeft">电核审核件数</span>
+                    <span class="popRight">当日进件当日电审审核件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核取消件数</span>
+                    <span class="popRight">当日进件当日电审取消件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核拒绝件数</span>
+                    <span class="popRight">当日进件当日电审拒绝件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核通过件数</span>
+                    <span class="popRight">当日进件当日电审通过件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核通过率</span>
+                    <span class="popRight">当日进件当日电审通过件数/当日进件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核其他</span>
+                    <span class="popRight">电审审核件数-拒绝件数-取消-通过件数，包含用户放弃、签约超时等</span>
+                </li>
+            </ul>
+
+            <div class="close" id="centreClose"></div>
+        </div>
+    </div>
+    <!--时段趋势指标说明-->
+    <div id="sysQuesBox2" class="sysQuesBox">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">时段趋势指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">注册人数</span>
+                    <span class="popRight">当日每个时段注册用户数。仅全部有，分产品无</span>
+                </li>
+                <li>
+                    <span class="popLeft">进件件数</span>
+                    <span class="popRight">当日每个时段进件件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过件数</span>
+                    <span class="popRight">当日每个时段所有审批通过件数，含直批</span>
+                </li>
+                <li>
+                    <span class="popLeft">放款金额(万元)</span>
+                    <span class="popRight">当日每个时段放款金额</span>
+                </li>
+                <li>
+                    <span class="popLeft">放款件数</span>
+                    <span class="popRight">当日每个时段放款件数</span>
+                </li>
+            </ul>
+            <div class="close" id="sysClose2"></div>
+        </div>
+    </div>
+
+    <!--此处是正文内容-->
+    <div class="mui-content">
+       <!-- 此处是系统分析部分-->
+       <!-- 此处是系统分析的标题部分-->
+        <div class="common-tabBlock firstCont">
+            <h5 class="user">
+                系统分析
+                <span class="question" id="userQues"></span>
+            </h5>
+            <!--此处是系统分析的渠道部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll segmentedControlOne">
+                    <a class="mui-control-item mui-active active">全部</a>
+                    <a class="mui-control-item ">3C电器</a>
+                    <a class="mui-control-item ">交叉贷</a>
+                    <a class="mui-control-item ">月供贷</a>
+                    <a class="mui-control-item ">公积金贷</a>
+                    <a class="mui-control-item ">手机租赁</a>
+                    <a class="mui-control-item ">教育分期</a>
+                </div>
+            </div>
+            <!--此处是系统分析的数据部分-->
+            <div class="xtfxsj" id="xtfxsj">
+                <table style="width: 100%;">
+                    <thead>
+                    <tr style="height:38px" class="head1">
+                        <th class="Name1" style="width: 50%;">重点指标</th>
+                        <th class="Name2" style="width: 35%;">今日</th>
+                        <th class="Name3" style="width: 15%;">环比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="height:38px;font-size: 0.3rem">
+                        <td>系统进件数</td>
+                        <td class="data2" v-cloak>{{Data.appno_num}}</td>
+                        <td class="data3 hbcL" v-cloak>{{Data.appno_qoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>信审通过件数</td>
+                        <td class="data2" v-cloak>{{Data.credit_audit_pass_num}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.credit_audit_pass_qoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>信审通过金额(万元)</td>
+                        <td class="data2" v-cloak>{{Data.credit_audit_pass_amount}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.credit_audit_pass_amount_qoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>信审通过率</td>
+                        <td class="data2" v-cloak>{{Data.credit_audit_pass_rate}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.credit_audit_pass_rate_qoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>放款件数</td>
+                        <td class="data2" v-cloak>{{Data.credit_num}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.credit_qoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>放款金额(万元)</td>
+                        <td class="data2" v-cloak>{{Data.credit_amount}}</td>
+                        <td class="data3 hbcL" v-cloak>{{Data.credit_amount_qoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>件均</td>
+                        <td class="data2" v-cloak>{{Data.avg_appno}}</td>
+                        <td class="data3 hbcL" v-cloak>{{Data.avg_appno_qoq}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--此处是核心流程部分-->
+        <div class="common-tabBlock secondCont">
+           <!-- 此处是核心流程标题-->
+            <h5 class="user">
+                核心流程
+                <span class="question" id="centreQues"></span>
+            </h5>
+            <!--此处是核心流程渠道部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll segmentedControlOne">
+                    <a class="mui-control-item mui-active active">全部</a>
+                    <a class="mui-control-item ">3C电器</a>
+                    <a class="mui-control-item ">交叉贷</a>
+                    <a class="mui-control-item ">月供贷</a>
+                    <a class="mui-control-item ">公积金贷</a>
+                    <a class="mui-control-item ">手机租赁</a>
+                    <a class="mui-control-item ">教育分期</a>
+                </div>
+            </div>
+            <!--此处是核心流程数据部分-->
+            <div class="LCT">
+                <div id="chart-container">
+                    <div class="jjl1 same">
+                        <p class="p1">进件件数</p>
+                        <p class="p2" v-cloak>{{Data.appno_num}}</p>
+                        <p v-cloak class="hbcL">{{Data.appno_qoq}}</p>
+                    </div>
+                    <div class="wangge1">
+                        <div class="wangge2"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="zjl2 same newWrap">
+                            <p class="p1">系统直拒件数</p>
+                            <p class="p2" v-cloak>{{Data.sys_refuse_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.sys_refuse_qoq}}</p>
+                        </div>
+                        <div class="fll3 same newWrap">
+                            <p class="p1">人工审核分流量</p>
+                            <p class="p2" v-cloak>{{Data.manual_audit_flow_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.manual_audit_flow_qoq}}</p>
+                        </div>
+                        <div class="zpl4 same newWrap">
+                            <p class="p1">系统直批件数</p>
+                            <p class="p2" v-cloak>{{Data.sys_pass_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.sys_pass_qoq}}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="same right Bian">
+                            <p class="p1">系统直批率</p>
+                            <p class="p2" v-cloak>{{Data.sys_pass_rate}}</p>
+                            <p v-cloak class="hbcL">{{Data.sys_pass_rate_qoq}}</p>
+                        </div>
+                    </div>
+                    <div class="wangge3">
+                        <div class="wangge4"></div>
+                    </div>
+                    <div class="clearfix">
+                        <!--<div class="jdl9 same newWrap">
+                            <p class="p1">初审补件件数</p>
+                            <p class="p2" v-cloak>{{Data.manual_audit_patch_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.manual_audit_patch_qoq}}</p>
+                        </div>-->
+                        <div class="jdl9 same newWrap">
+                            <p class="p1">初审其他</p>
+                            <p class="p2" v-cloak>{{Data.manual_audit_other_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.manual_audit_other_qoq}}</p>
+                        </div>
+                        <div class="qxl10 same newWrap">
+                            <p class="p1">初审通过件数</p>
+                            <p class="p2" v-cloak>{{Data.manual_audit_pass_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.manual_audit_pass_qoq}}</p>
+                        </div>
+                        <div class="tgl11 same newWrap">
+                            <p class="p1">初审拒绝件数</p>
+                            <p class="p2" v-cloak>{{Data.manual_audit_refuse_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.manual_audit_refuse_qoq}}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix ">
+                        <div class=" same Bian single">
+                            <p class="p1">初审补件件数</p>
+                            <p class="p2" v-cloak>{{Data.manual_audit_patch_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.manual_audit_patch_qoq}}</p>
+                        </div>
+                    </div>
+                    <div class="wangge7">
+                        <div class="wangge8"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="qxl10 same newWrap deleteMiddle">
+                            <p class="p1">电核审核件数</p>
+                            <p class="p2" v-cloak>{{Data.tel_audit_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.tel_audit_qoq}}</p>
+                        </div>
+                        <div class="tgl11 same newWrap">
+                            <p class="p1">待电核审核件数</p>
+                            <p class="p2" v-cloak>{{Data.wait_tel_audit_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.wait_tel_audit_qoq}}</p>
+                        </div>
+                    </div>
+                    <div class="wangge1">
+                        <div class="wangge2"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="jdl9 same newWrap">
+                            <p class="p1">电核拒贷件数</p>
+                            <p class="p2" v-cloak>{{Data.tel_audit_refuse_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.tel_audit_refuse_qoq}}</p>
+                        </div>
+                        <div class="qxl10 same newWrap">
+                            <p class="p1">电核通过件数</p>
+                            <p class="p2" v-cloak>{{Data.tel_audit_pass_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.tel_audit_pass_qoq}}</p>
+                        </div>
+                        <div class="tgl11 same newWrap">
+                            <p class="p1">电核取消件数</p>
+                            <p class="p2" v-cloak>{{Data.tel_audit_cancel_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.tel_audit_cancel_qoq}}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class=" same  Bian newWrap Middle">
+                            <p class="p1">电核通过率</p>
+                            <p class="p2" v-cloak>{{Data.tel_audit_pass_rate}}</p>
+                            <p v-cloak class="hbcL">{{Data.tel_audit_pass_rate_qoq}}</p>
+                        </div>
+                        <div class=" same  Bian newWrap">
+                            <p class="p1">电核其他</p>
+                            <p class="p2" v-cloak>{{Data.tel_audit_other_num}}</p>
+                            <p v-cloak class="hbcL">{{Data.tel_audit_other_qoq}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--此处是时段趋势-->
+        <div class="common-tabBlock thirdCont">
+            <!--此处是时段趋势部分的标题部分-->
+            <h5 class="user">
+                时段趋势
+                <span class="question" id="centreQues2"></span>
+            </h5>
+            <!--此处是时段趋势渠道部分-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll segmentedControlOne">
+                    <a class="mui-control-item mui-active active">全部</a>
+                    <a class="mui-control-item ">3C电器</a>
+                    <a class="mui-control-item ">交叉贷</a>
+                    <a class="mui-control-item ">月供贷</a>
+                    <a class="mui-control-item ">公积金贷</a>
+                    <a class="mui-control-item ">手机租赁</a>
+                    <a class="mui-control-item ">教育分期</a>
+                </div>
+            </div>
+            <!--此处是时段趋势筛选部分-->
+            <div class="tabBlockDetail">
+                <div class="show">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker" class="showUserCh">
+                                <a id="userResult" class="pickerRe" data-value="010">注册人数</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="echartDetail" id="sdqs"></div>-->
+                </div>
+                <div class="off">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars2" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo2" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree2" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker2" class="showUserCh">
+                                <a id="userResult2" class="pickerRe" data-value="020">进件件数</a>
+                            </div>
+                        </div>
+                    </div>
+                   <!-- <div class="echartDetail" id="sdqs"></div>-->
+                </div>
+                <div class="off">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars3" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo3" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree3" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker3" class="showUserCh">
+                                <a id="userResult3" class="pickerRe" data-value="020">进件件数</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="echartDetail" id="sdqs"></div>-->
+                </div>
+                <div class="off">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars4" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo4" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree4" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker4" class="showUserCh">
+                                <a id="userResult4" class="pickerRe" data-value="020">进件件数</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="echartDetail" id="sdqs"></div>-->
+                </div>
+                <div class="off">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars5" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo5" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree5" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker5" class="showUserCh">
+                                <a id="userResult5" class="pickerRe" data-value="020">进件件数</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="echartDetail" id="sdqs"></div>-->
+                </div>
+                <div class="off">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars7" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo7" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree7" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker7" class="showUserCh">
+                                <a id="userResult7" class="pickerRe" data-value="020">进件件数</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="echartDetail" id="sdqs"></div>-->
+                </div>
+                <div class="off">
+                    <div class="userBlock clearfix">
+                        <div class="chooseDate">
+                            <span>对比日期</span>
+                            <div>
+                                <input type="text" class="calendars changeDate multiple" id="calendars6" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsTwo6" value="-" format="mm-dd">
+                                <input type="text" class="calendars changeDate multiple" id="calendarsThree6" value="-" format="mm-dd">
+                            </div>
+
+                        </div>
+                        <div class="wdChange">
+                            <b>用户指标</b>
+                            <div id="showUserPicker6" class="showUserCh">
+                                <a id="userResult6" class="pickerRe" data-value="020">进件件数</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="echartDetail" id="sdqs"></div>-->
+                </div>
+            </div>
+            <div class="echartDetail" id="sdqs"></div>
+            <div id="sdqs1" class="off">
+                <img src="../../images/timg.gif" />
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/common/mui.min.js"></script>
+    <script src="../../js/common/jquery2.0.js"></script>
+    <script src="../../js/common/vue.js"></script>
+    <script src="../../js/common/echarts.min.js"></script>
+    <!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+    <script src="../../js/common/mui.picker.all.js"></script>
+    <script src="../../js/common/dropload.js"></script>
+    <script src="../../js/common/ceshiAjax.js"></script>
+    <script src="../../js/common/newCalendar.js"></script>
+    <script src="../../js/mine/myf-pullfreshNew-tab.js"></script>
+</body>
+</html>

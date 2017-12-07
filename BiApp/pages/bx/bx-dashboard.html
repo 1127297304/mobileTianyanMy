@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<!--<link rel="stylesheet" href="../../css/calendar.css" />-->
+		<link rel="stylesheet" href="../../css/progress.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/bx.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title">
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">业务概览-保险</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<em id="showAutoLoanDate"></em>
+				</div>
+			</div>
+		</header>
+		
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		<!--点击整体进行维度选择时出现遮罩-->
+		<div class="mark" id="mark"></div>
+		
+		<!--当日概览跟踪指标说明-->
+	    <div id="DayAndMonthOverviewQuesBox" class="sysQuesBox DayAndMonthOverviewQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">当日概览指标说明</h5>
+				<ul class="popDetailUl">
+					<li class="">
+						<span class="popLeft">保费总额</span>
+						<span class="popRight">统计维度下所有场景的保费总额</span>
+					</li>
+					<li class="">
+						<span class="popLeft">投保客户数</span>
+						<span class="popRight">统计维度下所有场景的投保客户数</span>
+					</li>
+					<li class="">
+						<span class="popLeft">保单笔数</span>
+						<span class="popRight">统计维度下所有场景的保单笔数</span>
+					</li>
+					<li>
+						<span class="popLeft">理财类\非车保障类\车险类</span>
+						<span class="popRight">统计维度下理财类\非车保障类\车险类各自的保费总额(投保客户数\保单笔数)</span>
+					</li>
+					<li>
+						<span class="popLeft">占比</span>
+						<span class="popRight">统计维度下各业务线交易金额占总量的比值</span>
+					</li>
+					<li>
+						<span class="popLeft">同比</span>
+						<span class="popRight">统计维度下所有场景交易金额与过去一个统计单位下相同粒度的同比(红升蓝降)</span>
+					</li>
+					<li>
+						<span class="popLeft">环比</span>
+						<span class="popRight">统计维度下所有场景交易金额与过去一个统计粒度的环比(红升蓝降)</span>
+					</li>
+				</ul>
+				<div class="close" id="DayAndMonthOverviewClose"></div>
+			</div>
+	    </div>
+	    <!--新增提示框	昨日更新  或  历史数据  请求数据-->
+	    <div id="infoTips" v-show="showTips">
+		    <div class="sysQuesBox dateTips">
+				<div class="infoDetail">
+					<h5 class="popDetailHeader">更新提示</h5>
+					<ul class="popDetailUl">
+						<li v-if="yesTips" v-cloak>
+							<span>{{yesTips}}</span>
+						</li>
+						<li v-if="hisTips && hisTips.length!=0">
+							<span v-cloak>
+								<a v-for="items in hisTips">{{items}}</a>
+							</span>
+						</li>
+					</ul>
+					<div class="close" @click="closeTips"></div>
+				</div>
+		    </div>
+		</div>
+		<!--内容-->
+		<div class="mui-content">
+			<!--第一块		日、月选项卡切换	当日概览模块-->
+			<div class="common-tabBlock firstCont">
+				<h5 class="user">
+	            	当日概览
+	            	<span class="question" id="businessOverviewQues"></span>
+	            </h5>
+	            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item four mui-active active">
+							日
+						</a>
+						<a class="mui-control-item four ">
+							月
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdBox">
+							<div class="aboutDate">
+								<input id='onlyDay' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showDayMoneyPicker">
+								<a id="dayMoneyResult" class="pickerRe amountType" data-value="premium_amt">保费金额</a>
+							</div>
+							<div class="wdChoose" id="showDayPlatformPicker">
+								<a id="dayPlatform" class="pickerRe platType" data-value="all">全部平台</a>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdBox">
+							<div class="aboutDate">
+								<input id='onlyMonth' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showMonMoneyPicker">
+								<a id="monMoneyResult" class="pickerRe amountType" data-value="premium_amt">保费金额</a>
+							</div>
+							<div class="wdChoose" id="showMonPlatformPicker">
+								<a id="monPlatform" class="pickerRe platType" data-value="all">全部平台</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="trueLoan">
+					<div v-if="topDayData && topDayData.pie_chart && topDayData.pie_chart.pie_data && topDayData.pie_chart.pie_data.length!=0 ">
+						<div class="dayAmount">
+							<div>
+								<h5>{{topDayData.index_name}}</h5>
+								<h2 class="top-mid" v-cloak>
+									<span>{{big}}</span><small>{{small}}</small>
+								</h2>
+								<div class="top-bot">
+									<div class="bot-left">
+										上月同比：<b :class="[{'up':(topDayData.year_qoq.indexOf('+') > -1)},{'down':(topDayData.year_qoq.indexOf('-') > -1)}]" v-cloak>{{topDayData.year_qoq}}</b><em></em>	
+									</div>
+									<div class="bot-rit">
+										昨日环比：<b :class="[{'up':(topDayData.month_qoq.indexOf('+') > -1)},{'down':(topDayData.month_qoq.indexOf('-') > -1)}]" v-cloak>{{topDayData.month_qoq}}</b><em></em>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="echartDetail noBot" id="yjgl" :class="topDayData.pie_chart.pie_data.length != 0 ? '' : 'area'"></div>
+						<ul class="productType">
+							<li v-for="(items,index) in topDayData.prod_list" v-cloak>
+								<p>
+									<span><b>{{items.prod_name}}</b></span>
+								</p>
+								<p class="amount">
+									<span>{{items.index_val}}</span>
+								</p>
+								<p class="rate clearfix">
+									<span>占比</span>
+									<span :class="[{'up':(items.rate != '0')}]" >{{items.rate}}</span>
+								</p>
+								<p class="rate clearfix">
+									<span>同比</span>
+									<span :class="[{'up':(items.year_qoq.indexOf('+') > -1)},{'down':(items.year_qoq.indexOf('-') > -1)}]" >{{items.year_qoq}}</span>
+								</p>
+								<p class="rate clearfix">
+									<span>环比</span>
+									<span :class="[{'up':(items.month_qoq.indexOf('+') > -1)},{'down':(items.month_qoq.indexOf('-') > -1)}]" >{{items.month_qoq}}</span>
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div v-else class="noInfo">
+						暂无业务数据
+					</div>
+				</div>
+			</div>
+
+			<!--第二块		交易规模模块-->
+			<div class="common-tabBlock secondCont">
+				<h5 class="user">
+	            	交易规模
+	            	<!--<span class="question" id="riskOverviewQues"></span>-->
+	           	</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item four mui-active active">
+							保险总额
+						</a>
+						<a class="mui-control-item four">
+							新增用户
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdBox wdSum">
+							<div class="aboutDate">
+								<input id='scaleSum' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showScalePlatPicker">
+								<a id="scalePlatResult" class="pickerRe platType" data-value="all">全部平台</a>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdBox wdSum">
+							<span>仅线上数据部分</span>
+							<div class="aboutDate">
+								<input id='scaleUser' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="riskManage">
+					<div v-if="riskData && riskData.premium_amt_list && riskData.premium_amt_list.length!=0">
+						<!--保险总额-->
+						<div class="echartDetail" id="sbyy"></div>
+					</div>
+					<div v-if="riskData && riskData.new_user_list && riskData.new_user_list.length!=0">
+						<!--新增用户-->
+						<div class="echartDetail" id="tzzl"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!--第三块		产品分析-->
+			<div class="common-tabBlock thirdCont">
+				<h5 class="user">
+	            	产品分析
+	            	<!--<span class="question" id="proOverviewQues"></span>-->
+	           	</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item four mui-active active">
+							保险金额
+						</a>
+						<a class="mui-control-item four">
+							保险笔数
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdBox wdSum">
+							<div class="aboutDate">
+								<input id='proAmount' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showProAmountPicker">
+								<a id="proAmountResult" class="pickerRe amountType" data-value="financial">理财类</a>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdBox wdSum">
+							<div class="aboutDate">
+								<input id='proNum' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showProNumPicker">
+								<a id="proNumResult" class="pickerRe amountType" data-value="financial">理财类</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="proAnalysize">
+					<div v-if="riskData && riskData.first_invest_list && riskData.first_invest_list.length!=0">
+						<div class="echartDetail" id="cpfx"></div>
+					</div>
+					<div v-else class="noInfo">
+						暂无业务数据
+					</div>
+				</div>
+			</div>
+
+			<!--第四块 	利率分析模块-->
+			<div class="common-tabBlock fiveCont">
+				<h5 class="user">
+	            	渠道占比
+	           	</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item mui-active active four">
+							日
+						</a>
+						<a class="mui-control-item four">
+							月
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdBox wdDate">
+							<div class="aboutDate">
+								<input id='rateDay' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdBox wdDate">
+							<div class="aboutDate">
+								<input id='rateMonth' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="cityDetails">
+					<div v-if="areaData && areaData.auto_insure_amt_list && areaData.auto_insure_amt_list.length !=0">
+						<div class="echartDetail" id="dyjj" :class="areaData.auto_insure_amt_list.length != 0 ? '' : 'area'"></div>
+					</div>
+					<div v-else class="noInfo">
+						暂无业务数据
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/common/progress.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/bx-ywgl.js"></script>
+	</body>
+</html>

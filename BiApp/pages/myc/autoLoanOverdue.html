@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/progress.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/myc-autoLoanOveredue.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">逾期专题-美易车</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<em id="showAutoLoanDate"></em>
+					<!--<span></span>-->
+				</div>
+			</div>
+		</header>
+		
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		
+		<!--内容-->
+		<!--日、月概览指标说明-->
+	    <!--<div id="DayAndMonthOverviewQuesBox" class="sysQuesBox DayAndMonthOverviewQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">核心指标说明</h5>
+				<ul class="popDetailUl">
+					<li class="marginBot">
+						<span class="popLeft">日实际投资金额</span>
+						<span class="popRight">统计日期当日的实际投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日充值金额</span>
+						<span class="popRight">选定日期当天的充值金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日提现金额</span>
+						<span class="popRight">选定日期当天的申请提现金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日满标金额</span>
+						<span class="popRight">选定日期当天的满标产品的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日到期金额</span>
+						<span class="popRight">选定日期当天的到期投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">当日投资人数</span>
+						<span class="popRight">选定日期当天的投资用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">当日投资单数</span>
+						<span class="popRight">选定日期当天的投资订单数量</span>
+					</li>
+					<li>
+						<span class="popLeft">月累计投资金额</span>
+						<span class="popRight">截止选定日期当月累计的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">充值金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的充值金额</span>
+					</li>
+					<li>
+						<span class="popLeft">提现金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的申请提现金额</span>
+					</li>
+					<li>
+						<span class="popLeft">满标金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的满标产品的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">到期金额累计(万元)</span>
+						<span class="popRight">截止选定日期当月累计的到期投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">投资人数累计</span>
+						<span class="popRight">截止选定日期当月累计的投资用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">投资单数累计</span>
+						<span class="popRight">截止选定日期当月累计的投资订单数量</span>
+					</li>
+				</ul>
+				<div class="close" id="DayAndMonthOverviewClose"></div>
+			</div>
+	    </div>-->
+		<div class="mui-content">
+			
+			<!--图表区域-->
+			<!--第二块选项卡-->
+			<div class="common-tabBlock secondCont">
+				<h5 class="user">
+	            	逾期率-趋势类型
+	            	<!--<span class="question" id=""></span>-->
+	            </h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+							月趋势
+				        </a>
+				        <a class="mui-control-item">
+				           	年趋势
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdBox">
+							<div class="aboutDate">
+								<input id='onlyMonth' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showMonthMoneyPicker">
+								<a id="monthMoneyResult" class="pickerRe" data-value="">全部金额</a>
+							</div>
+							<div class="wdChoose" id="showMonthProductPicker">
+								<a id="monthProductResult" class="pickerRe" data-value="">全部产品</a>
+							</div>
+							<div class="wdChoose" id="showMonthCarPicker">
+								<a id="monthCarResult" class="pickerRe" data-value="">全部车类</a>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdBox">
+							<div class="aboutDate">
+								<input id='onlyYear' class="btn mui-btn mui-btn-block disabled" type="text" disabled readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showYearMoneyPicker">
+								<a id="yearMoneyResult" class="pickerRe" data-value="">全部金额</a>
+							</div>
+							<div class="wdChoose" id="showYearProductPicker">
+								<a id="yearProductResult" class="pickerRe" data-value="">全部产品</a>
+							</div>
+							<div class="wdChoose" id="showYearCarPicker">
+								<a id="yearCarResult" class="pickerRe" data-value="">全部车类</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="echartDetail" id="tzzl"></div>
+			</div>
+			
+			<!--第四块-->
+			<div class="common-tabBlock fourthCont ">
+				<h5 class="user">
+	            	逾期率-地区类型
+	            	<!--<span class="question" id=""></span>-->
+	            </h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	日
+				        </a>
+				        <a class="mui-control-item ">
+							月
+				        </a>
+				        <a class="mui-control-item ">
+							年
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdBox area">
+							<div class="aboutDate">
+								<input id='areaDay' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showDayMoneyAreaPicker">
+								<a id="dayMoneyAreaResult" class="pickerRe" data-value="">全部金额</a>
+							</div>
+							<div class="wdChoose" id="showDayMobAreaPicker">
+								<a id="dayMobAreaResult" class="pickerRe" data-value="MOB1">MOB1</a>
+							</div>
+							<div class="wdChoose" id="showDayProductAreaPicker">
+								<a id="dayProductAreaResult" class="pickerRe" data-value="">全部产品</a>
+							</div>
+							<div class="wdChoose" id="showDayCarAreaPicker">
+								<a id="dayCarAreaResult" class="pickerRe" data-value="">全部车类</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wdBox area">
+							<div class="aboutDate">
+								<input id='areaMonth' class="btn mui-btn mui-btn-block" type="text" readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showMonthMoneyAreaPicker">
+								<a id="monthMoneyAreaResult" class="pickerRe" data-value="">全部金额</a>
+							</div>
+							<div class="wdChoose" id="showMonthMobAreaPicker">
+								<a id="monthMobAreaResult" class="pickerRe" data-value="MOB1">MOB1</a>
+							</div>
+							<div class="wdChoose" id="showMonthProductAreaPicker">
+								<a id="monthProductAreaResult" class="pickerRe" data-value="">全部产品</a>
+							</div>
+							<div class="wdChoose" id="showMonthCarAreaPicker">
+								<a id="monthCarAreaResult" class="pickerRe" data-value="">全部车类</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wdBox area">
+							<div class="aboutDate">
+								<input id='areaYear' class="btn mui-btn mui-btn-block disabled" type="text" disabled readonly="readonly">
+							</div>
+							<div class="wdChoose" id="showYearMoneyAreaPicker">
+								<a id="yearMoneyAreaResult" class="pickerRe" data-value="">全部金额</a>
+							</div>
+							<div class="wdChoose" id="showYearMobAreaPicker">
+								<a id="yearMobAreaResult" class="pickerRe" data-value="MOB1">MOB1</a>
+							</div>
+							<div class="wdChoose" id="showYearProductAreaPicker">
+								<a id="yearProductAreaResult" class="pickerRe" data-value="">全部产品</a>
+							</div>
+							<div class="wdChoose" id="showYearCarAreaPicker">
+								<a id="yearCarAreaResult" class="pickerRe" data-value="">全部车类</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mapBlock">
+					<h4 class="blockTitle">省级逾期率分布</h4>
+					<div class="echartDetail" id="dytzje"></div>
+				</div>
+				
+				<!--大区城市详情-->
+				<div class="areaCityList" id="areaBlock">
+					<h4 class="blockTitle">大区逾期率明细</h4>
+					<ul class="areaName clear" v-if="areaData">
+						<li v-for="item in areaData" @click="changeDetailData(item)" :class="item.name == curName ? 'active' : ''">
+							<span>{{item.name}}</span>
+							<span>{{item.value}}</span>
+						</li>
+					</ul>
+					<div v-else class="noInfo">
+						暂无业务数据
+					</div>
+					<div class="detailBlock" v-if="areaDetail.total_data">
+						<h4>{{areaDetail.total_data.areaName}}</h4>
+						<ul class="tableNameList clear">
+							<li>
+								<span>城市数/城市</span>
+								<span>{{mobType}}分子</span>
+								<span>{{mobType}}分母</span>
+								<span>{{mobType}}</span>
+							</li>
+							<li>
+								<span>{{areaDetail.total_data.city_count}}</span>
+								<span>{{areaDetail.total_data.mob_numerator}}</span>
+								<span>{{areaDetail.total_data.mob_denominator}}</span>
+								<span>{{areaDetail.total_data.mob}}</span>
+							</li>
+						</ul>
+						<ul class="cityList clear eventItem">
+							<li class="clear" v-for="value in areaDetail.list_data" @click="showPop(value.city_code,$event)">
+								<button>{{value.city_name}}</button>
+								<button>{{value.mob_numerator}}</button>
+								<button>{{value.mob_denominator}}</button>
+								<button>{{value.mob}}</button>
+							</li>
+						</ul>
+					</div>
+					
+					<!--弹框-->
+					<div class="detailBlock popBlock" v-show="vShow" v-if="cityDetail && cityDetail.total_data.city_name">
+						<h4 class="closePar">
+							{{cityDetail.total_data.city_name}}
+							<a class="close" @click="closePop"></a>
+						</h4>
+						<ul class="tableNameList clear">
+							<li>
+								<span>SP数量</span>
+								<span>{{mobType}}分子</span>
+								<span>{{mobType}}分母</span>
+								<span>{{mobType}}</span>
+							</li>
+							<li>
+								<span>{{cityDetail.total_data.sp_count}}</span>
+								<span>{{cityDetail.total_data.mob_numerator}}</span>
+								<span>{{cityDetail.total_data.mob_denominator}}</span>
+								<span>{{cityDetail.total_data.mob}}</span>
+							</li>
+						</ul>
+						<ul class="cityList clear popCityList">
+							<li class="clear" v-for="citys in cityDetail.list_data">
+								<span>{{citys.sp_name}}</span>
+								<span>{{citys.mob_numerator}}</span>
+								<span>{{citys.mob_denominator}}</span>
+								<span>{{citys.mob}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="popLoadingBlock">
+						Loading~
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/common/progress.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/myc-autoLoanOverdue.js"></script>
+		
+	</body>
+
+</html>

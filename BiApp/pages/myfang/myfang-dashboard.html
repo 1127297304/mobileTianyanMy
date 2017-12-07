@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/progress.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/myfang.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title">
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">业务概览-美易房</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+					<span></span>
+				</div>
+			</div>
+		</header>
+		
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		<!--点击整体进行维度选择时出现遮罩-->
+		<div class="mark" id="mark"></div>
+		
+		<!--kpi跟踪指标说明-->
+	    <div id="DayAndMonthOverviewQuesBox" class="sysQuesBox DayAndMonthOverviewQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">KPI跟踪指标说明</h5>
+				<ul class="popDetailUl">
+					<li class="marginBot">
+						<span class="popLeft">年度实际放款金额</span>
+						<span class="popRight">本年第一日至T-1的累计放款金额</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">年度存量余额笔数、金额</span>
+						<span class="popRight">T-1的累计放款笔数、金额</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">月实际放款金额</span>
+						<span class="popRight">本月第一日至T-1的累计放款金额</span>
+					</li>
+					<li>
+						<span class="popLeft">年完成进度</span>
+						<span class="popRight">本年第一日至T-1的累计放款金额/本年放款目标值</span>
+					</li>
+					<li>
+						<span class="popLeft">月完成进度</span>
+						<span class="popRight">本月第一日至T-1的累计放款金额/本月放款目标值</span>
+					</li>
+					<li>
+						<span class="popLeft">年度目标KPI</span>
+						<span class="popRight">业务提供</span>
+					</li>
+					<li>
+						<span class="popLeft">月度目标KPI</span>
+						<span class="popRight">业务提供</span>
+					</li>
+					<li>
+						<span class="popLeft">年放款件数</span>
+						<span class="popRight">当年实际放款件数</span>
+					</li>
+					<li>
+						<span class="popLeft">月放款件数</span>
+						<span class="popRight">当月实际放款件数</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">年放款件均利率</span>
+						<span class="popRight">当年实际放款平均利率</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">月放款件均利率</span>
+						<span class="popRight">当月实际放款平均利率</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">月下户分配件数</span>
+						<span class="popRight">当月系统成功分配下户的件数</span>
+					</li>
+					<li>
+						<span class="popLeft">月下户成功率</span>
+						<span class="popRight">下户完成已提交件数/当月系统成功分配下户的件数</span>
+					</li>
+				</ul>
+				<div class="close" id="DayAndMonthOverviewClose"></div>
+			</div>
+	    </div>
+	    <!--业绩概览指标说明-->
+	    <div id="businessOverviewQuesBox" class="sysQuesBox businessOverviewQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">业绩概览指标说明</h5>
+				<ul class="popDetailUl">
+					<li>
+						<span class="popLeft">放款金额</span>
+						<span class="popRight">当日各产品放款总金额</span>
+					</li>
+					<li>
+						<span class="popLeft">放款件数</span>
+						<span class="popRight">当日放款的件数</span>
+					</li>
+					<li>
+						<span class="popLeft">放款件均</span>
+						<span class="popRight">放款金额/放款件数</span>
+					</li>
+					<li>
+						<span class="popLeft">上月同比</span>
+						<span class="popRight">(统计日统计量-前月当期统计量)/前月当期统计量</span>
+					</li>
+					<li>
+						<span class="popLeft">前日环比</span>
+						<span class="popRight">(统计日统计量-前日统计量)/前日统计量</span>
+					</li>
+				</ul>
+				<div class="close" id="businessOverviewClose"></div>
+			</div>
+	    </div>
+	    <!--风控概览指标说明-->
+	    <div id="riskOverviewQuesBox" class="sysQuesBox riskOverviewQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">用户规模指标说明</h5>
+				<ul class="popDetailUl">
+					<li class="marginBot">
+						<span class="popLeft">月累计进件件数</span>
+						<span class="popRight">当月累计下户分配进件件数</span>
+					</li>
+				</ul>
+				<div class="close" id="riskOverviewClose"></div>
+			</div>
+	    </div>
+		<!--内容-->
+		<div class="mui-content">
+			<!--当月跟踪、当年跟踪选项卡切换-->
+			<!--第一块		kpi跟踪模块选项卡-->
+			<div class="common-tabBlock firstCont">
+				<h5 class="user firstShow">
+	            	KPI跟踪
+	            	<span class="question" id="DayAndMonthOverviewQues"></span>
+	          	</h5>
+	          	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item four mui-active active" data-code="monthTail">
+							当月跟踪
+						</a>
+						<a class="mui-control-item four " data-code="yearTail">
+							当年跟踪
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail dateArea" id="topDay">
+					<div class="monthAmount show" >
+						<!--进度条-->
+			          	<div class="mui-content ph-progress-data">
+							<ul class="mui-table-view mui-grid-view paddBotFive">
+								<li class="mui-table-view-cell mui-col-xs-12 ph-progress-wrapper paddTopSix" id="progress2">
+									<div class="ph-progress-text mui-clearfix mui-grid-view">
+										<h5 class="ph-progress-timePercent mui-pull-left ">时间进度:<span>-</span></h5>
+										<h5 class="ph-progress-donePercent mui-pull-left mui-col-xs-3.5 ">KPI完成率:<span>-</span></h5>
+										<!--<h5 class="ph-progress-donePercent mui-pull-left mjje "><span id="sumMoney"></span>&nbsp;<span>(万元)</span></h5>-->
+									</div>
+									<div class="ph-progress">
+										<div class="ph-progress-total mui-pull-left"></div>
+										<div class="ph-progress-plan"></div>
+										<div class="ph-progress-actual"></div>
+									</div>
+									<div class="ph-progress-legend">
+										<!--<lable class="ph-progress-plan ">时间进度</lable>
+										<lable class="ph-progress-total ">KPI</lable>-->
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+						<!--数值部分-->
+						<div>
+							<div class="progressData">
+								<div class="realCom">
+									<span>放款金额(万元)</span>
+									<h4 class="real" v-cloak>
+										<span class="big">{{comBig}}</span><small>{{comSmall}}</small>
+									</h4>
+								</div>
+								<div class="totleCom">
+									<span>KPI(万元)</span>
+									<h4 v-cloak>
+										<span class="big">{{kpiBig}}</span><small>{{kpiSmall}}</small>
+									</h4>
+								</div>
+							</div>
+							<div class="dataDetail" id="dataDetail">
+								<div class="horiBlock clear" v-if="topDayData &&  topDayData.paupers_allot_num">
+									<div >
+										<span>放款件数</span>
+										<h4 v-cloak>{{topDayData.loan_num}}</h4>
+										<span>下户分配件数</span>
+										<h4 v-cloak>{{topDayData.paupers_allot_num}}</h4>
+									</div>
+									<div>
+										<span>放款件均利率</span>
+										<h4  v-cloak>{{topDayData.loan_avg_rate}}</h4>
+										<span>下户成功率</span>
+										<h4  v-cloak>{{topDayData.paupers_success_rate}}</h4>
+									</div>
+								</div>
+								<div class="horiBlock clear" v-else>
+									<div >
+										<span>放款件数</span>
+										<h4 v-cloak>{{topDayData.loan_num}}</h4>
+										<span>历史累计放款金额(万元)</span>
+										<h4 v-cloak>{{topDayData.history_loan_amount}}</h4>
+									</div>
+									<div>
+										<span>放款件均利率</span>
+										<h4  v-cloak>{{topDayData.loan_avg_rate}}</h4>
+										<span>历史累计放款笔数</span>
+										<h4  v-cloak>{{topDayData.history_loan_num}}</h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--图表区域-->
+			<!--第二块		业绩概览模块-->
+			<div class="common-tabBlock thirdCont">
+				<h5 class="user">
+	            	业绩概览
+	            	<span class="question" id="businessOverviewQues"></span>
+	            </h5>
+				<div class="tabBlockDetail">
+					<div class="show" id="trueLoan">
+						<div v-if="topDayData && topDayData.prod_data && topDayData.prod_data.length!=0 ">
+							<div class="echartDetail" id="yjgl" :class="topDayData.pie_chart.data_list.length != 0 ? '' : 'area'"></div>
+							<ul class="productType">
+								<li v-for="(items,index) in topDayData.prod_data" :class="[{'on':(items.name == clickClass)},{}]" @click='clickChange(items.code,items.name)' v-cloak>
+									<p>
+										<span>{{items.name}}</span>
+									</p>
+									<p>
+										<span>{{items.loan_amount}}万</span>
+									</p>
+									<p>
+										<span>上月同比</span>
+									</p>
+									<p>
+										<span :class="[{'up':(items.month_qoq.indexOf('+') > -1)},{'down':(items.month_qoq.indexOf('-') > -1)},{'init':(items.month_qoq == '∞') || (items.month_qoq == 0)}]" >{{items.month_qoq}}</span>
+									</p>
+									<p>
+										<span>昨日环比</span>
+									</p>
+									<p>
+										<span :class="[{'up':(items.yest_qoq.indexOf('+') > -1)},{'down':(items.yest_qoq.indexOf('-') > -1)},{'init':(items.yest_qoq == '∞') || (items.yest_qoq == 0)}]" >{{items.yest_qoq}}</span>
+									</p>
+								</li>
+							</ul>
+							<div class="echartDetail" id="tzzl"></div>
+						</div>
+						<div v-else class="noInfo">
+							暂无业务数据
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第三块		用户规模模块-->
+			<div class="common-tabBlock secondCont">
+				<h5 class="user">
+	            	用户规模
+	            	<span class="question" id="riskOverviewQues"></span>
+	           	</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item four mui-active active" data-code="allArea">
+							全部地区
+						</a>
+						<a class="mui-control-item four " data-code="601030101">
+							北京
+						</a>
+						<a class="mui-control-item four " data-code="601030301">
+							上海
+						</a>
+						<a class="mui-control-item four" data-code="601030201">
+							天津
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail" id="riskManage">
+					<div class="show">
+						<div v-if="riskData">
+							<div class="echartDetail" id="sbyy"></div>
+						</div>
+						<div v-else class="noInfo">
+							暂无业务数据
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第四块 	利率分析模块-->
+			<div class="common-tabBlock fiveCont">
+				<h5 class="user">
+	            	利率分析
+	           	</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					<div class="mui-scroll ">
+						<a class="mui-control-item mui-active active four" data-code="allArea">
+							全部地区
+						</a>
+						<a class="mui-control-item four" data-code="601030101">
+							北京
+						</a>
+						<a class="mui-control-item four" data-code="601030301">
+							上海
+						</a>
+						<a class="mui-control-item four" data-code="601030201">
+							天津
+						</a>
+					</div>
+				</div>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="wdChoose" id="showUserPickerAll">
+							<b>筛选维度：</b>
+							<a id="userResultAll" class="pickerRe" data-value="je">金额(万元)</a>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdChoose" id="showUserPickerBj">
+							<b>筛选维度：</b>
+							<a id="userResultBj" class="pickerRe" data-value="je">金额(万元)</a>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdChoose" id="showUserPickerSh">
+							<b>筛选维度：</b>
+							<a id="userResultSh" class="pickerRe" data-value="je">金额(万元)</a>
+						</div>
+					</div>
+					<div class="">
+						<div class="wdChoose" id="showUserPickerTj">
+							<b>筛选维度：</b>
+							<a id="userResultTj" class="pickerRe" data-value="je">金额(万元)</a>
+						</div>
+					</div>
+				</div>
+				<div id="cityDetails">
+					<div v-if="areaData && areaData.total_loan_amount && areaData.total_loan_amount.length !=0">
+						<div class="echartDetail" id="dyjj" :class="areaData.total_loan_amount.length != 0 ? '' : 'area'"></div>
+					</div>
+					<div v-else class="noInfo">
+						暂无业务数据
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/common/progress.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/myfang-ywgl.js"></script>
+	</body>
+</html>

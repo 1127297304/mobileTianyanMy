@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<!--<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />-->
+		<link rel="stylesheet" href="../../css/swiper.min.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/zzzt.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">债转业务专题</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+					<span></span>
+				</div>
+			</div>
+		</header>
+		
+		<!--遮罩-->
+		<!--<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>-->
+		
+		<!--内容-->
+		<div class="mui-content">
+			
+			<!--债转业务专题-基础数据部分-->
+			<div id="topTable">
+		    
+				<!--当日债转-->
+				<div class="common-tabBlock">
+					<h5 class="user">
+						当日债转
+					</h5>
+					<table class="tableBlock" border="0" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th></th><th>卖出</th><th>环比</th><th>买入</th><th>环比</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(value,index) in topMonthData.lrzjList">
+								<td v-cloak>{{value.type}}</td>
+								<td :class=" value.yhsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.yhsHb}}</td>
+								<td :class=" value.bsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.bsHb}}</td>
+								<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+								<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="mr">买入用户金额占比<span><em>2.12</em>%</span></p>
+				</div>
+				
+				<!--当日债转卖出用户-->
+				<div class="common-tabBlock">
+					<h5 class="user">
+						当日债转卖出用户
+					</h5>
+					
+					<!--横向可滑动选项卡-->
+					<div class="horiTab">
+						<ul>
+							<li></li>
+							<li>用户数</li>
+							<li>笔数</li>
+							<li>金额(万元)</li>
+						</ul>
+						<div class="swiper-container">
+					        <div class="swiper-wrapper">
+					            <div class="swiper-slide">
+					            	<ul>
+										<li><span class="bold">平价转让</span><span>环比</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+									</ul>
+					            </div>
+					            <div class="swiper-slide">
+					            	<ul>
+										<li><span class="bold">溢价转让</span><span>环比</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+									</ul>
+					            </div>
+					            <div class="swiper-slide">
+					            	<ul>
+										<li><span class="bold">折价转让</span><span>环比</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+										<li><span>58%</span><span>+12%</span></li>
+									</ul>
+					            </div>
+					        </div>
+					        <!-- Add Pagination -->
+					        <div class="swiper-pagination"></div>
+					    </div>
+						
+					</div>
+				</div>
+				
+				<!--累计债转-->
+				<div class="common-tabBlock">
+					<h5 class="user">
+						累计债转
+					</h5>
+					<table class="tableBlock" border="0" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th></th><th>卖出</th><th>环比</th><th>买入</th><th>环比</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(value,index) in topMonthData.lrzjList">
+								<td v-cloak>{{value.type}}</td>
+								<td :class=" value.yhsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.yhsHb}}</td>
+								<td :class=" value.bsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.bsHb}}</td>
+								<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+								<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+				
+				<!--债转用户所有投资-->
+				<div class="common-tabBlock">
+					<h5 class="user">
+						债转用户所有投资
+					</h5>
+					<table class="tableBlock" border="0" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th></th><th>卖出</th><th>环比</th><th>买入</th><th>环比</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(value,index) in topMonthData.lrzjList">
+								<td v-cloak>{{value.type}}</td>
+								<td :class=" value.yhsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.yhsHb}}</td>
+								<td :class=" value.bsHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.bsHb}}</td>
+								<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+								<td :class=" value.jeHb.indexOf('-') > 0 ? 'green' : 'red' " v-cloak>{{value.jeHb}}</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+				
+			</div>
+			
+			<!--图表区域-->
+			
+			<!--客户转化率模块-->
+			<div class="common-tabBlock firstCont">
+				<h5 class="user">
+					债转业务趋势
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	 金额
+				        </a>
+				        <a class="mui-control-item ">
+							用户数
+				        </a>
+				    </div>
+				</div>
+				<div class="tabBlockDetail">
+					<div class="show">
+						<ul id="jeChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="jekhzhl"></div>
+					</div>
+					<div class="">
+						<ul id="khChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="khzhl"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!--第二块选项卡-->
+			<div class="common-tabBlock secondCont">
+				<h5 class="user">
+					卖出用户债转后资金流向
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	 金额
+				        </a>
+				        <a class="mui-control-item">
+							用户数
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<div class="echartDetail" id="tzzl"></div>
+					</div>
+					<div class="">
+						<div class="echartDetail" id="stzb"></div>
+					</div>
+				</div>
+			</div>
+			<!--第三块-->
+			<div class="common-tabBlock thirdCont">
+				<h5 class="user">
+					债转用户首复投
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	金额
+				        </a>
+				        <a class="mui-control-item ">
+							笔数
+				        </a>
+				        <a class="mui-control-item ">
+							用户数
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<ul id="lcjeChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="yhgm"></div>
+					</div>
+					<div class="">
+						<ul id="lcbsChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="xzyh"></div>
+					</div>
+					<div class="">
+						<ul id="lckhChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="txtb"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!--第四块-->
+			<div class="common-tabBlock fourthCont ">
+				<h5 class="user">
+					债转用户累计投资
+				</h5>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	金额
+				        </a>
+				        <a class="mui-control-item ">
+							笔数
+				        </a>
+				        <!--<a class="mui-control-item ">
+							客户数
+				        </a>-->
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<ul id="tzjeChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="dytzje"></div>
+					</div>
+					<div class="">
+						<ul id="tzbsChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="dytzrs"></div>
+					</div>
+					<!--<div class="">
+						<ul id="tzkhChooseItem" class="chooseItem">
+							<li class="on" data-value="day">卖出客户</li>
+							<li data-value="week">买入客户</li>
+						</ul>
+						<div class="echartDetail" id="yyzl"></div>
+					</div>-->
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<!--<script src="../../js/common/mui.picker.all.js"></script>-->
+		<script src="../../js/common/swiper.jquery.min.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/zzzt.js"></script>
+	</body>
+
+</html>

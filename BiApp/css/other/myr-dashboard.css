@@ -1,0 +1,116 @@
+.on {
+  display: block;
+}
+.off {
+  display: none;
+}
+/*.totleCom{
+    margin-left: 0;
+}*/
+.dataDetail1 {
+  background: white;
+}
+.dataDetail1 .horiBlock {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.dataDetail1 .horiBlock .teli {
+  width: 100%;
+  text-align: center;
+}
+.dataDetail1 .horiBlock .teli li:nth-of-type(1) {
+  font-size: 0.26rem;
+}
+.dataDetail1 .horiBlock .teli li:nth-of-type(2) {
+  font-size: 0.4rem;
+  font-weight: bold;
+}
+.dataDetail1 .horiBlock div {
+  float: left;
+  width: 50%;
+}
+.dataDetail1 .horiBlock div:nth-of-type(1) {
+  text-align: right;
+  padding-right: 0.4rem;
+  border-right: dashed 1px #bcbcbc;
+}
+.dataDetail1 .horiBlock div:nth-of-type(2) {
+  padding-left: 0.4rem;
+  text-align: left;
+}
+.dataDetail1 span {
+  font-size: 0.26rem;
+  color: #666666;
+  display: block;
+  padding-top: 0.15rem;
+  padding-bottom: 0.1rem;
+}
+.dataDetail1 h4 {
+  color: black;
+  font-size: 0.4rem;
+  font-weight: bold;
+  color: #222328;
+}
+/*.chooseBlock{
+    &>div{
+        width: 100%;
+        height: 100%;
+    }
+    &>div:first-child{
+        input{
+            height: 100%;
+        }
+    }
+    .dateChange{
+        position: relative;
+        &::before{
+            content:'';
+            position: absolute;
+            width: 0.44rem;
+            height: 0.44rem;
+            background: url(../../images/showTime.png) no-repeat;
+            background-size: auto 100%;
+            top: 50%;
+            margin-top: -0.22rem;
+            left: 28%;
+        }
+        .calendars{
+            margin-bottom: 0;
+            background: #3E4FF9;;
+            border: none;
+            outline: none;
+            color: white;
+            border-radius: initial;
+            font-size: 0.3rem;
+            text-align: center;
+        }
+        span{
+            position: absolute;
+            width: 0.36rem;
+            height: 0.2rem;
+            background: url(../../images/push.png) no-repeat;
+            background-size: 100% auto;
+            top: 50%;
+            margin-top: -0.1rem;
+            right: 2rem;
+        }
+    }
+}*/
+#topMonth {
+  padding-bottom: 0.3rem;
+}
+.mark {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  right: 0;
+  z-index: 8;
+  top: 0;
+}
+.mark.active {
+  display: block;
+}

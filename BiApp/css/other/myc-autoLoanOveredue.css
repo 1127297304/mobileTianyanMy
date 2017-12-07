@@ -1,0 +1,257 @@
+.chooseBlock .dateChange {
+  line-height: 0.95rem;
+  text-align: center;
+}
+.chooseBlock .dateChange em {
+  color: white;
+  font-size: 0.3rem;
+  padding-left: 1rem;
+}
+.common-tabBlock .tabBlockDetail .wdBox {
+  height: 2.2rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.common-tabBlock .tabBlockDetail .wdBox.area {
+  margin-bottom: .1rem;
+}
+.common-tabBlock .tabBlockDetail .wdBox.area .aboutDate,
+.common-tabBlock .tabBlockDetail .wdBox.area .wdChoose {
+  width: 30%;
+}
+.common-tabBlock .tabBlockDetail .aboutDate,
+.common-tabBlock .tabBlockDetail .wdChoose {
+  width: 40%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+.common-tabBlock .tabBlockDetail .wdChoose {
+  text-align: center;
+}
+.common-tabBlock .tabBlockDetail .wdChoose a {
+  float: initial;
+}
+.common-tabBlock .tabBlockDetail .aboutDate {
+  height: 0.9rem;
+  position: relative;
+  background: #F7F7F7;
+}
+.common-tabBlock .tabBlockDetail .aboutDate input {
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  border-radius: 0;
+  font-size: 0.26rem;
+  color: #333333;
+  font-weight: normal;
+  text-align: center;
+}
+.common-tabBlock .tabBlockDetail .aboutDate input.disabled {
+  background: #eeeded;
+  color: black;
+}
+.common-tabBlock .tabBlockDetail .aboutDate:after {
+  content: '';
+  position: absolute;
+  background: url(../../images/blackTriangle.png) no-repeat;
+  width: 0.28rem;
+  height: 0.16rem;
+  background-size: 100% auto;
+  top: 50%;
+  right: 3%;
+  margin-top: -0.08rem;
+  z-index: 1;
+}
+.areaName {
+  clear: both;
+}
+.areaName li {
+  width: 30%;
+  margin: .1rem .1rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  float: left;
+  font-size: .28rem;
+  border: 1px solid #4152FA;
+  border-radius: 34px;
+  color: #3E4FF9;
+}
+.areaName li.active {
+  background: #769DF5;
+  color: #fff;
+}
+.mapBlock {
+  border-top: 1px solid #F7F7F7;
+  border-bottom: 1px solid #F7F7F7;
+  margin-bottom: .2rem;
+}
+.areaCityList {
+  background: #F7F7F7;
+  padding-top: .05rem;
+}
+.blockTitle {
+  font-weight: normal;
+  text-align: center;
+  font-size: 0.3rem;
+  color: #3E4FF9;
+  padding-bottom: .15rem;
+  padding-top: .25rem;
+  margin-bottom: .15rem;
+  margin-top: 0;
+}
+.detailBlock {
+  margin-bottom: .1rem;
+}
+.detailBlock h4 {
+  padding: .3rem 0 .15rem .28rem;
+  font-size: .3rem;
+  font-weight: normal;
+  color: #3E4FF9;
+}
+.detailBlock .tableNameList {
+  width: 100%;
+  padding: 0 .2rem;
+  border-bottom: 1px #D4D4D4 solid;
+}
+.detailBlock .tableNameList li span {
+  float: left;
+  padding-bottom: .1rem;
+  font-size: .26rem;
+  text-align: center;
+  color: #333333;
+}
+.detailBlock .tableNameList li span:first-child {
+  width: 23%;
+}
+.detailBlock .tableNameList li span:nth-of-type(2) {
+  width: 25%;
+}
+.detailBlock .tableNameList li span:nth-of-type(3) {
+  width: 29%;
+}
+.detailBlock .tableNameList li span:nth-of-type(4) {
+  width: 23%;
+}
+.detailBlock .cityList {
+  padding: 0 .2rem;
+}
+.detailBlock .cityList li {
+  border-bottom: 1px #D4D4D4 dashed;
+  width: 100%;
+}
+.detailBlock .cityList li span,
+.detailBlock .cityList li button {
+  color: #333333;
+  float: left;
+  text-align: center;
+  font-size: 0.26rem;
+  padding: .1rem 0;
+}
+.detailBlock .cityList li span:first-child,
+.detailBlock .cityList li button:first-child {
+  width: 23%;
+}
+.detailBlock .cityList li span:nth-of-type(2),
+.detailBlock .cityList li button:nth-of-type(2) {
+  width: 25%;
+}
+.detailBlock .cityList li span:nth-of-type(3),
+.detailBlock .cityList li button:nth-of-type(3) {
+  width: 29%;
+}
+.detailBlock .cityList li span:nth-of-type(4),
+.detailBlock .cityList li button:nth-of-type(4) {
+  width: 23%;
+}
+.detailBlock .cityList li:last-child {
+  border-bottom: none;
+}
+.detailBlock .cityList li button {
+  border: none;
+  background: transparent;
+}
+.detailBlock .cityList.popCityList li span:first-child {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+#DayAndMonthOverviewQuesBox,
+#userQuesBox,
+#centreQuesBox {
+  display: none;
+}
+.closePar {
+  position: relative;
+}
+.close {
+  position: absolute;
+  width: .46rem;
+  height: .46rem;
+  background: url(../../images/close2.png) no-repeat;
+  background-size: 100% auto;
+  right: 2%;
+  top: 50%;
+  margin-top: -0.23rem;
+}
+.fourthCont {
+  position: relative;
+}
+.popLoadingBlock {
+  height: 50px;
+  background: rgba(87, 106, 118, 0.7);
+  position: absolute;
+  border-radius: 10px;
+  top: 49%;
+  width: 50%;
+  left: 25%;
+  z-index: 2;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  display: none;
+}
+.popBlock {
+  width: 95%;
+  position: absolute;
+  background: rgba(87, 106, 118, 0.9);
+  left: 2.5%;
+  z-index: 2;
+}
+.popBlock h4 {
+  color: lightblue;
+}
+.popBlock .tableNameList li span {
+  color: white;
+}
+.popBlock .cityList li span {
+  color: white;
+}
+.qsNoInfo {
+  text-align: center;
+  font-size: .3rem;
+  line-height: 5rem;
+}
+.mui-dtpicker {
+  background-color: white;
+}
+.mui-dtpicker-title h5 {
+  background-color: white;
+}
+.noInfo {
+  font-size: .3rem;
+  text-align: center;
+  color: #333333;
+}

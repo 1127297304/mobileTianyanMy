@@ -1,0 +1,94 @@
+p {
+  margin: 0;
+}
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.productType {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.productType li {
+  text-align: center;
+  margin-bottom: .15rem;
+  border: 1px solid lightblue;
+  border-radius: 8px;
+  width: 23.5%;
+}
+.productType li p {
+  color: #333333;
+}
+.productType li p span {
+  font-size: .26rem;
+}
+.productType li p span.up {
+  color: #FF5252;
+}
+.productType li p span.down {
+  color: #0CBD4C;
+}
+.productType li p span.init {
+  color: #333333;
+}
+.productType li.on {
+  background: lightblue;
+}
+.productType li.on p span {
+  color: #fff;
+}
+.productType li.on p span.up {
+  color: #FF5252;
+}
+.productType li.on p span.down {
+  color: #0CBD4C;
+}
+.productType li.on p span.init {
+  color: #333333;
+}
+.common-tabBlock .echartDetail {
+  margin-bottom: .15rem;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item.four {
+  padding: 0 23.8px;
+}
+#DayAndMonthOverviewQuesBox,
+#businessOverviewQuesBox,
+#riskOverviewQuesBox {
+  display: none;
+}
+.DayAndMonthOverviewQuesBox .infoDetail {
+  height: 68%;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .close {
+  bottom: -10%;
+}
+.riskOverviewQuesBox .popDetailUl {
+  padding-bottom: 0;
+}
+.riskOverviewQuesBox .close {
+  bottom: -40%;
+}
+.noInfo {
+  font-size: .26rem;
+  text-align: center;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+.echartDetail.area {
+  text-align: center;
+  line-height: 5rem;
+  font-size: .26rem;
+  font-weight: bold;
+}

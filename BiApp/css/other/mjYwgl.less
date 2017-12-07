@@ -1,0 +1,79 @@
+//美借的header
+.chooseBlock{
+    &>div{
+        width: 50%;
+        float: left;
+        height: 100%;
+    }
+    &>div:first-child{
+        border-right: 1px solid white;
+        input{
+            height: 100%;
+        }
+    }
+    .dateChange{
+        position: relative;
+        &::before{
+            display: none;
+        }
+        span{
+            position: absolute;
+            width: 0.36rem;
+            height: 0.2rem;
+            background: url(../../images/push.png) no-repeat;
+            background-size: 100% auto;
+            top: 50%;
+            margin-top: -0.1rem;
+            right: 0.5rem;
+        }
+        .calendars{
+            margin-bottom: 0;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            border-radius: initial;
+            font-size: 0.3rem;
+            padding-left: 0.8rem;
+            text-align: left;
+        }
+    }
+    .wdChange{
+        position: relative;
+        button{
+            font-size: 0.3rem;
+            padding-left: 0.5rem;
+            height: 100%;
+            background: transparent;
+            border: none;
+            text-align: left;
+            width: 100%;
+            color: white;
+        }
+        span{
+            position: absolute;
+            width: 0.36rem;
+            height: 0.2rem;
+            background: url(../../images/push.png) no-repeat;
+            background-size: 100% auto;
+            top: 50%;
+            margin-top: -0.1rem;
+            right: 1.7rem;
+        }
+    }
+}
+
+//美借外部 -点击跳转至美借自营时的遮罩层
+.mark{
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+    right: 0;
+    z-index: 10000000;
+    top: 0;
+    &.active{
+        display: block;
+    }
+}

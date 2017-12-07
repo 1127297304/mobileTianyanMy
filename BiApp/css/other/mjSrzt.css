@@ -1,0 +1,54 @@
+.dateArea .top-bot div:first-child {
+  width: 100%;
+  float: initial;
+  text-align: center;
+}
+.dateArea .dataDetail .horiBlock div {
+  width: 33.3%;
+  text-align: center;
+}
+.dateArea .dataDetail .horiBlock div:first-child {
+  text-align: center;
+  padding-right: 0;
+}
+.dateArea .dataDetail .horiBlock div:nth-of-type(2) {
+  border-right: 1px dotted #D3D3D3;
+}
+.dateArea .dataDetail .horiBlock div:last-child {
+  text-align: center;
+  padding-left: 0;
+}
+.dataDetail .horiBlock p {
+  font-size: 0.26rem;
+  margin-top: 0.16rem;
+  margin-bottom: 0;
+}
+.dataDetail .horiBlock p em {
+  display: inline-block;
+  height: 0.21rem;
+  width: 0.15rem;
+}
+.dataDetail .horiBlock p b {
+  padding-right: 0.1rem;
+}
+.dataDetail .horiBlock p .up {
+  color: #FF5252;
+}
+.dataDetail .horiBlock p .up + em {
+  background: url(../../images/up.png) no-repeat;
+  background-size: auto 100%;
+}
+.dataDetail .horiBlock p .down {
+  color: #0CBD4C;
+}
+.dataDetail .horiBlock p .down + em {
+  background: url(../../images/down.png) no-repeat;
+  background-size: auto 100%;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+  padding: 0px 10px;
+}
+/*
+.dataDetail .horiBlock .dataDetailLeft{
+    border-right: 1px dotted #D3D3D3;
+}*/

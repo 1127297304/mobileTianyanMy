@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/*
+ * 基础变量定义
+ */
+/*
+ * 进度条样式定义
+ */
+.ph-progress-wrapper {
+  margin-bottom: 0.5rem; }
+  .ph-progress-wrapper .ph-progress-text {
+    padding-bottom: 0.5rem; }
+    .ph-progress-wrapper .ph-progress-text h5 {
+      color: #F05F8A;
+      font-size: 1.6rem;
+      text-align: left; }
+      .ph-progress-over.ph-progress-wrapper .ph-progress-text h5 {
+        color: #07BA9C; }
+      .ph-progress-wrapper .ph-progress-text h5.ph-progress-timePercent {
+        padding-right: 1rem;
+        text-align: right; }
+      /*.ph-progress-wrapper .ph-progress-text h5.ph-progress-donePercent {
+        padding-left: 1rem; }*/
+  .ph-progress-wrapper .ph-progress {
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    border: 1px solid #ccc;
+    height: 0.7rem; }
+    .ph-progress-wrapper .ph-progress div {
+      transition: all 0.4s ease-in-out; }
+    .ph-progress-wrapper .ph-progress .ph-progress-total {
+      position: relative;
+      height: 0.7rem; }
+      .ph-progress-wrapper .ph-progress .ph-progress-total:after {
+        content: ' ';
+        height: 1.7rem;
+        background-color: #FF8800;
+        position: absolute;
+        width: 4px;
+        top: -70%;
+        right: 0;
+        z-index: 110; }
+    .ph-progress-wrapper .ph-progress .ph-progress-plan {
+      height: 0.7rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #ccc;
+      z-index: 10; }
+      .ph-progress-wrapper .ph-progress .ph-progress-plan:after {
+        content: ' ';
+        height: 1.7rem;
+        background-color: #525252;
+        position: absolute;
+        width: 2px;
+        top: -70%;
+        right: 0;
+        z-index: 100; }
+      .ph-progress-over.ph-progress-wrapper .ph-progress .ph-progress-plan {
+        z-index: 100;
+        background-color: #07BA9C; }
+    .ph-progress-wrapper .ph-progress .ph-progress-actual {
+      height: 0.7rem;
+      background-color: #F05F8A;
+      position: relative;
+      z-index: 10; }
+      .ph-progress-over.ph-progress-wrapper .ph-progress .ph-progress-actual {
+        background-color: #07BA9C; }
+  .ph-progress-wrapper .ph-progress-legend {
+    margin-top: 1.4rem;
+    text-align: right;
+    font-size: 1.4rem; }
+    .ph-progress-wrapper .ph-progress-legend lable {
+      margin-right: 0.7rem;
+      padding-left: 0.5rem;
+      border-left: 2px solid #525252; }
+      .ph-progress-wrapper .ph-progress-legend lable.ph-progress-total {
+        border-color: #FF8800;
+        border-width: 4px; }

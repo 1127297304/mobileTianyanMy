@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/progress.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/mjSrzt.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">收入专题</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="dateChange">
+					<input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+					<span></span>
+				</div>
+			</div>
+		</header>
+		
+		<!--loading + 遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		
+		<!--内容-->
+		<div class="mui-content">
+			<!--日概览、月概览选项卡切换-->
+			<!--第一块选项卡-->
+			<div class="common-tabBlock">
+				
+				<div class="tabBlockDetail dateArea">
+					<div class=" dayAmount show" id="topDay">
+						<div>
+							<h5>本月累计(万元)</h5>
+							<h2 class="top-mid" v-cloak>
+								<span>{{big}}</span><small>{{small}}</small>
+							</h2>
+							<div class="top-bot">
+								<div class="bot-left">
+									环比：<b :class=" topDayData.monthCumulativeChain > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthCumulativeChain}}%</b><em></em>
+								</div>
+							</div>
+						</div>
+						<div class="dataDetail" v-if="topDayData.monthGjjCumulativeChain">
+							<div class="horiBlock clear">
+								<div>
+									<span>现金贷(万元)</span>
+									<h4 v-cloak>{{topDayData.monthPdCumulativeAmount}}</h4>
+									<p>环比：<b :class=" Number(topDayData.monthPdCumulativeChain.replace(',','')) > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthPdCumulativeChain}}%</b><em></em></p>
+								</div>
+								<div>
+									<span>小额分期(万元)</span>
+									<h4  v-cloak>{{topDayData.monthSpCumulativeAmount}}</h4>
+									<p>环比：<b :class=" Number(topDayData.monthSpCumulativeChain.replace(',','')) > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthSpCumulativeChain}}%</b><em></em></p>
+								</div>
+								<div>
+									<span>公积金贷(万元)</span>
+									<h4 v-cloak>{{topDayData.monthGjjCumulativeAmount}}</h4>
+									<p>环比：<b :class=" Number(topDayData.monthGjjCumulativeChain.replace(',','')) > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthGjjCumulativeChain}}%</b><em></em></p>
+								</div>
+							</div>
+						</div>
+						<div class="dataDetail" v-if="topDayData.monthGjjCumulativeChain">
+							<div class="horiBlock clear">
+								<div>
+									<span>快速借款(万元)</span>
+									<h4 v-cloak>{{topDayData.monthFastLendCumulativeAmount}}</h4>
+									<p>环比：<b :class=" Number(topDayData.monthFastLendCumulativeChain.replace(',','')) > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthFastLendCumulativeChain}}%</b><em></em></p>
+								</div>
+								<div>
+									<span>卡族分期(万元)</span>
+									<h4  v-cloak>{{topDayData.monthCardPeriodCumulativeAmount}}</h4>
+									<p>环比：<b :class=" Number(topDayData.monthCardPeriodCumulativeChain.replace(',','')) > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthCardPeriodCumulativeChain}}%</b><em></em></p>
+								</div>
+								<div>
+									<span>闪银资产分期(万元)</span>
+									<h4 v-cloak>{{topDayData.monthShanyinzcCumulativeAmount}}</h4>
+									<p>环比：<b :class=" Number(topDayData.monthShanyinzcCumulativeChain.replace(',','')) > 0 ? 'up' : 'down' " v-cloak>{{topDayData.monthShanyinzcCumulativeChain}}%</b><em></em></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!--图表区域-->
+			<!--第三块-->
+			<div class="common-tabBlock firstCont">
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+				    <div class="mui-scroll">
+				        <a class="mui-control-item mui-active active">
+				           	收入趋势
+				        </a>
+				        <a class="mui-control-item ">
+							项目分布
+				        </a>
+				        <a class="mui-control-item  ">
+							渠道分析
+				        </a>
+				        <a class="mui-control-item  ">
+							借款周期
+				        </a>
+				    </div>
+				</div>
+				
+				<div class="tabBlockDetail">
+					<div class="show">
+						<!--<div class="wdChoose" id="showUserPickerItem1">
+							<b>指标类型：</b>
+							<a id="userResultItem1" class="pickerRe">整体</a>
+						</div>-->
+						<div class="echartDetail" id="tzzl"></div>
+					</div>
+					<div>
+						<div class="wdChoose" id="showUserPickerItem">
+							<b>指标类型：</b>
+							<a id="userResultItem" class="pickerRe">整体</a>
+						</div>
+						<div class="echartDetail" id="txzb"></div>
+					</div>
+					<div>
+						<div class="wdChoose" id="showUserPicker">
+							<b>指标类型：</b>
+							<a id="userResult" class="pickerRe">整体</a>
+						</div>
+						<div class="echartDetail" id="stzb"></div>
+					</div>
+					<div>
+						<div class="wdChoose" id="showUserPickerBorrow">
+							<b>指标类型：</b>
+							<a id="userResultBorrow" class="pickerRe">现金贷</a>
+						</div>
+						<div class="echartDetail" id="yyzl"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<!--如果页面中有进度条则引入下面两个链接-->
+		<!--<script src="../../js/common/util.js"></script>
+		<script src="../../js/common/progress.js"></script>-->
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/mj-srzt.js"></script>
+
+	</body>
+
+</html>

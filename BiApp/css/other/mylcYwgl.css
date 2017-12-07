@@ -1,0 +1,34 @@
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+  padding: 0 13px;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item:last-child {
+  padding: 0px 11px;
+}
+.tabBlockDetail .totalMoney {
+  line-height: 0.7rem;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.26rem;
+  color: #666666;
+}
+.tabBlockDetail .totalMoney span {
+  font-size: 0.36rem;
+  color: #333333;
+}
+.common-tabBlock .tabBlockDetail .wdChoose.nopull:after {
+  background: none;
+}
+#DayAndMonthOverviewQuesBox,
+#userQuesBox,
+#centreQuesBox {
+  display: none;
+}
+.DayAndMonthOverviewQuesBox .infoDetail {
+  height: 68%;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .close {
+  bottom: -10%;
+}

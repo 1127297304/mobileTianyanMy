@@ -1,0 +1,91 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.menuHtml {
+  background: white;
+}
+.menuSet {
+  background: #3E4FF9;
+  height: 0.95rem;
+  line-height: 0.95rem;
+  padding: 0 0.3rem;
+  float: left;
+  width: 100%;
+}
+.menuSet span {
+  position: absolute;
+  color: white;
+}
+.menuSet span:nth-of-type(1) {
+  width: 0.78rem;
+  height: 0.78rem;
+  border-radius: 0.4rem;
+  top: 50%;
+  margin-top: -0.38rem;
+  background: url(../../images/peoIcon.png) no-repeat center center;
+  background-size: 100% 100%;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.menuSet span:nth-of-type(2) {
+  left: 1.18rem;
+  font-size: 0.28rem;
+}
+.menuSet .mui-btn-link.menu-back {
+  line-height: 0.95rem;
+  float: right;
+  font-size: 0.26rem;
+  color: white;
+  margin-right: initial;
+  margin-left: initial;
+}
+.mui-content {
+  padding-top: 0.95rem;
+  width: 100%;
+  height: 100%;
+}
+.menu-box {
+  padding: 0;
+  width: 25%;
+  height: 100%;
+  overflow-y: auto;
+  float: left;
+  text-align: center;
+  background: #F7F7F7;
+}
+.menu-box .menu-cont li {
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: 0.3rem;
+  color: #666666;
+}
+.menu-box .menu-cont li.active {
+  background: white;
+  color: #3E4FF9;
+}
+.detailBox {
+  width: 75%;
+  float: left;
+  height: 100%;
+  overflow-y: auto;
+}
+.detailBox dl {
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding-top: 0.34rem;
+}
+.detailBox dl dt img {
+  width: 0.88rem;
+  height: auto;
+}
+.detailBox dl dd {
+  font-size: 0.28rem;
+  color: #666666;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

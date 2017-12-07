@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="menuHtml">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/newCommon.css" />
+		<link rel="stylesheet" href="css/other/menuList.css" />
+		<script src="js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar menuSet">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<!--<h1 class="mui-title">导航栏</h1>-->
+			<span class="peoIcon"></span>
+			<span id="userInfo">-</span>
+			<button class="mui-btn mui-btn-link mui-btn-nav mui-pull-right menu-back" id="backToIndex">
+				<!--<span class="mui-icon mui-icon-close menu-close"></span>-->退出
+			</button>
+		</header>
+		<!--内容-->
+		<div class="mui-content">
+			<!--<div class="menu-top">
+				<img src="images/logoMenu.png" alt="" class="menu-logo" />
+				<div>
+					<h3 class="userEmail">-</h3>
+				</div>
+			</div>-->
+			<!--<ul id="list" class="listPage-list">
+				<a  open-type="common" href="pages/mylc/dashboard.html">
+					透明渐变
+				</a>
+			</ul>-->
+			<!--左侧的列表-->
+			<div id="list" class="menu-box">
+				<ul class="menu-cont"  v-cloak>
+					
+					<li :data-item="items.value" :class=" index == menuId ? 'active' : '' " v-for="(items,index) in newtodos" @click="showDetail($event,index)" >
+						{{items.text}}
+					</li>
+					
+				</ul>
+			</div>
+			<!--右侧的详情-->
+			<div id="detail" class="detailBox"  v-cloak>
+				<dl v-for = "(items,index) in newtodos" :data-href="items.href" @click="pageSwitch($event,index)" open-type="common">
+					<dt><img :src='"images/"+items.icon+".png"'></dt>
+					<dd>{{items.text}}</dd>
+				</dl>
+			</div>
+		</div>
+		<script src="js/common/mui.min.js"></script>
+		<script src="js/common/jquery2.0.js"></script>
+		<script src="js/common/ceshiAjax.js"></script>
+		<script src="js/common/vue.min.js"></script>
+		<script src="js/mine/menu.js"></script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+    <link rel="stylesheet" href="../../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../../css/mui.poppicker.css" />
+    <link rel="stylesheet" href="../../css/calendar.css" />
+    <link rel="stylesheet" href="../../css/progress.css" />
+    <link rel="stylesheet" href="../../css/newCommon.css" />
+    <link rel="stylesheet" href="../../css/other/jrcs.css" />
+    <script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+</head>
+
+<body>
+<!--头部-->
+<header id="header" class="mui-bar mui-bar-nav commonHeader">
+    <!--标题-->
+    <div class="title" >
+        <a class="mui-action-back"></a>
+        <h1 class="mui-title">业务概览-金融超市</h1>
+        <!--<a href="#"></a>-->
+    </div>
+    <!--全局维度和日期选择-->
+    <div class="chooseBlock">
+        <div class="dateChange">
+            <input type="text" class="calendars" id="calendars" placeholder="选择日期" format="yy-mm-dd">
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!--遮罩-->
+<div class="mask">
+    <div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+</div>
+<!--点击整体进行维度选择时出现遮罩-->
+<div class="mark" id="mark"></div>
+
+<!--内容-->
+		<!--金融超市-业务概览指标说明-->
+	    <div id="financialSuperQuesBox" class="sysQuesBox financialSuperQuesBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">核心指标说明</h5>
+				<ul class="popDetailUl">
+					<p>(本页仅指国美电器员工的超推和自投数据)</p>
+					<li>
+						<span class="popLeft">实际投资金额</span>
+						<span class="popRight">超推+自投的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">投资金额</span>
+						<span class="popRight">超推+自投的投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">投资人数</span>
+						<span class="popRight">超推+自投的投资用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">投资笔数</span>
+						<span class="popRight">超推+自投的投资订单数量</span>
+					</li>
+					<li class="marginBot">
+						<span class="popLeft">新增注册客户数</span>
+						<span class="popRight">超推+自投的注册用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">超推占比</span>
+						<span class="popRight">超推投资金额/(超推+自投的投资金额)</span>
+					</li>
+				</ul>
+				<div class="close" id="financialSuperClose"></div>
+			</div>
+	    </div>
+<div class="mui-content">
+    <!--日概览、月概览选项卡切换-->
+    <!--第一块选项卡-->
+    <div class="common-tabBlock firstCont">
+    	<h5 class="user">
+        	核心指标
+        	<span class="question" id="financialSuperQues"></span>
+        </h5>
+        <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+            <div class="mui-scroll">
+                <a class="mui-control-item mui-active active">
+                    日概览
+                </a>
+                <a class="mui-control-item">
+                    月概览
+                </a>
+            </div>
+        </div>
+
+        <div class="tabBlockDetail dateArea" id="topDay">
+            <div class=" dayAmount show">
+                <div>
+                    <h5>实际投资金额(万元)</h5>
+                    <h2 class="top-mid" v-cloak>
+                        <span>{{big}}</span><small>{{small}}</small>
+                    </h2>
+                    <div class="top-bot">
+                        <div class="bot-left">
+                            上月同比：<b :class="topDayData.basis > 0 ? 'up' : 'down' " v-cloak>{{topDayData.basis}}%</b><em></em>
+                        </div>
+                        <div class="bot-rit">
+                            昨日环比：<b :class="topDayData.relativeRatio > 0 ? 'up' : 'down' " v-cloak>{{topDayData.relativeRatio}}%</b><em></em>
+                        </div>
+                    </div>
+                    <div class="topNumWrap">
+                        <ul class="everyUl">
+                            <li class="ulTop tz"><span>投资金额（万元）</span></li>
+                            <li>
+                                <h2 class="top-mid" v-cloak>
+                                    <span>{{big}}</span><small>{{small}}</small>
+                                </h2>
+                            </li>
+                            <li class="stAndzt clearfix">
+                                <span>超推 {{investAmount.chaoTuiAmount}}</span>
+                                <span>自投 {{investAmount.ziTouAmount}}</span>
+                            </li>
+                        </ul>
+                        <ul class="everyUl">
+                            <li class="ulTop tzrs"><span>投资人数</span></li>
+                            <li>
+                                <h2 class="top-mid" v-cloak>
+                                    <span>{{investQuantity.investQuantity}}</span>
+                                </h2>
+                            </li>
+                            <li class="stAndzt clearfix">
+                                <span>超推 {{investQuantity.chaoTuiQuantity}}</span>
+                                <span>自投 {{investQuantity.ziTouQuantity}}</span>
+                            </li>
+                        </ul>
+                        <ul class="everyUl">
+                            <li class="ulTop tzbs"><span>投资笔数</span></li>
+                            <li>
+                                <h2 class="top-mid" v-cloak>
+                                    <span>{{investCount.investCount}}</span>
+                                </h2>
+                            </li>
+                            <li class="stAndzt clearfix">
+                                <span>超推 {{investCount.chaoTuiCount}}</span>
+                                <span>自投 {{investCount.ziTouCount}}</span>
+                            </li>
+                        </ul>
+                        <ul class="everyUl">
+                            <li class="ulTop zckh"><span>新增注册客户数</span></li>
+                            <li>
+                                <h2 class="top-mid" v-cloak>
+                                    <span>{{newRegisterQuantity.newRegisterQuantity}}</span>
+                                </h2>
+                            </li>
+                            <li class="stAndzt clearfix">
+                                <span>超推 {{newRegisterQuantity.chaoTuiQuantity}}</span>
+                                <span>自投 {{newRegisterQuantity.ziTouQuantity}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="monthAmount" >
+                <!--数值部分-->
+                <div class="topNumWrap">
+                    <ul class="everyUl">
+                        <li class="ulTop tz"><span>投资金额（万元）</span></li>
+                        <li>
+                            <h2 class="top-mid" v-cloak>
+                                <span>{{bigM}}</span><small>{{smallM}}</small>
+                            </h2>
+                        </li>
+                        <li class="stAndzt clearfix">
+                            <span>超推 {{investAmountM.chaoTuiAmount}}</span>
+                            <span>自投 {{investAmountM.ziTouAmount}}</span>
+                        </li>
+                    </ul>
+                    <ul class="everyUl">
+                        <li class="ulTop tzrs"><span>投资人数</span></li>
+                        <li>
+                            <h2 class="top-mid" v-cloak>
+                                <span>{{investQuantityM.investQuantity}}</span>
+                            </h2>
+                        </li>
+                        <li class="stAndzt clearfix">
+                            <span>超推 {{investQuantityM.chaoTuiQuantity}}</span>
+                            <span>自投 {{investQuantityM.ziTouQuantity}}</span>
+                        </li>
+                    </ul>
+                    <ul class="everyUl">
+                        <li class="ulTop tzbs"><span>投资笔数</span></li>
+                        <li>
+                            <h2 class="top-mid" v-cloak>
+                                <span>{{investCountM.investCount}}</span>
+                            </h2>
+                        </li>
+                        <li class="stAndzt clearfix">
+                            <span>超推 {{investCountM.chaoTuiCount}}</span>
+                            <span>自投 {{investCountM.ziTouCount}}</span>
+                        </li>
+                    </ul>
+                    <ul class="everyUl">
+                        <li class="ulTop zckh"><span>新增注册客户数</span></li>
+                        <li>
+                            <h2 class="top-mid" v-cloak>
+                                <span>{{newRegisterQuantityM.newRegisterQuantity}}</span>
+                            </h2>
+                        </li>
+                        <li class="stAndzt clearfix">
+                            <span>超推 {{newRegisterQuantityM.chaoTuiQuantity}}</span>
+                            <span>自投 {{newRegisterQuantityM.ziTouQuantity}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--图表区域-->
+    <!--第二块-->
+    <div class="common-tabBlock secondCont">
+    	<h5 class="user">
+        	超推分析
+        	<!--<span class="question" id=""></span>-->
+        </h5>
+        <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+            <div class="mui-scroll">
+                <a class="mui-control-item  mui-active active">
+                    超推自投
+                </a>
+                <a class="mui-control-item ">
+                    驻点城市
+                </a>
+                <a class="mui-control-item  ">
+                    超推首投
+                </a>
+                <a class="mui-control-item  ">
+                    提现占比
+                </a>
+            </div>
+        </div>
+
+        <div class="tabBlockDetail">
+            <div class="show">
+                <div class="echartDetail" id="ctzt"></div>
+            </div>
+            <div>
+                <div class="echartDetail" id="zdcs"></div>
+            </div>
+            <div>
+                <div class="wdChoose" id="showUserPicker">
+                    <b>指标类型：</b>
+                    <a id="userResult" class="pickerRe" data-value="firstInvestAmount">首投金额</a>
+                </div>
+                <div class="echartDetail" id="ctst"></div>
+            </div>
+            <div>
+                <div class="echartDetail" id="txzb"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--第三块-->
+    <div class="common-tabBlock thirdCont">
+    	<h5 class="user">
+        	投资分析
+        	<!--<span class="question" id=""></span>-->
+        </h5>
+        <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+            <div class="mui-scroll">
+                <a class="mui-control-item  mui-active active">
+                    投资金额
+                </a>
+                <a class="mui-control-item ">
+                    投资人数
+                </a>
+                <a class="mui-control-item  ">
+                    新增注册人数
+                </a>
+            </div>
+        </div>
+
+        <div class="tabBlockDetail">
+            <div class="show">
+                <div class="echartDetail" id="tzje"></div>
+            </div>
+            <div>
+                <div class="echartDetail" id="tzrs"></div>
+            </div>
+            <div>
+                <div class="echartDetail" id="zcrs"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/common/mui.min.js"></script>
+<script src="../../js/common/jquery2.0.js"></script>
+<script src="../../js/common/vue.js"></script>
+<script src="../../js/common/echarts.min.js"></script>
+<!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+<script src="../../js/common/mui.picker.all.js"></script>
+<script src="../../js/common/ceshiAjax.js"></script>
+<script src="../../js/common/china.js"></script>
+<script src="../../js/common/util.js"></script>
+<script src="../../js/common/progress.js"></script>
+<script src="../../js/common/newCalendar.js"></script>
+<script src="../../js/mine/jrcs-ywgl.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+.chooseBlock .showTime {
+  text-align: center;
+}
+.chooseBlock .showTime span {
+  padding-left: 0.7rem;
+  display: inline-block;
+  line-height: 0.95rem;
+  height: 0.95rem;
+  font-size: 0.3rem;
+  color: white;
+  background: url(../../images/showTime.png) left center no-repeat;
+  background-size: 0.44rem 0.44rem;
+}
+.dataBlock ul {
+  height: 1rem;
+  padding-top: 0;
+}
+.dataBlock.tipBlock {
+  height: 4.5rem;
+}
+.dataBlock.tipBlock .tip {
+  height: 1.5rem;
+  background: url(../../images/tipBg.png) no-repeat center center;
+  background-size: 80% auto;
+  padding-top: .25rem;
+  color: #666666;
+}
+.dataBlock.tipBlock .tip span {
+  display: block;
+  font-size: 0.28rem;
+  line-height: 0.6rem;
+  color: #333333;
+}
+.dataBlock.tipBlock .tip span small {
+  font-size: 0.26rem;
+  color: #666666;
+  padding-left: .1rem;
+}
+.dataBlock.tipBlock .tip em {
+  font-size: 0.3rem;
+}
+.dataBlock.tipBlock.addNew {
+  height: 6.2rem;
+  border-top: 0.2rem solid #f0f0f3;
+}
+.dataBlock.tipBlock.addNew ul {
+  padding-top: 0.15rem;
+}
+.dataBlock.tipBlock.noCurMonthHistory {
+  height: 3.5rem;
+}
+.userBlock {
+  margin-top: .1rem;
+}
+.dataBlock.tou::before {
+  background-image: url(../../images/tou.png);
+}
+.dataBlock.tou h5 em {
+  background-image: url(../../images/bluepig.png);
+}
+.dataBlock.shouje::before {
+  background-image: url(../../images/shou.png);
+}
+.dataBlock.shouje h5 em {
+  background-image: url(../../images/bluepig.png);
+}
+.dataBlock.shouyh::before {
+  background-image: url(../../images/shou.png);
+}
+.dataBlock.shouyh h5 em {
+  background-image: url(../../images/shoutou.png);
+}
+.dataBlock.touPeo::before {
+  background-image: url(../../images/tou.png);
+}
+.dataBlock.touPeo h5 em {
+  background-image: url(../../images/touHead.png);
+}
+.dataBlock.zhu::before {
+  background-image: url(../../images/zhu.png);
+}
+.dataBlock.zhu h5 em {
+  background-image: url(../../images/zhuce.png);
+}
+.dataBlock.chong::before {
+  background-image: url(../../images/chong.png);
+}
+.dataBlock.chong h5 em {
+  background-image: url(../../images/chHead.png);
+}
+.dataBlock.ti::before {
+  background-image: url(../../images/tixian.png);
+}
+.dataBlock.ti h5 em {
+  background-image: url(../../images/money.png);
+}
+.dataBlock.tiMoney::before {
+  background-image: url(../../images/tixian.png);
+}
+.dataBlock.tiMoney h5 em {
+  background-image: url(../../images/pig.png);
+}
+.dataBlock.ren::before {
+  background-image: url(../../images/ren.png);
+}
+.dataBlock.ren h5 em {
+  background-image: url(../../images/ok.png);
+}
+.dataBlock.jin::before {
+  background-image: url(../../images/jin.png);
+}
+.dataBlock.jin h5 em {
+  background-image: url(../../images/jinjian.png);
+}
+.dataBlock.sys::before {
+  background-image: url(../../images/xi.png);
+}
+.dataBlock.sys h5 em {
+  background-image: url(../../images/pass.png);
+}
+.dataBlock.tel::before {
+  background-image: url(../../images/dian.png);
+}
+.dataBlock.tel h5 em {
+  background-image: url(../../images/tel.png);
+}
+.dataBlock.fang::before {
+  background-image: url(../../images/fang.png);
+}
+.dataBlock.fang h5 em {
+  background-image: url(../../images/fangkuan.png);
+}
+.dataBlock.pay::before {
+  background-image: url(../../images/jiao.png);
+}
+.dataBlock.pay h5 em {
+  background-image: url(../../images/pig.png);
+}
+.user.userSpecial {
+  padding-left: 0.32rem;
+}
+.user.userSpecial::before {
+  content: '';
+  left: 0.2rem;
+}
+.user.userSpecial .question {
+  right: 0.2rem;
+}
+.common-tabBlock .tableTitle {
+  margin-top: 0;
+}
+#financialRealTimeDataBox {
+  display: none;
+}
+.financialRealTimeDataBox .infoDetail {
+  height: 68%;
+}
+.financialRealTimeDataBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.financialRealTimeDataBox .infoDetail .popDetailUl p {
+  text-align: center;
+}
+.financialRealTimeDataBox .infoDetail .close {
+  bottom: -10%;
+}

@@ -1,0 +1,47 @@
+//改变美易理财-业务概览中tab选项卡的padding值       为了使四个选项刚好并列一排
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+    padding: 0 13px;
+    &:last-child{
+        padding: 0px 11px;
+    }
+}
+
+//美易理财-业务概览选项卡中新增的投资金额
+.tabBlockDetail{
+    .totalMoney{
+        line-height: 0.7rem;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 0.26rem;
+        color: #666666;
+        span{
+            font-size: 0.36rem;
+            color: #333333;
+        }
+    }
+}
+
+//美易理财-业务概览     用户规模、新增用户模块暂时取消统计维度的下拉三角
+.common-tabBlock .tabBlockDetail .wdChoose.nopull{
+    &:after{
+        background: none;
+    }
+}
+
+//弹框初始时隐藏
+#DayAndMonthOverviewQuesBox,#userQuesBox,#centreQuesBox{
+    display: none;
+}
+
+//日、月概览指标说明
+.DayAndMonthOverviewQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}

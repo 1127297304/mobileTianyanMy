@@ -1,0 +1,258 @@
+p {
+  margin: 0;
+}
+.chooseBlock .dateChange {
+  line-height: 0.95rem;
+  text-align: center;
+}
+.chooseBlock .dateChange em {
+  color: white;
+  font-size: 0.3rem;
+  padding-left: 1rem;
+}
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.common-tabBlock .tabBlockDetail .wdBox {
+  height: 1.2rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.common-tabBlock .tabBlockDetail .aboutDate,
+.common-tabBlock .tabBlockDetail .wdChoose {
+  width: 30%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+.common-tabBlock .tabBlockDetail .wdChoose {
+  text-align: center;
+}
+.common-tabBlock .tabBlockDetail .wdChoose a {
+  float: initial;
+}
+.common-tabBlock .tabBlockDetail .aboutDate {
+  height: 0.9rem;
+  position: relative;
+  background: #F7F7F7;
+}
+.common-tabBlock .tabBlockDetail .aboutDate input {
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  border-radius: 0;
+  font-size: 0.26rem;
+  color: #333333;
+  font-weight: normal;
+  text-align: center;
+}
+.common-tabBlock .tabBlockDetail .aboutDate:after {
+  content: '';
+  position: absolute;
+  background: url(../../images/blackTriangle.png) no-repeat;
+  width: 0.28rem;
+  height: 0.16rem;
+  background-size: 100% auto;
+  top: 50%;
+  right: 3%;
+  margin-top: -0.08rem;
+  z-index: 1;
+}
+.common-tabBlock .tabBlockDetail .wdBox.wdSum {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.common-tabBlock .tabBlockDetail .wdBox.wdSum .aboutDate,
+.common-tabBlock .tabBlockDetail .wdBox.wdSum .wdChoose {
+  width: 40%;
+}
+.common-tabBlock .tabBlockDetail .wdBox.wdSum span {
+  font-size: .26rem;
+  font-weight: bold;
+}
+.common-tabBlock .tabBlockDetail .wdBox.wdDate {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.common-tabBlock .tabBlockDetail .wdBox.wdDate .aboutDate {
+  width: 40%;
+}
+.mui-dtpicker {
+  background-color: white;
+}
+.mui-dtpicker-title h5 {
+  background-color: white;
+}
+.productType {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.productType li {
+  text-align: center;
+  margin-bottom: .15rem;
+  border: 1px solid lightblue;
+  border-radius: 8px;
+  padding: 0 2%;
+  width: 33%;
+}
+.productType li p {
+  color: #333333;
+}
+.productType li p span {
+  color: #333333;
+  font-size: .26rem;
+}
+.productType li p span.up {
+  color: #FF5252;
+}
+.productType li p span.down {
+  color: #0CBD4C;
+}
+.productType li p span b {
+  font-size: .26rem;
+}
+.productType li p:not(.amount) span {
+  font-size: .24rem;
+}
+.productType li p:not(.amount) span b {
+  font-size: .24rem;
+}
+.productType li p.rate span:first-child {
+  float: left;
+}
+.productType li p.rate span:last-child {
+  float: right;
+}
+.dayAmount h5 {
+  font-size: 0.3rem;
+  color: #333333;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+.dayAmount .top-mid {
+  text-align: center;
+  font-size: 0.6rem;
+  padding-top: 0.2rem;
+}
+.dayAmount .top-mid small {
+  font-size: 0.44rem;
+}
+.dayAmount .top-bot {
+  height: 0.6rem;
+  margin-top: 0.3rem;
+  font-size: 0.28rem;
+  color: #333333;
+}
+.dayAmount .top-bot em {
+  display: inline-block;
+  height: 0.21rem;
+  width: 0.15rem;
+}
+.dayAmount .top-bot div {
+  width: 50%;
+  border-right: 1px solid #E1E1E1;
+}
+.dayAmount .top-bot div:first-child {
+  padding-right: 0.3rem;
+  float: left;
+  text-align: right;
+}
+.dayAmount .top-bot div:last-child {
+  border-right: none;
+  padding-left: 0.3rem;
+  float: left;
+  text-align: left;
+}
+.dayAmount .top-bot b {
+  font-size: 0.3rem;
+  padding-right: 0.1rem;
+  color: #333333;
+}
+.dayAmount .top-bot b.up {
+  color: #FF5252;
+}
+.dayAmount .top-bot b.up + em {
+  background: url(../../images/up.png) no-repeat;
+  background-size: auto 100%;
+}
+.dayAmount .top-bot b.down {
+  color: #0CBD4C;
+}
+.dayAmount .top-bot b.down + em {
+  background: url(../../images/down.png) no-repeat;
+  background-size: auto 100%;
+}
+.common-tabBlock .echartDetail {
+  margin-bottom: .15rem;
+}
+.common-tabBlock .echartDetail.noBot {
+  margin-bottom: 0;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item.four {
+  padding: 0 23.8px;
+}
+#DayAndMonthOverviewQuesBox,
+#businessOverviewQuesBox,
+#riskOverviewQuesBox {
+  display: none;
+}
+.DayAndMonthOverviewQuesBox .infoDetail {
+  height: 68%;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.DayAndMonthOverviewQuesBox .infoDetail .close {
+  bottom: -10%;
+}
+.dateTips .infoDetail {
+  height: 20%;
+}
+.dateTips .infoDetail .popDetailUl {
+  height: 66%;
+  padding-bottom: 0;
+  overflow-y: scroll;
+}
+.dateTips .infoDetail .popDetailUl li span {
+  width: 100%;
+  position: initial;
+  margin-left: initial;
+  left: initial;
+  top: initial;
+  padding: 0 10%;
+}
+.dateTips .infoDetail .popDetailUl li span a {
+  padding-right: 2%;
+}
+.dateTips .infoDetail .close {
+  bottom: -44%;
+}
+.noInfo {
+  font-size: .26rem;
+  text-align: center;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+.echartDetail.area {
+  text-align: center;
+  line-height: 5rem;
+  font-size: .26rem;
+  font-weight: bold;
+}

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />
+		<link rel="stylesheet" href="../../css/dropload.css" />
+		<link rel="stylesheet" href="../../css/newCommon.css" />
+		<link rel="stylesheet" href="../../css/other/jrcsSssj.css" />
+		<script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+	</head>
+	
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav commonHeader">
+			<!--标题-->
+			<div class="title" >
+				<a class="mui-action-back"></a>
+				<h1 class="mui-title">实时数据-金融超市</h1>
+				<!--<a href="#"></a>-->
+			</div>
+			<!--全局维度和日期选择-->
+			<div class="chooseBlock">
+				<div class="showTime">
+					<span id="showNowDate">-</span>
+				</div>
+			</div>
+		</header>
+	
+		<!--遮罩-->
+		<div class="mask">
+			<div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+		</div>
+		
+		<!--指标说明-->
+	    <div id="financialRealTimeDataBox" class="sysQuesBox financialRealTimeDataBox">
+			<div class="infoDetail">
+				<h5 class="popDetailHeader">核心指标说明</h5>
+				<ul class="popDetailUl">
+					<p>(本页仅指国美电器员工的超推和自投数据)</p>
+					<li>
+						<span class="popLeft">投资金额</span>
+						<span class="popRight">实时累计超推+自投投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">一手标金额</span>
+						<span class="popRight">实时累计超推+自投投资非债转产品的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">二手标金额</span>
+						<span class="popRight">实时累计超推+自投投资债转产品的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">首投金额</span>
+						<span class="popRight">实时累计超推+自投首次投资金额</span>
+					</li>
+					<li>
+						<span class="popLeft">提现金额</span>
+						<span class="popRight">实时累计超推+自投用户申请提现的金额</span>
+					</li>
+					<li>
+						<span class="popLeft">注册用户数</span>
+						<span class="popRight">实时累计超推+自投注册人数</span>
+					</li>
+					<li>
+						<span class="popLeft">充值用户数</span>
+						<span class="popRight">实时累计超推+自投成功充值用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">投资用户数</span>
+						<span class="popRight">实时累计超推+自投投资用户数</span>
+					</li>
+					<li>
+						<span class="popLeft">活跃用户数</span>
+						<span class="popRight">实时累计超推+自投登录用户数</span>
+					</li>
+				</ul>
+				<div class="close" id="financialRealTimeDataClose"></div>
+			</div>
+		</div>
+		
+		<!--里边为真实显示的DOM内容-->
+		<div class="mui-content">
+			<h5 class="user userSpecial">
+            	核心指标
+            	<span class="question" id="financialRealTimeDataQues"></span>
+            </h5>
+			<!--第一块	数据部分-->
+			<div id="topArea" v-if="baseObj.tzjexx">
+			<!--投资金额-->
+				<div class="dataBlock tou tipBlock addNew">
+					<h5>
+						<em></em>
+						<span>投资金额(万元)</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.tzjexx.ssje}}</h3>
+					<div class="tip">
+						<span>一手标金额：
+							<em v-cloak>{{baseObj.tzjexx.firstHandAmount}}</em>
+						</span>
+						<span>二手标金额：
+							<em v-cloak>{{baseObj.tzjexx.secondHandAmount}}</em>
+						</span>
+					</div>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{baseObj.tzjexx.ylje}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{baseObj.tzjexx.lsje}}</span>
+						</li>
+					</ul>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.tzjexx.ctSsje}}</em>/<em v-cloak>{{baseObj.tzjexx.ctYlje}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.tzjexx.ygSsje}}</em>/<em v-cloak>{{baseObj.tzjexx.ygYlje}}</em>
+						</span>
+					</div>
+				</div>
+			<!--首投金额-->
+				<div class="dataBlock shouje tipBlock">
+					<h5>
+						<em></em>
+						<span>首投金额(万元)</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.stjexx.ssje}}</h3>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{baseObj.stjexx.ylje}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{baseObj.stjexx.lsje}}</span>
+						</li>
+					</ul>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.stjexx.ctSsje}}</em>/<em v-cloak>{{baseObj.stjexx.ctYlje}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.stjexx.ygSsje}}</em>/<em v-cloak>{{baseObj.stjexx.ygYlje}}</em>
+						</span>
+					</div>
+				</div>
+			<!--提现金额-->
+				<div class="dataBlock tiMoney tipBlock">
+					<h5>
+						<em></em>
+						<span>提现金额(万元)</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.txjexx.ssje}}</h3>
+					<ul>
+						<li>
+							<span>当月累计</span>
+							<span v-cloak>{{baseObj.txjexx.ylje}}</span>
+						</li>
+						<li>
+							<span>历史累计</span>
+							<span v-cloak>{{baseObj.txjexx.lsje}}</span>
+						</li>
+					</ul>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.txjexx.ctSsje}}</em>/<em v-cloak>{{baseObj.txjexx.ctYlje}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.txjexx.ygSsje}}</em>/<em v-cloak>{{baseObj.txjexx.ygYlje}}</em>
+						</span>
+					</div>
+				</div>
+			<!--注册用户数-->
+				<div class="dataBlock zhu tipBlock noCurMonthHistory">
+					<h5>
+						<em></em>
+						<span>注册用户数</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.zzyhsxx.ssyhs}}</h3>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.zzyhsxx.ctSsyhs}}</em>/<em v-cloak>{{baseObj.zzyhsxx.ctYlyhs}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.zzyhsxx.ygSsyhs}}</em>/<em v-cloak>{{baseObj.zzyhsxx.ygYlyhs}}</em>
+						</span>
+					</div>
+				</div>
+			<!--充值用户数-->
+				<div class="dataBlock chong tipBlock noCurMonthHistory">
+					<h5>
+						<em></em>
+						<span>充值用户数</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.czyhsxx.ssyhs}}</h3>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.czyhsxx.ctSsyhs}}</em>/<em v-cloak>{{baseObj.czyhsxx.ctYlyhs}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.czyhsxx.ygSsyhs}}</em>/<em v-cloak>{{baseObj.czyhsxx.ygYlyhs}}</em>
+						</span>
+					</div>
+				</div>
+			<!--投资用户数-->
+				<div class="dataBlock touPeo tipBlock noCurMonthHistory">
+					<h5>
+						<em></em>
+						<span>投资用户数</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.tzyhsxx.ssyhs}}</h3>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.tzyhsxx.ctSsyhs}}</em>/<em v-cloak>{{baseObj.tzyhsxx.ctYlyhs}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.tzyhsxx.ygSsyhs}}</em>/<em v-cloak>{{baseObj.tzyhsxx.ygYlyhs}}</em>
+						</span>
+					</div>
+				</div>
+			<!--首投用户数-->
+				<div class="dataBlock shouyh tipBlock noCurMonthHistory">
+					<h5>
+						<em></em>
+						<span>首投用户数</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.styhsxx.ssyhs}}</h3>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.styhsxx.ctSsyhs}}</em>/<em v-cloak>{{baseObj.styhsxx.ctYlyhs}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.styhsxx.ygSsyhs}}</em>/<em v-cloak>{{baseObj.styhsxx.ygYlyhs}}</em>
+						</span>
+					</div>
+				</div>
+			<!--提现用户数-->
+				<div class="dataBlock ti tipBlock noCurMonthHistory">
+					<h5>
+						<em></em>
+						<span>提现用户数</span>
+					</h5>
+					<h3 v-cloak>{{baseObj.txyhsxx.ssyhs}}</h3>
+					<div class="tip">
+						<span>超推
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.txyhsxx.ctSsyhs}}</em>/<em v-cloak>{{baseObj.txyhsxx.ctYlyhs}}</em>
+						</span>
+						<span>员工
+							<small>当日/月累：</small>
+							<em v-cloak>{{baseObj.txyhsxx.ygSsyhs}}</em>/<em v-cloak>{{baseObj.txyhsxx.ygYlyhs}}</em>
+						</span>
+					</div>
+				</div>
+			</div>
+			
+			<!--第二块	图表部分-->
+			<div>
+				<!--用户动态-->
+				<div class="common-tabBlock secondCont">
+					<h5 class="user">
+						用户端动态
+					</h5>
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					    <div class="mui-scroll">
+					        <a class="mui-control-item mui-active active">
+					           	 超推
+					        </a>
+					        <a class="mui-control-item ">
+								员工
+					        </a>
+					    </div>
+					</div>
+					<div class="tabBlockDetail">
+						<div class="show">
+							<div class="userBlock">
+								<div class="chooseDate">
+									<span>对比日期</span>
+									<input type="text" class="calendars changeDate" id="calendars" placeholder="-" format="yy-mm-dd">
+								</div>
+								<div class="wdChange">
+									<b>用户指标</b>
+									<div id="showUserPicker" class="showUserCh">
+										<a id="userResult" class="pickerRe" data-value="zc">注册用户数</a>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="echartDetail" id="yhdt"></div>
+						</div>
+						<div >
+							<div class="userBlock">
+								<div class="chooseDate">
+									<span>对比日期</span>
+									<input type="text" class="calendars changeDate" id="calendarsYg" placeholder="-" format="yy-mm-dd">
+								</div>
+								<div class="wdChange">
+									<b>用户指标</b>
+									<div id="showUserPickerYg" class="showUserCh">
+										<a id="userResultYg" class="pickerRe" data-value="zc">注册用户数</a>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="echartDetail" id="yhdtYg"></div>
+						</div>
+					</div>
+				</div>
+				
+				<!--产品端动态-->
+				<div class="common-tabBlock thirdCont">
+					<h5 class="user">
+						产品端动态
+					</h5>
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					    <div class="mui-scroll">
+					        <a class="mui-control-item mui-active active">
+					           	 超推
+					        </a>
+					        <a class="mui-control-item ">
+								员工
+					        </a>
+					    </div>
+					</div>
+					<div class="tabBlockDetail">
+						<div class="show">
+							<div class="wdChoose" id="showProductPicker">
+								<b>指标类型：</b>
+								<a id="productResult" class="pickerRe" data-value="tze">投资额</a>
+							</div>
+							<div class="echartDetail" id="stzb"></div>
+						</div>
+						<div>
+							<div class="wdChoose" id="showProductPickerYg">
+								<b>指标类型：</b>
+								<a id="productResultYg" class="pickerRe" data-value="tze">投资额</a>
+							</div>
+							<div class="echartDetail" id="stzbYg"></div>
+						</div>
+					</div>
+				</div>
+				
+				<!--投资分布-->
+				<div class="common-tabBlock fourthCont">
+					<h5 class="user">
+						投资分布
+					</h5>
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+					    <div class="mui-scroll">
+					        <a class="mui-control-item mui-active active">
+					           	金额
+					        </a>
+					        <a class="mui-control-item ">
+								人数
+					        </a>
+					    </div>
+					</div>
+					<div class="tabBlockDetail">
+						<div class="show">
+							<div class="echartDetail" id="dytzje"></div>
+						</div>
+						<div>
+							<div class="echartDetail" id="dytzrs"></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<script src="../../js/common/mui.min.js"></script>
+		<script src="../../js/common/jquery2.0.js"></script>
+		<script src="../../js/common/vue.js"></script>
+		<script src="../../js/common/echarts.min.js"></script>
+		<script src="../../js/common/china.js"></script>
+		<script src="../../js/common/mui.picker.all.js"></script>
+		<script src="../../js/common/dropload.js"></script>
+		<script src="../../js/common/ceshiAjax.js"></script>
+		<script src="../../js/common/newCalendar.js"></script>
+		<script src="../../js/mine/jrcs-realTime.js"></script>
+	
+	</body>
+
+</html>

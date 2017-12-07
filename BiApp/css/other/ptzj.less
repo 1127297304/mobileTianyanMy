@@ -1,0 +1,181 @@
+//流入、流出资金样式
+.tableTitle.ptzj{
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    padding: 0 0.2rem;
+    &>div{
+        width: 49%;
+        background: #EFF4FF;
+        padding-left: .15rem;
+        border: 1px solid #3E4FF9;
+        border-bottom: none;
+        border-radius: 6px 6px 0 0;
+        padding-top: 0.1rem;
+        padding-bottom: .1rem;
+        &:first-child{
+            margin-right: 0.11rem;
+        }
+        &.active{
+            background: white;
+            position: relative;
+            border-bottom: 2px solid white;
+            bottom: -1px;
+        }
+        span{
+            font-size: 0.26rem;
+            em{
+                padding-left: .2rem;
+            }
+        }
+        h5{
+            font-size: 0.5rem;
+            padding-top: 0.1rem;
+            margin: 0;
+            padding-bottom: .1rem;
+            color: #222328;
+        }
+    }
+}
+
+//表格部分
+.tableBlock{
+    width: 100%;
+    thead{
+        th{
+            width: 27%;
+            font-size: 0.28rem;
+            font-weight: normal;
+            color: #666666;
+            height: 0.8rem;
+            line-height: 0.8rem;
+        }
+        tr{
+            border-bottom: 1px solid #CCCCCC;
+            th:first-child{
+                width: 19%;
+            }
+        }
+    }
+    tbody{
+        tr{
+            border-bottom: 1px solid #CCCCCC;
+            &:last-child{
+                border:none;
+            }
+            &.pullMore{
+                border-bottom: none;
+            }
+        }
+        td{
+            color: #333333;
+            text-align: center;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 0.26rem;
+            //环比的字体颜色
+            &.red{
+                color: #FF5252;//上升为红色
+            }
+            &.green{
+                color: #0CBD4C;//下降为绿色
+            }
+        }
+    }
+}
+
+//流出资金-投资详情的下拉三角    点击时切换旋转
+.pullMore{
+    td:last-child{
+        position: relative;
+        &:after{
+            content: '';
+            height: 0.16rem;
+            width: 0.28rem;
+            position: absolute;
+            background: url(../../images/blackTriangle.png) no-repeat;
+            background-size: 100% auto;
+            top: 50%;
+            margin-top: -0.08rem;
+            right: 0;
+            -webkit-transform: rotate(0deg);
+            -webkit-transition: transform .2s;
+        }
+    }
+}
+.pullMore.active{
+    td:last-child{
+        &:after{
+            -webkit-transform: rotate(180deg);
+            -webkit-transition: transform .2s;
+        }
+    }
+}
+//设置初始流出资金投资部分默认隐藏
+.pullMore ~ * {
+    display: none;
+}
+
+
+//筛选维度  日、周、月的公共样式
+.chooseItem{
+    width: 3.2rem;
+    height: 0.62rem;
+    overflow: hidden;
+    float: right;
+    line-height: 0.58rem;
+    border: 1px solid #256DFF;
+    border-radius: 0.5rem;
+    margin-top: .1rem;
+    li{
+        float: left;
+        font-size: 0.28rem;
+        width: 33.3%;
+        border-right: 1px solid #256DFF;
+        color: #4152F8;
+        background: white;
+        text-align: center;
+        &.on{
+            background: #EFF4FF;
+        }
+        &:last-child{
+            border: none;
+        }
+    }
+}
+.tabBlockDetail{
+    clear: both;
+}
+.echartDetail{
+    clear: both;   
+}
+
+//在有小标题的情况下     选项卡取消margin-top值
+.common-tabBlock .tableTitle{
+    margin-top: 0;
+}
+
+//昨日环比的字体颜色     上升为红色   下降为绿色
+.red{
+    color: #FF5252;//上升为红色
+}
+.green{
+    color: #0CBD4C;//下降为绿色
+}
+
+//弹框初始时隐藏
+#platformMoneyQuesBox{
+    display: none;
+}
+
+//日、月概览指标说明
+.platformMoneyQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}

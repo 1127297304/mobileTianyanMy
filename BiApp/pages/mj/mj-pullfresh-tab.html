@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <!--如果页面中有维度选择下拉框则需引入下面两个链接-->
+    <link rel="stylesheet" href="../../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../../css/mui.poppicker.css" />
+    <link rel="stylesheet" href="../../css/calendar.css" />
+    <link rel="stylesheet" href="../../css/dropload.css" />
+    <link rel="stylesheet" href="../../css/newCommon.css" />
+    <link rel="stylesheet" href="../../css/other/mj-pullfresh-tab.css" />
+    <script src="../../js/common/resetRem.js"></script><!--对根元素设置字体大小-->
+</head>
+<body>
+    <header id="header" class="mui-bar mui-bar-nav commonHeader">
+        <!--标题-->
+        <div class="title" >
+            <a class="mui-action-back"></a>
+            <h1 class="mui-title">实时数据-美借</h1>
+            <!-- <a href="##"></a>-->
+        </div>
+      <!-- 时间部分-->
+        <div class="chooseBlock">
+            <div class="wen">更新时间:</div>
+            <div class="showTime">
+                <span id="showNowDate">-</span>
+            </div>
+        </div>
+    </header>
+    <!--遮罩-->
+    <div class="mask">
+        <div>一&nbsp;&nbsp;<h5>大</h5>&nbsp;批&nbsp;&nbsp;<h4>数据</h4>&nbsp;&nbsp;正在&nbsp;<small>靠近 <b>···</b></small></div>
+    </div>
+    <!--点击整体进行维度选择时出现遮罩-->
+    <div class="mark" id="mark"></div>
+
+    <!--内容-->
+    <!--用户分析指标说明-->
+    <div id="userQuesBox" class="sysQuesBox userQuesBox">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">用户分析指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">注册用户数</span>
+                    <span class="popRight">统计时间内，注册的用户数，以创建时间为准</span>
+                </li>
+                <li>
+                    <span class="popLeft">当日注册且进件用户数</span>
+                    <span class="popRight">统计时间内，注册且认证且进件的用户数</span>
+                </li>
+                <li class="marginBotLess">
+                    <span class="popLeft">当日注册且进件用户占比</span>
+                    <span class="popRight">当日注册且进件用户数/注册用户数</span>
+                </li>
+                <li>
+                    <span class="popLeft">认证用户数</span>
+                    <span class="popRight">统计时间内，完成实名认证的用户数，以认证时间为准</span>
+                </li>
+                <li>
+                    <span class="popLeft">推送用户数</span>
+                    <span class="popRight">统计时间内，各个渠道向我们推送的用户数，每位用户最多计1次，包括推送成功+推送失败</span>
+                </li>
+                <li class="marginBot">
+                    <span class="popLeft">进件用户数(符合进件用户数)</span>
+                    <span class="popRight">统计时间内，成功进件的用户数</span>
+                </li>
+                <li>
+                    <span class="popLeft">进件新用户数</span>
+                    <span class="popRight">统计时间内，从未有过成功借款记录的进件用户数</span>
+                </li>
+                <li class="marginBot">
+                    <span class="popLeft">进件新用户占比</span>
+                    <span class="popRight">新用户数/进件用户数</span>
+                </li>
+            </ul>
+            <div class="close" id="userClose"></div>
+        </div>
+    </div>
+    <!--系统分析重点指标说明-->
+    <div id="sysQuesBox" class="sysQuesBox">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">系统分析重点指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">客户维度</span>
+                    <span class="popRight">指的是同一个产品下的新用户和老用户，新用户指的是当前产品从未有过成功借款记录的；否则为老用户</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过件数</span>
+                    <span class="popRight">系统直批件数+直批手动放款件数+电核通过件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过金额(万)</span>
+                    <span class="popRight">（系统直批+直批手动放款+电核通过）对应的案件合同金额</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过率</span>
+                    <span class="popRight">信审通过件数/进件件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">放款笔数</span>
+                    <span class="popRight">实际发生的放款案件数</span>
+                </li>
+                <li class="marginBot">
+                    <span class="popLeft">放款合同金额(万)</span>
+                    <span class="popRight">实际放款的合同金额</span>
+                </li>
+            </ul>
+            <div class="close" id="sysClose"></div>
+        </div>
+    </div>
+    <!--核心流程指标说明-->
+    <div id="centreQuesBox" class="sysQuesBox centreQuesBox">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">核心流程指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">进件件数(符合进件件数)</span>
+                    <span class="popRight">统计时间内，新增进件成功的件数，以进件创建时间为准；对于闪银、挖财和融360来说，这个指标叫做符合进件件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直拒件数</span>
+						<span class="popRight">统计时间内，风控系统直接拒绝的件数，以进件时间为准；即新旧流程，包含两部分：
+							<em>1)决策引擎直据</em>
+							<em>2)长亮系统审核拒绝</em>
+						</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核分流件数</span>
+						<span class="popRight">统计时间内，风控通过的件数，以进件时间为准；即新旧流程，包含两部分：
+							<em>1)决策引擎给出结果为通过的非直批案件件数</em>
+							<em>2)长亮系统审核结果为通过的案件件数</em>
+						</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直批件数</span>
+                    <span class="popRight">系统审核中，给出直批结果的件数；以进件时间为准</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直批率</span>
+                    <span class="popRight">系统直批/进件件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">待电核件数</span>
+                    <span class="popRight">系统审核通过，需要电核但未办结的案件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">取消件数</span>
+                    <span class="popRight">进入电核且已被审核且审核结果为取消的件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">系统直批手动放款件数</span>
+                    <span class="popRight">系统审核通过，不需要电核但需要手动放款的件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核审核件数</span>
+                    <span class="popRight">进入电核且已被审核的件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核通过件数</span>
+                    <span class="popRight">进入电核且已被审核且审核结果为通过的件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核拒绝件数</span>
+                    <span class="popRight">进入电核且已被审核且审核结果为拒绝的件数</span>
+                </li>
+                <li>
+                    <span class="popLeft">电核通过率</span>
+                    <span class="popRight">电核通过件数/电核审核件数</span>
+                </li>
+                <li class="marginBotLess">
+                    <span class="popLeft">历史积压待电核量</span>
+                    <span class="popRight">进件时间小于今天，系统审核通过，需要电核但未办结的案件数</span>
+                </li>
+            </ul>
+            <div class="close" id="centreClose"></div>
+        </div>
+<!--&gt;>>>>>> dev-rongrong-->
+    </div>
+    <!--预警记录指标说明-->
+    <div id="yujingBox" class="sysQuesBox yuJingBox">
+        <div class="infoDetail">
+            <h5 class="popDetailHeader">预警记录重点指标说明</h5>
+            <ul class="popDetailUl">
+                <li>
+                    <span class="popLeft">注册用户数</span>
+                    <span class="popRight">统计时间内，注册的用户数；</span>
+                </li>
+                <li>
+                    <span class="popLeft">认证用户数</span>
+                    <span class="popRight">统计时间内，完成实名认证的用户数，以认证时间为准；</span>
+                </li>
+                <li>
+                    <span class="popLeft">进件件数</span>
+                    <span class="popRight">自有渠道，新客或老客在统计时间内，申请进件成功的进件件数；</span>
+                </li>
+                <li>
+                    <span class="popLeft">信审通过件数</span>
+                    <span class="popRight">自有渠道，新客或老客在统计时间内，通过信用审核的件数，信用审核包括：系统审核和电核；</span>
+                </li>
+                <li>
+                    <span class="popLeft">放款笔数</span>
+                    <span class="popRight">自有渠道，新客或老客在统计时间内，成功放款的笔数；</span>
+                </li>
+                <li>
+                    <span class="popLeft">PD多笔放款用户数</span>
+                    <span class="popRight">当天存在多笔PD放款的用户数（不区分渠道）；</span>
+                </li>
+                <li>
+                    <span class="popLeft">小额分期多笔放款用户数</span>
+                    <span class="popRight">当天存在多笔小额分期放款的用户数（不区分渠道）；</span>
+                </li>
+            </ul>
+            <div class="close" id="yuClose"></div>
+        </div>
+    </div>
+
+    <div class="mui-content">
+        <!--用户分析部分-->
+        <div class="common-tabBlock firstCont ">
+            <h5 class="user">
+            	用户分析
+            	<span class="question" id="userQues"></span>
+            </h5>
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active active">
+                        自有
+                    </a>
+                    <a class="mui-control-item ">
+                        闪银
+                    </a>
+                    <a class="mui-control-item ">
+                        挖财
+                    </a>
+                    <a class="mui-control-item ">
+                        融360
+                    </a>
+                    <a class="mui-control-item ">
+                        51公积金
+                    </a>
+                    <a class="mui-control-item ">
+                        借点钱
+                    </a>
+                    <a class="mui-control-item ">
+                        百融
+                    </a>
+                    <a class="mui-control-item ">
+                        51信用卡
+                    </a>
+                    <a class="mui-control-item ">
+                        借了吗
+                    </a>
+                    <a class="mui-control-item ">
+                        闪银资产
+                    </a>
+                </div>
+            </div>
+            <div class="tabBlockDetail">
+<!--                <div class="show">
+                    <div class="wdChoose" id="showUserPickerItemyhZY">
+                        <b>产品维度：</b>
+                        <a id="userResultItemyhZY" class="pickerRe">全部产品</a>
+                    </div>
+                </div>-->
+                    <div class="show showEchartinfo">
+                       <!-- <div class="yhfxtb" id="yhfxtb"></div>-->
+                        <ul class="yhfxtbsj" id="yhfxtbsj">
+                            <li class="zhuce">
+                                <span style="width:25%;">注册用户数:</span>
+                                <span style="width:34%;" v-cloak class="bfhj2">{{Data.selfRegister}}</span>
+                                <span style="width:21%;" class="center1">环比:</span>
+                                <span style="width:20%;" v-cloak class="hbcL">{{Data.selfRegisterQoq}}</span>
+                            </li>
+                            <li  class="renzheng">
+                                <span style="width:25%;">认证用户数:</span>
+                                <span style="width:34%;" v-cloak  class="bfhj2">{{Data.selfAuthentication}}</span>
+                                <span style="width:21%;" class="center1">环比:</span>
+                                <span style="width:20%;" v-cloak class="hbcL">{{Data.selfAuthenticationQoq}}</span>
+                            </li>
+                            <li class="middle">
+                                <span style="width:25%;">进件用户数:</span>
+                                <span style="width:34%;" v-cloak  class="bfhj2">{{Data.intoUser}}</span>
+                                <span style="width:21%;" class="center1">环比:</span>
+                                <span style="width:20%;" class="hbcL">{{Data.intoUserQoq}}</span>
+                            </li>
+                            <li class="small">
+                                <span style="width:28%;">进件新用户数:</span>
+                                <span style="width:31%;" v-cloak  class="bfhj2">{{Data.newIntoUser}}</span>
+                                <span style="width:21%;" class="center1">环比:</span>
+                                <span style="width:20%;" v-cloak class="hbcL">{{Data.newIntoUserQoq}}</span>
+                            </li>
+                            <li>
+                                <span style="width:36%;" >进件新用户数占比:</span>
+                                <span style="width:23%;" v-cloak class="bfhj2">{{Data.newIntoUserPortion}}</span>
+                                <span style="width:41%;"></span>
+                            </li>
+                            <li>
+                                <span style="width:45%;" >当日注册且进件用户数:</span>
+                                <span style="width:15%;" class="bfhj2" v-cloak>{{Data.registerIntoUser}}</span>
+                                <span style="width:20%;" class="center1">环比:</span>
+                                <span style="width:20%;" v-cloak  class="hbcL">{{Data.registerIntoUserQoq}}</span>
+                            </li>
+                            <li>
+                                <span style="width:49%;" >新增注册用户且进件占比:</span>
+                                <span style="width:16%;" v-cloak class="bfhj2">{{Data.registerIntoUserPortion}}</span>
+                                <!--<span style="width:15%;" >环比:</span>
+                                <span style="width:20%;" v-cloak>{{Data.registerIntoUserPortionQoq}}</span>-->
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="tabBlockDetailX off ">
+                <!--<div>
+                    <div class="wdChoose" id="showUserPickerItemyh">
+                        <b>产品维度：</b>
+                        <a id="userResultItemyh" class="pickerRe">全部产品</a>
+                    </div>
+                </div>-->
+                <div class="show showEchartinfo">
+                    <!--<div class="yhfxtb2" id="yhfxtb2"></div>-->
+                    <ul class="yhfxtbsj2" id="yhfxtbsj2">
+                        <li class="tuisong">
+                            <span style="width:30%;">推送用户数:</span>
+                            <span style="width:20%;"  v-cloak  class="bfhj3">{{Data.pushUser}}</span>
+                            <span style="width:25%;" class="center1">环比:</span>
+                            <span style="width:25%;"  v-cloak class="hbcL">{{Data.pushUserQoq}}</span>
+                        </li>
+                        <li  class="fuhe">
+                            <span style="width:32%;">符合进件用户数:</span>
+                            <span style="width:18%;"  v-cloak  class="bfhj3">{{Data.intoUser}}</span>
+                            <span style="width:25%;" class="center1">环比:</span>
+                            <span style="width:25%;"  v-cloak class="hbcL" >{{Data.intoUserQoq}}</span>
+                        </li>
+                        <li class="fuhesmall">
+                            <span style="width:30%;">进件新用户数:</span>
+                            <span style="width:20%;"  v-cloak  class="bfhj3">{{Data.newIntoUser}}</span>
+                            <span style="width:25%;" class="center1">环比:</span>
+                            <span style="width:25%;"  v-cloak class="hbcL">{{Data.newIntoUserQoq}}</span>
+                        </li>
+                        <li>
+                            <span style="width:38%;">进件新用户数占比:</span>
+                            <span style="width:12%;"  v-cloak class="bfhj2">{{Data.newIntoUserPortion}}</span>
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+       <!-- 系统分析部分-->
+        <div class="common-tabBlock secondCont ">
+            <!--此处是系统分析部分的标题部分-->
+            <h5 class="user">
+                系统分析
+            	<span class="question" id="sysQues"></span>
+            </h5>
+            <!--此处是系统分析部分的导航-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll segmentedControlOne">
+                    <a class="mui-control-item mui-active active">全部渠道</a>
+                    <a class="mui-control-item ">自有</a>
+                    <a class="mui-control-item ">闪银</a>
+                    <a class="mui-control-item ">挖财</a>
+                    <a class="mui-control-item ">融360</a>
+                    <a class="mui-control-item ">51公积金</a>
+                    <a class="mui-control-item ">借点钱</a>
+                    <a class="mui-control-item ">百融</a>
+                    <a class="mui-control-item ">51信用卡</a>
+                    <a class="mui-control-item ">借了吗</a>
+                    <a class="mui-control-item ">闪银资产</a>
+                </div>
+            </div>
+            <!--此处是系统分析部分筛选的部分-->
+            <div class="tabBlockDetail1 clear">
+                <div class="userBlock">
+                    <div class="chooseDate">
+                        <span>客户维度</span>
+                        <div id="showUserPicker2" class="showUserCh">
+                            <a id="userResult2" class="pickerRe" data-value="alluser">全部用户</a>
+                        </div>
+                    </div>
+                    <div class="wdChange">
+                        <b>产品维度</b>
+                        <div id="showUserPicker3" class="showUserCh">
+                            <a id="userResult3" class="pickerRe" data-value="110110">全部产品</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- 此处是数据分析的数据部分-->
+            <div class="xtfxsj" id="xtfxsj">
+                <table style="width: 100%;">
+                    <thead>
+                    <tr style="height:38px" class="head1">
+                        <th class="Name1 NameZ" style="width: 50%;">重点指标</th>
+                        <th class="Name2" style="width: 35%;">今日</th>
+                        <th class="Name3" style="width: 15%;">环比</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="height:38px;font-size: 0.3rem">
+                        <td>信审通过件数</td>
+                        <td class="data2" v-cloak>{{Data.creditAduitPassNum}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.creditAduitPassNumQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>信审通过金额(万)</td>
+                        <td class="data2" v-cloak>{{Data.creditAduitPassAmount}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.creditAduitPassAmountQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>信审通过率</td>
+                        <td class="data2" v-cloak>{{Data.creditAduitPass}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.creditAduitPassQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>放款笔数</td>
+                        <td class="data2" v-cloak>{{Data.creditNum}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.creditNumQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>放款合同金额(万)</td>
+                        <td class="data2" v-cloak>{{Data.creditCompactAmount}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.creditCompactAmountQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>件均</td>
+                        <td class="data2" v-cloak>{{Data.avgAppno}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.avgAppnoQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>签约失效数</td>
+                        <td class="data2" v-cloak>{{Data.contractLoseEfficacy}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.contractLoseEfficacyQoq}}</td>
+                    </tr>
+                    <tr style="height:38px ;font-size: 0.3rem">
+                        <td>签约率</td>
+                        <td class="data2" v-cloak>{{Data.contracRatio}}</td>
+                        <td class="data3 hbcL" v-cloak >{{Data.contracRatioQoq}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--流程图部分-->
+        <div class="common-tabBlock forthCont">
+            <h5 class="user">
+                核心流程
+                <span class="question" id="centreQues"></span>
+                <!--<span class="question1" id="yujing"></span>-->
+            </h5>
+            <!--此处是核心流程部分的导航-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll segmentedControlOne">
+                    <a class="mui-control-item mui-active active">全部渠道</a>
+                    <a class="mui-control-item ">自有</a>
+                    <a class="mui-control-item ">闪银</a>
+                    <a class="mui-control-item ">挖财</a>
+                    <a class="mui-control-item ">融360</a>
+                    <a class="mui-control-item ">51公积金</a>
+                    <a class="mui-control-item ">借点钱</a>
+                    <a class="mui-control-item ">百融</a>
+                    <a class="mui-control-item ">51信用卡</a>
+                    <a class="mui-control-item ">借了吗</a>
+                    <a class="mui-control-item ">闪银资产</a>
+                </div>
+            </div>
+            <!--此处是核心流程部分筛选的部分-->
+            <div class="tabBlockDetail1 clear">
+                <div class="userBlock">
+                    <div class="chooseDate">
+                        <span>客户维度</span>
+                        <div id="showUserPickerLCTKH" class="showUserCh">
+                            <a id="userResultLCTKH" class="pickerRe">全部用户</a>
+                        </div>
+                    </div>
+                    <div class="wdChange">
+                        <b>产品维度</b>
+                        <div id="showUserPickerLCTCP" class="showUserCh">
+                            <a id="userResultLCTCP" class="pickerRe">全部产品</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="LCT">
+               <!-- <h1>核心流程</h1>-->
+                <div id="chart-container">
+                    <div class="jjl1 same">
+                        <p class="p1">进件量</p>
+                        <p class="p2" v-cloak>{{Data.appnoNum}}</p>
+                        <p v-cloak class="hbcL">{{Data.appnoNumQoq}}</p>
+                    </div>
+                    <div class="wangge1">
+                        <div class="wangge2"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="zjl2 same newWrap">
+                            <p class="p1">系统直拒量</p>
+                            <p class="p2" v-cloak>{{Data.sysRefuseNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.sysRefuseNumQoq}}</p>
+                        </div>
+                        <div class="fll3 same newWrap">
+                            <p class="p1">电核分流量</p>
+                            <p class="p2" v-cloak>{{Data.telAuditFlowNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.telAuditFlowNumQoq}}</p>
+                        </div>
+                        <div class="zpl4 same newWrap">
+                            <p class="p1">系统直批量</p>
+                            <p class="p2" v-cloak>{{Data.sysPassNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.sysPassNumQoq}}</p>
+                        </div>
+                    </div>
+
+                    <div class="clearfix">
+                        <div class="same right Bian">
+                            <p class="p1">系统直批率</p>
+                            <p class="p2" v-cloak>{{Data.sysPassNumRatio}}</p>
+                            <p v-cloak class="hbcL">{{Data.sysPassNumRatioQoq}}</p>
+                        </div>
+                    </div>
+
+                    <div class="wangge3">
+                        <div class="wangge4"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="dhl6 same newWrap">
+                            <p class="p1">待电核量</p>
+                            <p class="p2" v-cloak>{{Data.waitTelAuditNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.hisWaitTelAuditNum}}</p>
+                        </div>
+                        <div class="shl7 same newWrap">
+                            <p class="p1">电核审核量</p>
+                            <p class="p2" v-cloak>{{Data.telAuditNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.telAuditNumQoq}}</p>
+                        </div>
+                        <div class="zpl8 same newWrap">
+                            <p class="p1">系统直批量(手动)</p>
+                            <p class="p2" v-cloak>{{Data.avoidTelAuditHmNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.avoidTelAuditHmNumQoq}}</p>
+                        </div>
+                    </div>
+
+                    <div class="wangge5">
+                        <div class="wangge6"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="jdl9 same newWrap">
+                            <p class="p1">电核拒绝量</p>
+                            <p class="p2" v-cloak>{{Data.telAuditRefuseNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.telAuditRefuseNumQoq}}</p>
+                        </div>
+                        <div class="qxl10 same newWrap">
+                            <p class="p1">取消量</p>
+                            <p class="p2" v-cloak>{{Data.refuseNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.refuseNumQoq}}</p>
+                        </div>
+                        <div class="tgl11 same newWrap">
+                            <p class="p1">电核通过量</p>
+                            <p class="p2" v-cloak>{{Data.telAuditPassNum}}</p>
+                            <p v-cloak class="hbcL">{{Data.telAuditPassNumQoq}}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class=" same right Bian">
+                            <p class="p1">电核通过率</p>
+                            <p class="p2" v-cloak>{{Data.telAuditPassRatio}}</p>
+                            <p v-cloak class="hbcL">{{Data.telAuditPassRatioQoq}}</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- 时段趋势部分-->
+        <div class="common-tabBlock thirdCont ">
+            <!--此处是时段趋势部分的标题部分-->
+            <h5 class="user">
+                时段趋势	
+            </h5>
+            <!--此处是时段趋势部分的导航-->
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tableTitle">
+                <div class="mui-scroll segmentedControlOne">
+                    <a class="mui-control-item mui-active active">时段趋势</a>
+                    <a class="mui-control-item ">累计趋势</a>
+                </div>
+            </div>
+            <div class="tabBlockDetail2">
+                <div class="show" >
+                    <div class="userBlock1 clearfix">
+                        <div class="chooseDate1">
+                            <span>对比日期</span>
+                            <input type="text" class="calendars changeDate" id="calendars" placeholder="-" format="yy-mm-dd">
+                        </div>
+                        <div class="wdChange1">
+                            <b>用户指标</b>
+                            <div id="showUserPicker" class="showUserCh">
+                                <a id="userResult" class="pickerRe" data-value="zcyhs" data-value1="10000000" data-value2="" data-value3="">注册用户数-自有-无-无</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="echartDetail" id="sdqs"></div>
+                    <div id="sdqs1" class="off">
+                        <img src="../../images/timg.gif" />
+                       <!-- Loading......-->
+                    </div>
+                </div>
+                <div class="off" id="ljqs1">
+                    <!--<div class="userBlock">
+                        <div class="chooseDate">-->
+                    <div class="userBlock1 clearfix">
+                        <div class="chooseDate1">
+                            <span>对比日期</span>
+                            <input type="text" class="calendars changeDate" id="calendars2" placeholder="-" format="yy-mm-dd">
+                        </div>
+                        <div class="wdChange1">
+                            <b>用户指标</b>
+                            <div id="showUserPickerqs" class="showUserCh">
+                                <a id="userResultqs" class="pickerRe" data-value="zcyhs" data-value1="10000000" data-value2="" data-value3="">注册用户数-自有-无-无</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="echartDetail" id="sdqsqs"></div>
+                    <div id="ljqsLoad" class="off"> <img src="../../images/timg.gif" /></div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- 预警记录部分-->
+        <div class="common-tabBlock  " id="tabBlockDetail3">
+
+            <h5 class="user" >
+                预警记录
+                <span class="pullMore" @click="showRest"></span>
+                <span class="question" id="yujing" @click="warningWindows"></span>
+            </h5>
+            <div class="tabBlockDetail3" >
+                <table style="width: 100%;">
+                    <thead>
+                    <tr style="height:38px" class="head2">
+                        <th class="Name1" style="width: 20%;">业务渠道</th>
+                        <th style="width: 15%;">客户</th>
+                        <th class="Name1" style="width: 24%;">预警指标</th>
+                        <th class="Name2" style="width: 16%;">预警时间</th>
+                        <th class="Name3" style="width: 15%;">数值</th>
+
+                    </tr>
+                    </thead>
+                    <tbody id="noneTbody">
+                    <tr v-for="(objyj,index) in Data" style="height:38px;" :class=" index == '4'? 'showRest' : ''" @click="toggleShow($event,objyj,index)" v-if="objyj.content&&Data&&Data.length!=0">
+                        <td >{{objyj.channelCols}}</td>
+                        <td>{{objyj.customType}}</td>
+                        <td>{{objyj.alarmType}}</td>
+                        <td class="data1">{{objyj.alarmTimes}}</td>
+                        <td class="data4">{{objyj.alarmLevel}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+               <div class="SM" id="SM" v-if="Data.length==0">未有异常预警</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--结束-->
+    <script src="../../js/common/mui.min.js"></script>
+    <script src="../../js/common/jquery2.0.js"></script>
+    <script src="../../js/common/vue.js"></script>
+    <script src="../../js/common/echarts.min.js"></script>
+    <!--如果页面中有维度选择下拉框则需引入下面这个script链接-->
+    <script src="../../js/common/mui.picker.all.js"></script>
+    <script src="../../js/common/dropload.js"></script>
+    <script src="../../js/common/ceshiAjax.js"></script>
+    <script src="../../js/common/newCalendar.js"></script>
+    <script src="../../js/mine/mj-pullfresh-tab.js"></script>
+</body>
+</html>

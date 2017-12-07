@@ -1,0 +1,291 @@
+p{
+    margin: 0;
+}
+//保险的日期展示无需选择
+.chooseBlock .dateChange{
+    line-height: 0.95rem;
+    text-align: center;
+    em{
+        color: white;
+        font-size: 0.3rem;
+        padding-left: 1rem;
+    }
+}
+//公共样式
+//清除浮动
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
+//改变当日概览维度、日期选择的宽度
+.common-tabBlock .tabBlockDetail{
+    .wdBox{
+        height: 1.2rem;
+        display:-webkit-flex;
+        display:flex;
+        -webkit-flex-wrap:wrap;
+        flex-wrap:wrap;
+        -webkit-justify-content:space-around;
+        justify-content:space-around;
+        -webkit-align-items:center;
+        align-items:center;
+    }
+    .aboutDate,.wdChoose{
+        width: 30%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .wdChoose{
+        text-align: center;
+        a{
+            float: initial;
+        }
+    }
+    .aboutDate{
+        height: 0.9rem;
+        position: relative;
+        background: #F7F7F7;
+        input{
+            margin: 0;
+            height: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;
+            position: relative;
+            z-index: 2;
+            border-radius: 0;
+            font-size: 0.26rem;
+            color: #333333;
+            font-weight: normal;
+            text-align: center;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            background: url(../../images/blackTriangle.png) no-repeat;
+            width: 0.28rem;
+            height: 0.16rem;
+            background-size: 100% auto;
+            top: 50%;
+            right: 3%;
+            margin-top: -0.08rem;
+            z-index: 1;
+        }
+    }
+    .wdBox.wdSum{
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        .aboutDate,.wdChoose{
+            width: 40%;
+        }
+        span{
+            font-size: .26rem;
+            font-weight: bold;
+        }
+    }
+    .wdBox.wdDate{
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+        .aboutDate{
+            width: 40%;
+        }
+    }
+}
+//日历插件      改变背景色
+.mui-dtpicker {
+    background-color: white;
+}
+.mui-dtpicker-title h5 {
+    background-color: white;
+}
+//业绩概览-产品类型
+.productType{
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    li{
+        text-align: center;
+        margin-bottom: .15rem;
+        border: 1px solid lightblue;
+        border-radius: 8px;
+        padding: 0 2%;
+        width: 33%;
+        p{
+            color: #333333;
+            span{
+                color: #333333;
+                font-size: .26rem;
+                &.up{
+                    color: #FF5252;
+                }
+                &.down{
+                    color: #0CBD4C;
+                }
+                b{
+                    font-size: .26rem;
+                }
+            }
+            &:not(.amount){
+                span{
+                    font-size: .24rem;
+                    b{
+                        font-size: .24rem;
+                    }
+                }
+            }
+            &.rate{
+                span{
+                    &:first-child{
+                        float: left;
+                    }
+                    &:last-child{
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//当日概览的样式
+.dayAmount{
+    h5{
+        font-size: 0.3rem;
+        color: #333333;
+        text-align: center;
+        padding-top: 0.2rem;
+    }
+    .top-mid{
+        text-align: center;
+        font-size: 0.6rem;
+        padding-top: 0.2rem;
+        small{
+            font-size: 0.44rem;
+        }
+    }
+    .top-bot {
+        height: 0.6rem;
+        margin-top: 0.3rem;
+        font-size: 0.28rem;
+        color: #333333;
+        em{
+            display: inline-block;
+            height: 0.21rem;
+            width: 0.15rem;
+        }
+        div{
+            width: 50%;
+            border-right: 1px solid #E1E1E1;
+            &:first-child{
+                padding-right: 0.3rem;
+                float: left;
+                text-align: right;
+            }
+            &:last-child{
+                border-right: none;
+                padding-left: 0.3rem;
+                float: left;
+                text-align: left;
+            }
+        }
+        b{
+            font-size: 0.3rem;
+            padding-right: 0.1rem;
+            color: #333333;
+            &.up{
+                color: #FF5252;
+                &+em{
+                    background: url(../../images/up.png) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+            &.down{
+                color: #0CBD4C;
+                &+em{
+                    background: url(../../images/down.png) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+        }
+    }
+}
+
+.common-tabBlock .echartDetail{
+    margin-bottom: .15rem;
+}
+.common-tabBlock .echartDetail.noBot{
+    margin-bottom: 0;
+}
+
+//选项卡选项的padding值
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+  &.four{
+    padding: 0 23.8px;
+  }
+}
+
+//弹框初始时隐藏
+#DayAndMonthOverviewQuesBox,#businessOverviewQuesBox,#riskOverviewQuesBox{
+    display: none;
+}
+
+//弹框样式需单独调整的地方
+.DayAndMonthOverviewQuesBox{
+    .infoDetail{
+        height: 68%;
+        .popDetailUl{
+            overflow-y: scroll;
+        }
+        .close{
+            bottom: -10%;
+        }
+    }
+}
+//新增提示框 昨日更新  或  历史数据
+.dateTips{
+    .infoDetail{
+        height: 20%;
+        .popDetailUl{
+            height: 66%;
+            padding-bottom: 0;
+            overflow-y: scroll;
+            li{
+                span{
+                    width: 100%;
+                    position: initial;
+                    margin-left: initial;
+                    left: initial;
+                    top: initial;
+                    padding: 0 10%;
+                    a{
+                        padding-right: 2%;
+                    }
+                }
+            }
+        }
+        .close{
+            bottom: -44%;
+        }
+    }
+}
+
+//无业务数据提示
+.noInfo{
+    font-size: .26rem;
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+//地域分析模块、业绩概览当图表信息为空时
+.echartDetail.area{
+    text-align: center;
+    line-height: 5rem;
+    font-size: .26rem;
+    font-weight: bold;
+}

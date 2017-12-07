@@ -1,0 +1,266 @@
+.on {
+  display: block;
+}
+.off {
+  display: none;
+}
+.blsh {
+  text-align: center;
+  font-size: 0.26rem;
+}
+.blsh h4 {
+  font-size: 0.56rem;
+}
+.common-tabBlock1 {
+  padding: 0 0.2rem;
+  /*border-bottom: 0.2rem solid #f0eff2;*/
+}
+.common-tabBlock1:last-child {
+  border-bottom: none;
+}
+.common-tabBlock1 .tableTitle {
+  border-bottom: 1px solid #256DFF;
+  margin-top: 0.2rem;
+}
+.common-tabBlock1 .tableTitle a {
+  font-size: 0.3rem;
+  color: #333333;
+}
+.common-tabBlock1 .tableTitle a.mui-active.active {
+  color: #3E4FF9;
+  border: 1px solid #256DFF;
+  border-bottom: none;
+  background: #eff4ff;
+}
+.common-tabBlock1 .echartDetail {
+  width: 100%;
+  height: 5rem;
+}
+.common-tabBlock1 .tabBlockDetail > div:not(.show) {
+  display: none;
+}
+.common-tabBlock1 .tabBlockDetail .wdChoose {
+  margin-top: 0.1rem;
+  height: 0.9rem;
+  background: #F7F7F7;
+  line-height: 0.9rem;
+  padding: 0 0.18rem;
+  position: relative;
+}
+.common-tabBlock1 .tabBlockDetail .wdChoose:after {
+  content: '';
+  position: absolute;
+  background: url(../images/blackTriangle.png) no-repeat;
+  width: 0.28rem;
+  height: 0.16rem;
+  background-size: 100% auto;
+  top: 50%;
+  right: 3%;
+  margin-top: -0.08rem;
+}
+.common-tabBlock1 .tabBlockDetail .wdChoose b,
+.common-tabBlock1 .tabBlockDetail .wdChoose a {
+  font-size: 0.26rem;
+  color: #333333;
+  font-weight: normal;
+}
+.common-tabBlock1 .tabBlockDetail .wdChoose b {
+  float: left;
+}
+.common-tabBlock1 .tabBlockDetail .wdChoose a {
+  float: right;
+  padding-right: 8%;
+}
+.common-tabBlock1 .cityListM,
+.common-tabBlock1 .cityListP {
+  height: 3.6rem;
+  clear: both;
+}
+.common-tabBlock1 .cityListM div,
+.common-tabBlock1 .cityListP div {
+  width: 50%;
+  height: 100%;
+  border-right: 1px dotted #979797;
+}
+.common-tabBlock1 .cityListM div h5,
+.common-tabBlock1 .cityListP div h5 {
+  text-align: center;
+}
+.common-tabBlock1 .cityListM div h5 span,
+.common-tabBlock1 .cityListP div h5 span {
+  font-size: 0.26rem;
+  background: #FF6666;
+  padding: 0.12rem 0.48rem;
+  color: white;
+  border-radius: 0.48rem;
+}
+.common-tabBlock1 .cityListM div ul,
+.common-tabBlock1 .cityListP div ul {
+  text-align: center;
+  margin-top: 0.17rem;
+}
+.common-tabBlock1 .cityListM div ul li span,
+.common-tabBlock1 .cityListP div ul li span {
+  font-size: 0.28rem;
+  color: #666666;
+  line-height: 0.59rem;
+}
+.common-tabBlock1 .cityListM div:first-child,
+.common-tabBlock1 .cityListP div:first-child {
+  float: left;
+}
+.common-tabBlock1 .cityListM div:last-child,
+.common-tabBlock1 .cityListP div:last-child {
+  float: left;
+  border-right: none;
+}
+.common-tabBlock1 .cityListM div:last-child h5 span,
+.common-tabBlock1 .cityListP div:last-child h5 span {
+  background: #769DF5;
+}
+h3 {
+  text-align: center;
+  font-size: 0.56rem;
+}
+.tabBlockDetail2 > div:not(.show) {
+  display: none;
+}
+.tabBlockDetail2 .wdChoose {
+  margin-top: 0.1rem;
+  height: 0.9rem;
+  background: #F7F7F7;
+  line-height: 0.9rem;
+  padding: 0 0.18rem;
+  position: relative;
+  text-align: center;
+}
+.tabBlockDetail2 .wdChoose:after {
+  content: '';
+  position: absolute;
+  background: url(../../images/blackTriangle.png) no-repeat;
+  width: 0.28rem;
+  height: 0.16rem;
+  background-size: 100% auto;
+  top: 50%;
+  right: 30%;
+  margin-top: -0.08rem;
+}
+.tabBlockDetail2 .wdChoose b,
+.tabBlockDetail2 .wdChoose a {
+  font-size: 0.26rem;
+  color: #333333;
+  font-weight: normal;
+}
+.dataDetail1 {
+  background: white;
+}
+.dataDetail1 .horiBlock {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.dataDetail1 .horiBlock div {
+  float: left;
+  width: 50%;
+}
+.dataDetail1 .horiBlock div:nth-of-type(1) {
+  text-align: right;
+  padding-right: 0.4rem;
+  border-right: dashed 1px #bcbcbc;
+}
+.dataDetail1 .horiBlock div:nth-of-type(2) {
+  padding-left: 0.4rem;
+  text-align: left;
+}
+.dataDetail1 p {
+  font-size: 0.26rem;
+  color: #666666;
+  display: block;
+  /* padding-top: 0.15rem;
+    padding-bottom: 0.1rem;*/
+}
+.dataDetail1 span {
+  font-size: 0.26rem;
+  color: #666666;
+  padding-top: 0.15rem;
+  padding-bottom: 0.1rem;
+}
+.dataDetail1 h4 {
+  color: black;
+  font-size: 0.56rem;
+  font-weight: bold;
+  color: #222328;
+}
+.dataDetail1 .big {
+  font-size: 0.56rem;
+  color: black;
+}
+/*.xdylTotalMoney1,.xdylTotalMoney2{
+  width: 50%;
+  float:left;
+}
+.xdylTotalMoney1{
+  text-align: right;
+}
+.xdylTotalMoney2{
+  text-align: left;
+}*/
+/*.chooseBlock{
+  &>div{
+    width: 100%;
+    height: 100%;
+  }
+  &>div:first-child{
+    input{
+      height: 100%;
+    }
+  }
+  .dateChange{
+    position: relative;
+    &::before{
+      content:'';
+      position: absolute;
+      width: 0.44rem;
+      height: 0.44rem;
+      background: url(../../images/showTime.png) no-repeat;
+      background-size: auto 100%;
+      top: 50%;
+      margin-top: -0.22rem;
+      left: 28%;
+    }
+    .calendars{
+      margin-bottom: 0;
+      background: #3E4FF9;;
+      border: none;
+      outline: none;
+      color: white;
+      border-radius: initial;
+      font-size: 0.3rem;
+      text-align: center;
+    }
+    span{
+      position: absolute;
+      width: 0.36rem;
+      height: 0.2rem;
+      background: url(../../images/push.png) no-repeat;
+      background-size: 100% auto;
+      top: 50%;
+      margin-top: -0.1rem;
+      right: 2rem;
+    }
+  }
+}*/
+.mark {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  right: 0;
+  z-index: 8;
+  top: 0;
+}
+.mark.active {
+  display: block;
+}

@@ -1,0 +1,73 @@
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+  padding: 0 14px;
+}
+.firstCont {
+  padding-bottom: .2rem;
+}
+.topNumWrap {
+  width: 100%;
+  background: #F7F7F7;
+  font-size: .28rem;
+}
+.topNumWrap .everyUl {
+  border-bottom: 1px solid #eee;
+  padding: .2rem 0;
+}
+.topNumWrap .everyUl .ulTop {
+  text-align: center;
+}
+.topNumWrap .everyUl .ulTop span {
+  display: inline-block;
+  padding-left: .7rem;
+  height: .58rem;
+  line-height: .58rem;
+  background: url(../../images/bluepig.png) no-repeat;
+  background-size: .58rem .58rem;
+}
+.topNumWrap .everyUl .ulTop.tzrs span {
+  background: url(../../images/touHead.png) no-repeat;
+  background-size: .58rem .58rem;
+}
+.topNumWrap .everyUl .ulTop.tzbs span {
+  background: url(../../images/pay_b.png) no-repeat;
+  background-size: .58rem .58rem;
+}
+.topNumWrap .everyUl .ulTop.zckh span {
+  background: url(../../images/zhuce.png) no-repeat;
+  background-size: .58rem .58rem;
+}
+.topNumWrap .everyUl .stAndzt span {
+  float: left;
+  margin-top: .2rem;
+  width: 50%;
+  box-sizing: border-box;
+}
+.topNumWrap .everyUl .stAndzt span:first-of-type {
+  padding-right: .2rem;
+  text-align: right;
+  border-right: 1px solid #D3D3D3;
+}
+.topNumWrap .everyUl .stAndzt span:last-of-type {
+  padding-left: .2rem;
+  text-align: left;
+}
+.topNumWrap .everyUl:last-of-type {
+  border-bottom: 0;
+}
+#financialSuperQuesBox {
+  display: none;
+}
+.financialSuperQuesBox .infoDetail .popDetailUl {
+  overflow-y: scroll;
+}
+.financialSuperQuesBox .infoDetail .popDetailUl p {
+  text-align: center;
+}
+.financialSuperQuesBox .infoDetail .close {
+  bottom: -14%;
+}
