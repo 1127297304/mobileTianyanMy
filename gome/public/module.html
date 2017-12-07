@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>模块</title>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+
+    <script src="assets/libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="javascripts/socket.io.js"></script>
+    <script>
+        var socket = io();
+    </script>
+    <script src="assets/libs/greensock-v12-js/src/minified/TweenMax.min.js" ></script>
+    <script src="assets/libs/greensock-v12-js/src/minified/jquery.gsap.min.js"></script>
+    <script src="assets/libs/greensock-v12-js/src/minified/plugins/CSSPlugin.min.js"></script>
+    <script src="assets/libs/greensock-v12-js/src/minified/easing/EasePack.min.js"></script>
+    <script src="assets/libs/greensock-v12-js/src/minified/plugins/RaphaelPlugin.min.js"></script>
+    <script src="assets/libs/spinjs/spin.min.js"></script>
+    <script src="assets/libs/jquery-circle-progress-master/dist/circle-progress.js"></script>
+    <script src="assets/libs/jquery.animateSprite-master/scripts/jquery.animateSprite.min.js"></script>
+
+    <script src="assets/libs/three.js-master/build/three.js"></script>
+    <!--<script src="assets/libs/three.js-master/examples/js/libs/stats.min.js"></script>-->
+    <script src="assets/libs/UrlParams-master/jquery.UrlParams.js"></script>
+
+    <script src="assets/libs/jquery-number-master/jquery.number.min.js"></script>
+
+    <script src="assets/libs/raphael-min.js"></script>
+
+    <script src="assets/libs/Chart.js-master/Chart.min.js"></script>
+
+    <script src="assets/js/com/zoolon/core/Core.js"></script>
+    <script src="assets/js/com/zoolon/core/Config.js"></script>
+
+    <script src="assets/js/com/zoolon/components/Loader.js"></script>
+    <script src="assets/js/com/zoolon/components/IntervalLoader.js"></script>
+    <script src="assets/js/com/zoolon/components/Looper.js"></script>
+    <script src="assets/js/com/zoolon/components/Planet3D.js"></script>
+    <script src="assets/js/com/zoolon/components/CustomLineChart.js"></script>
+    <script src="assets/js/com/zoolon/components/Bre3D.js"></script>
+
+    <script src="assets/js/com/zoolon/controllers/CountController.js"></script>
+    <script src="assets/js/com/zoolon/controllers/ClassController.js"></script>
+    <script src="assets/js/com/zoolon/controllers/TopTenController.js"></script>
+    <script src="assets/js/com/zoolon/controllers/SalesController.js"></script>
+
+    <script src="assets/js/com/zoolon/modules/ModuleBase.js"></script>
+    <script src="assets/js/com/zoolon/modules/GoodsModule.js"></script>
+    <script src="assets/js/com/zoolon/modules/MarketingModule.js"></script>
+    <script src="assets/js/com/zoolon/modules/NewsModule.js"></script>
+    <script src="assets/js/com/zoolon/modules/RecommendedModule.js"></script>
+    <script src="assets/js/com/zoolon/modules/UserModule.js"></script>
+    <!--<script src="assets/js/com/zoolon/modules/jquery.js"></script>-->
+    <script src="assets/js/com/zoolon/modules/jquery.dataStatistics.js"></script>
+    <script src="assets/js/com/zoolon/modules/ValueModule.js"></script>
+    <script src="assets/js/com/zoolon/modules/ValueModuleSeven.js"></script>
+    <script src="assets/js/com/zoolon/modules/ValueModuleSevenMj.js"></script>
+    <script src="assets/js/com/zoolon/modules/ValueModuleMeiJie.js"></script>
+    <script src="assets/js/com/zoolon/modules/VolumeModule.js"></script>
+
+    <script src="assets/js/com/zoolon/managers/ModuleManager.js"></script>
+    <script src="assets/js/com/zoolon/managers/SoundManager.js"></script>
+
+    <script src="assets/js/com/zoolon/utils/ExternalCall.js"></script>
+		<!--<script src="/javascripts/myEcharts.js"></script>-->
+    <script>
+      $(function(){
+        var idx = $.urlParams("get", "idx");
+        if(idx == "")idx = '';
+
+        var ts = $.urlParams("get", "scale");
+        ts = Number(ts);
+        if(ts == "")ts=1;
+
+        testModule(idx,ts);
+
+        $(window).keydown(function(e){
+          switch(e.keyCode)
+          {
+            case 37:
+            e.preventDefault();
+            break;
+            case 39:
+            e.preventDefault();
+            break;
+            case 38:
+            e.preventDefault();
+            break;
+            case 40:
+            e.preventDefault();
+            break;
+          }
+        });
+        $(window).keyup(function(e){
+          switch(e.keyCode)
+          {
+            case 37: //pre
+            idx--;
+            idx = idx < 0 ? 0 : idx;
+            location.href = "?idx="+idx+"&scale="+ts;
+            break;
+            case 39: //next
+            idx++;
+            var len = App.ModuleManager.list.length;
+            idx = idx > len-1 ? len-1 : idx;
+            location.href = "?idx="+idx+"&scale="+ts;  //其他页面引入，是assets/data/modules/value.html的引入；
+            break;
+            case 38: //up
+            ts+=0.1;
+            ts = ts > 1 ? 1 : ts;
+            location.href = "?idx="+idx+"&scale="+ts;
+            break;
+            case 40: //down
+            ts-=0.1;
+            ts = ts < 0.1 ? 0.1 : ts;
+            location.href = "?idx="+idx+"&scale="+ts;
+            break;
+          }
+        });
+      });
+
+      function testModule(idx,ts)
+      {
+        var container = $("<div>");
+        container.appendTo("body");
+        //container.css("background-color","#ff0000");
+        container.css("background","url(images/bg.png) no-repeat") ;
+        container.css("background-size","2560px 2048px");
+        var list = App.ModuleManager.list;
+        var obj = list[idx];
+        var ModuleClass = obj.instanceOf;
+        var tw = obj.width;
+        var th = obj.height;
+        var module = new ModuleClass({width:tw,height:th});
+        module.appendTo(container);
+
+        container.width(tw);
+        container.height(th);
+        var tx = -tw*(1-ts)*0.5;
+        var ty = -th*(1-ts)*0.5;
+        TweenLite.set(container,{scale:ts,x:tx,y:ty});
+      }
+    </script>
+  </head>
+  <body>
+  
+  </body>
+</html>

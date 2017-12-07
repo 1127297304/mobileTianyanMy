@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WanDa</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <input type="text" name="outgoingChatMesage" id="outgoingChatMesage">
+    <input type="button"  name="submit_btn" id="submit_btn" value="发言">
+    <script type="text/javascript" src="javascirpts/socket.io.js"></script>
+    <script type="text/javascript">
+      $(function(){
+                var iosocket = io.connect('http://localhost:3000/');
+
+                iosocket.on('connect', function () {
+                    $('#incomingChatMessages').append($('<li>Connected</li>'));
+
+                    iosocket.on('message', function(message) {
+                        $('#incomingChatMessages').append($('<li></li>').text(message));
+                    });
+                    iosocket.on('disconnect', function() {
+                        $('#incomingChatMessages').append('<li>Disconnected</li>');
+                    });
+                });
+
+                $('#outgoingChatMessage').keypress(function(event) {
+                    if(event.which == 13) {
+                        event.preventDefault();
+                        iosocket.send($('#outgoingChatMessage').val());
+                        $('#incomingChatMessages').append($('<li></li>').text($('#outgoingChatMessage').val()));
+                        $('#outgoingChatMessage').val('');
+                    }
+                });
+
+                $('#submit_btn').click(function() {
+                    iosocket.send($('#outgoingChatMessage').val());
+                    $('#incomingChatMessages').append($('<li></li>').text($('#outgoingChatMessage').val()));
+                    $('#outgoingChatMessage').val('');
+                });
+
+            });
+    </script>
+  </body>
+</html>

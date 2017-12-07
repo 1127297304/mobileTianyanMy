@@ -1,0 +1,39 @@
+
+[
+    {
+        "gender": "男",
+        "money": "1250.00",
+        "city": "济南市",
+        "production": "标准产品",
+        "age": "30"
+    },
+
+    {
+      "gender": "男",
+      "money": "1250.00",
+      "city": "铜仁市",
+      "production": "标准产品",
+      "age": "30"
+    },
+    {
+      "gender": "男",
+      "money": "1250.00",
+      "city": "遵义市",
+      "production": "标准产品",
+      "age": "30"
+    },
+    {
+      "gender": "男",
+      "money": "1250.00",
+      "city": "上海市",
+      "production": "标准产品",
+      "age": "30"
+    },
+    {
+      "gender": "男",
+      "money": "1250.00",
+      "city": "乌鲁木齐市",
+      "production": "标准产品",
+      "age": "30"
+    }
+  ]

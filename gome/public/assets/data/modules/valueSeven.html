@@ -1,0 +1,718 @@
+<!-- <script src="javascripts/socket.io.js"></script> -->
+<meta http-equiv="refresh" content="300">
+<link rel="stylesheet" href="../../assets/css/scrollNum.css" />
+<link rel="stylesheet" href="../../stylesheets/mainSc.css" />
+<style>
+header{
+
+}
+footer{
+	position: fixed;
+	bottom: 80px;
+	right:170px;
+	height:100px;
+	zoom: 1.5;
+}
+	body{
+		position: relative;
+		font-size: 60px;
+		zoom:.5;
+		cursor:auto;
+		font-family: MicroSoft Yahei;
+	}
+	#opinionCon{
+		font-size: 65px;
+		width:100%;
+		/*text-align: center;*/
+		left:30%;
+	}
+	#opinionCon span{
+		font-size: 65px;
+	}
+	.lines img{
+		width: 300px;
+		height: 150px;
+	}
+	.pointer img{
+		width: 150px;
+		height: 150px;
+	}
+	/*.value .widget
+	{
+		position: absolute;
+	}*/
+
+	.value .widget .header .title
+	{
+		color: #FFFFFF;
+		font-family: "黑体";
+	}
+
+	/* widget0 */
+	/*.value .widget0
+	{
+		left: 50px;
+		top:121px;
+	}*/
+
+	.value .widget0 .header .title
+	{
+	}
+
+	.value .widget0 .content
+	{
+		color: #FFFFFF;
+    font-family: "黑体";
+    right: 20px;
+    top: 74px;
+    position: fixed;
+    white-space: nowrap;
+	}
+
+	.value .widget0 .content span:nth-of-type(1) 
+	{
+
+    font-size: 50px;
+    width: 350px;
+    line-height: 38px;
+    height: 38px;
+    text-align: right;
+		padding-right: 20px;
+    color: orange;
+    font-family: 'MicroSoft Yahei';
+    display: inline-block;
+    margin-top: 0px;
+	}
+	.value .widget0 .content span:nth-of-type(2) 
+	{
+
+    font-size: 50px;
+    width: 350px;
+    line-height: 38px;
+    height: 38px;
+    text-align: right;
+    padding-right: 20px;
+    color: orange;
+    font-family: 'MicroSoft Yahei';
+    display: inline-block;
+    margin-top: 0px;
+	}
+	.value .widget0 .content span:nth-of-type(3) 
+	{
+
+    font-size: 50px;
+    width: 300px;
+    line-height: 38px;
+    height: 38px;
+    text-align: center;
+    color: orange;
+    font-family: 'MicroSoft Yahei';
+    display: inline-block;
+    margin-top: 0px;
+	}
+
+	/* widget7 */
+	.value .widget7
+	{
+		left: 710px;
+		top:1441px;
+	}
+
+	.value .widget7 .chartContainer
+	{
+		position: absolute;
+		width: 1860px;
+		height: 360px;
+	}
+
+	.value .mapWidget
+	{
+		/*position: absolute;*/
+		/*left: 830px;*/
+		/*top:482px;*/
+	}
+
+	.value .mapWidget .item
+	{
+		width: 836px;
+		height: 348px;
+		/*background: url('images/square.png');*/
+		position: absolute;
+		/*left: 0;*/
+		/*top:0;*/
+
+	}
+
+	.value .mapWidget .item .pointer,.value .mapWidget .item .lines
+	{
+		position: absolute;
+	}
+
+	.value .mapWidget .item .detail
+	{
+		position: absolute;
+		font-size: 45px;
+		width: 692px;
+		height: 370px;
+		background: url('images/square1.png') no-repeat;
+		/*background-color: rgba(0,0,0,0.7);*/
+		background-size: 692px 370px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 35px;
+		padding-bottom: 30px;
+		color:white;
+		text-shadow: 0px 0px 10px #000;
+		/*box-shadow: 0px 0px 2px #ddd;*/
+		/*display:flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;*/
+
+	}
+	.glow{
+		-webkit-box-shadow: 0 0 20px rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
+		-moz-box-shadow: 0 0 20px rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
+		box-shadow: 0 0 20px rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
+		width: 645px;
+    margin-top: -33px;
+    height: 302px;
+    margin-left: -50px;
+    padding-top: 33px;
+    padding-left: 48px;
+    border-radius: 34px 42px 34px 34px;
+	}
+	.value .mapWidget .item .detail > * {
+		flex:auto;
+	}
+	.value .mapWidget .item .detail .price
+	{
+		color:#FB850A;
+		/*font-family: "NeoTechStd-Regular";*/
+		font-family: "MicroSoft Yahei";
+
+		font-weight: bold;
+		margin-bottom: 10px;
+		white-space: nowrap;
+	}
+	.value .mapWidget .item .detail .address,.value .mapWidget .item .detail .list
+	{
+		color: #FFFFFF;
+		font-family: "黑体";
+		margin-top: 5px;
+		white-space: nowrap;
+	}
+
+	.value .mapWidget .item .detail .list
+	{
+		/*margin-bottom: 10px;*/
+		margin-top:-2px;
+
+		line-height: 22px;
+	}
+
+	
+	.logo2{
+		position: absolute;
+		top:52px;
+		right:70px;
+		width: 284px;
+	}
+	.logo1{
+		position: absolute;
+		top:52px;
+		left:50px;
+		display: none;
+	}
+	.back_map{
+		 animation: mymove2 30s infinite;
+    -webkit-animation: mymove2 30s linear infinite;
+	}
+	@keyframes mymove2 {
+    from {
+      transform: rotateZ(360deg);
+    }
+    to {
+      transform: rotateZ(0);
+    }
+  }
+  .rts_time{
+  	zoom:1;
+		width: 545px;
+		height: 207px;
+		border-radius: 5px;
+		background-color:#1B6A99;
+		position:absolute;
+		top:50px;
+		left:55px;
+		opacity: .9;
+		float: left;
+	}
+	.rts_time_left{
+		float:left;
+		font-size: 120px;
+	}
+	.rts_time_left span{
+		font-size: 110px;
+		display: inline-block;
+		width:auto;
+		height:168px;
+		margin:20px;
+		padding: 0px 10px;
+		background-color:#ABC3D1;
+		vertical-align: middle;
+		line-height: 178px;
+		text-align: center;
+		font-weight: 900;
+		border-radius: 5px;
+		box-shadow: 0px 0px 3px black;
+		margin-right: 22px;
+	}
+	.rts_time_right{
+		float:left;
+		width:auto;
+		height: 207px;
+		color:white;
+		font-size:32px!important;
+		text-align:center;
+		margin-top: 1%;
+	}
+	#line_bar_chart{
+		width: 1000px;
+		height: 800px;
+		bottom: -1170px;
+		left:10px;
+	}
+	.mapBlock{
+		margin-left: 80px;
+		width: 2560px;
+		height: 2048px;
+		zoom:.82;
+		position: absolute;
+    	right: -10%;
+    	top: 7%;
+	}
+	.leftTopBlock{
+		width: 1200px;
+	    height: 1650px;
+	    position: absolute;
+	    left: 3%;
+	}
+	.leftBottomBlock{
+		width: 1200px;
+		border: 1px solid white;
+		height: 430px;
+	    position: absolute;
+	    left: 3%;
+	}
+	.leftTopBlock{
+		top: 15%;
+		/*background: lightblue;*/
+	}
+	.leftBottomBlock{
+		bottom: 20px;
+		/*background: lightgreen;*/
+	}
+	.rts_time{
+		left: 64.5%;
+    	top: -4%;
+	}
+	.day{
+		font-size:80px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.title.top{
+		color: white;
+		font-size: 46px;
+		height: 86px;
+		line-height: 86px;
+		background: url(../../../images/two_03.png) no-repeat left center;
+		padding-left: 100px;
+	}
+	.title.bottom{
+		color: white;
+		margin-bottom: 20px;
+		font-size: 46px;
+		height: 86px;
+		line-height: 86px;
+		background: url(../../images/two_14.png) no-repeat left center;
+		padding-left: 100px;
+	}
+	#month{
+		margin-top: 0;
+		font-size: 32px;
+	}
+	#week{
+		margin-bottom: 0;
+		font-size: 32px;
+	}
+	.widget.widget0{
+		width: 1748px;
+		position: absolute;
+		top: -4%;
+		left: 12%;
+	}
+/*.value .dataStatistics .digit_set{background-color: #0000cc}*/
+</style>
+	
+	<div class='leftTopBlock'>
+		<div class="mainLogo">
+			<span style="font-size:36px;color:white">金控双十一作战室</span>
+		</div>
+		<!--<div class="title top">放款区域占比</div>-->
+		<h4>理财投资金额</h4>
+		<div id="scale_occupy" style="width:100%;height:26%;margin-top: 1%;"></div>
+		<h4>美借放款金额</h4>
+		<div id="lineMyf" style="width:100%;height:26%;margin-top:1%"></div>
+		<h4>美易分放款金额</h4>
+		<div id="rts_trend" style="width:100%;height:26%;margin-top: 1%;"></div>
+	</div>
+	<!--<div class='leftBottomBlock'>
+		<div id="leftBot" style="width:100%;height:90%;margin-top: 5%;"></div>
+		<div class="botLeft">
+			<h4>资产端</h4>
+			<p><span>49.99%</span><span>31.22%</span></p>
+		</div>
+		<div class="botRight">
+			<h4>财富端</h4>
+			<p><span>49.99%</span><span>31.22%</span></p>
+		</div>
+	</div>-->
+	<div class="mapBlock">
+		
+		<div class="rts_time">
+		  <div class="rts_time_left">
+		    <span>--:--</span>
+		  </div>
+		  <div class="rts_time_right">
+		    <p id="week">-</p>
+		    <p id="day" class="day">-</p>
+		    <p id="month">-</p>
+		  </div>
+		</div>
+	
+		<div class="logo1">
+			<img src="images/logo1.png" alt="">
+		</div>
+		<!-- <div class="logo2">
+			<img src="images/logo2.png" style="width: 284px" alt="">
+		</div> -->
+		<div class="rightBlock">
+			<h4>美易分大区占比</h4>
+			<div id="scale_occupyMyf" style="width:100%;height:100%"></div>
+		</div>
+		<div class="rightBlockBot">
+			<h4 style="margin-top: 0;margin-bottom: 2%;">美付宝数据<small>(万元)</small></h4>
+			<div class="tips">
+				<span>国美互联网</span>
+				<span>金额：<em class="intMoney"></em></span>
+				<span>件数：<em class="intPieces"></em></span>
+			</div>
+			<div class="tips">
+				<span>国美电器</span>
+				<span>金额：<em class="dqMoney"></em></span>
+				<span>件数：<em class="dqPieces"></em></span>
+			</div>
+			<div class="tips">
+				<span>汇总</span>
+				<span>金额：<em  class="hzMoney"></em></span>
+				<span>件数：<em class="hzPieces"></em></span>
+			</div>
+			<div id="areaChart" style="width:100%;height:100%"></div>
+		</div>
+		<div class="value">
+			<div class="widget widget0">
+				<div class="header">
+				</div>
+				
+				<div class="loanMoneyNum">
+					<!--<em class="dh1">,</em>
+					<em class="dh2">,</em>
+					<em class="dh3">,</em>-->
+					<b class="je">总交易金额</b>
+					<div class="dataStatistics money">
+					  <div class="digit_set marRig"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set marRig"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set marRig"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set set_last"></div>
+					</div>
+				</div>
+				
+				<div class="loanPiecesNum">
+					<!--<em class="dh4">,</em>
+					<em class="dh5">,</em>
+					<em class="dh6">,</em>-->
+					<b class="fk">总交易件数</b>
+					<div class="dataStatistics pieces">
+					  <div class="digit_set"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set marRig"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set marRig"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set"></div>
+					  <div class="digit_set set_last"></div>
+					</div>
+				</div>
+				
+			</div>
+		
+			<!-- <img style="position: absolute;left:555px;top:135px;width: 810px;height: 810px;opacity: 0.5;" src="assets/images/gif/80.gif" /> -->
+			<!--<img style="position: absolute;left:610px;top:280px;width: 1420px;height: 1420px;opacity: 0.5;" src="assets/images/gif/80.gif"  class="back_map"/>-->
+			<!--<div class="widget mapWidget">
+				<img style="position: absolute;width:1800px;left:380px;top:300px" src="assets/images/value/map.png" />
+			</div>-->
+			<!--<div class="widget widget7">
+				<div class="chartContainer"></div>
+			</div>-->
+			<!--<div id="InfoItemUI" style="display: none;">
+				<div class="item">
+					<div class="pointer">
+						<img style="position: absolute;left: -50px;top:-50px;" src="assets/images/gif/13.gif" />
+					</div>
+					<div class="lines">
+						<img style="position: absolute;display: none;" src="assets/images/gif/A.gif" />
+						<img style="position: absolute;display: none;" src="assets/images/gif/B.gif" />
+						<img style="position: absolute;display: none;" src="assets/images/gif/C.gif" />
+						<img style="position: absolute;display: none;" src="assets/images/gif/D.gif" />
+					</div>
+					<div class="detail" >
+						<div class="glow">
+							<div class="product">产品 :</div>
+							<div class="area">省市 :</div>
+							<div class="money">金额 :10000</div>
+							<div class="gender">性别 :</div>
+							<div class="age">年龄 :</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+		</div>
+		<div id="line_bar_chart">
+		</div>
+		<!--<footer>
+		
+			<img src="/images/text_gome.png" alt="">
+		</footer>-->
+	</div>
+	<script src="/javascripts/echarts.js"></script>
+	<script src="/javascripts/jquery.min.js"></script>
+	<!--<script src="/javascripts/jquery.MyFloatingBg.js"></script>-->
+	<script src="/javascripts/jquery.dataStatistics.js"></script>
+	<script src="javascripts/china.js"></script>
+	<script src="/javascripts/myEchartsSeven.js"></script>
+	<script>
+	
+		var myChart = echarts.init(document.getElementById('line_bar_chart'));
+		var base = +new Date(1968, 9, 3);
+		var oneDay = 24 * 3600 * 1000;
+		var date = [];
+		$.ajax({
+			url: window.localStorage.ip + 'big_screen_branch/battle/getAmountCount.do?times=2016-11-11 17:15:01',
+			type: 'get',
+			success: (data) => {
+				console.log(data)
+				var data = data.totalList;
+				var arrTime = [],
+					arrMoney = [];
+				for(var i in data){
+					 for(var j in data[i]){
+						 	arrTime.push(j)
+						 	arrMoney.push(data[i][j])
+					 }
+				}
+				var time = arrTime[0]
+				var date = new Date(time); 
+				var date = new Date(time.replace(/-/g, '/'));
+				var timeStart = date.getTime();
+				var arrLast = []
+				var tempMoney  = 0;
+				for(var i=0,len=arrTime.length;i<len;i++){
+					var strtime = arrTime[i];
+					var date = new Date(strtime); 
+					var date = new Date(strtime.replace(/-/g, '/'));
+					var time1 = date.getTime();
+					var tempArr = []
+					if(time1 <  timeStart + 5* 60*1000){
+						tempMoney +=  arrMoney[i]
+					}else{
+						timeStart = time1;
+						tempArr.push(timeStart)
+						tempArr.push(tempMoney)
+						tempMoney = 0;
+						arrLast.push(tempArr)
+					}
+				}
+				console.log(arrLast)
+				var data1 = [],
+						data2 = [];
+	
+				for(var i=0;i<arrLast.length;i++){
+					console.log(arrLast[i])
+					var date = new Date(arrLast[i][0]);
+					var h = date.getHours() 
+					var m = date.getMinutes() 
+					console.log(h+m)
+					data1.push(h+'-'+m)
+					data2.push(arrLast[i][1])
+				}
+				console.log(data1)
+				console.log(data2)
+				var option = {
+				    tooltip: {
+				        trigger: 'axis',
+				        position: function (pt) {
+				            return [pt[0], '10%'];
+				        }
+				    },
+				    title: {
+				        left: 'center',
+				        text: '',
+				    },
+				    legend: {
+				        top: 'bottom',
+				        data:['意向']
+				    },
+				    toolbox: {
+				        feature: {
+				            dataZoom: {
+				                yAxisIndex: 'none'
+				            },
+				            restore: {},
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        splitLine: {
+			              show: false
+			          },
+					      'name': '时间(时)',
+					      nameTextStyle:{
+						    	color: 'white',
+						    },
+						    axisLabel: {
+						    	textStyle: {
+						    		color: 'white',
+						    		fontSize: 30
+						    	}
+						    },
+				        data: data1
+				    },
+				    yAxis: {
+				        type: 'value',
+				        boundaryGap: false,
+				        splitLine: {
+			              show: false
+			          },
+					      'name': '时间(时)',
+					      nameTextStyle:{
+						    	color: 'white',
+						    },
+						    axisLabel: {
+						    	textStyle: {
+						    		color: 'white',
+						    		fontSize: 30
+						    	}
+						    },
+				    },
+				    dataZoom: [{
+				        type: 'inside',
+				        start: 0,
+				        end: 100
+				    }, {
+				        start: 0,
+				        end: 10,
+				        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+				        handleSize: '80%',
+				        handleStyle: {
+				            color: '#fff',
+				            shadowBlur: 3,
+				            shadowColor: 'rgba(0, 0, 0, 0.6)',
+				            shadowOffsetX: 2,
+				            shadowOffsetY: 2
+				        }
+				    }],
+				    series: [
+				        {
+				            name:'模拟数据',
+				            type:'line',
+				            smooth:true,
+				            symbol: 'none',
+				            sampling: 'average',
+				            itemStyle: {
+				                normal: {
+				                    color: 'rgb(255, 70, 131)'
+				                }
+				            },
+				            areaStyle: {
+				                normal: {
+				                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+				                        offset: 0,
+				                        color: 'rgb(255, 158, 68)'
+				                    }, {
+				                        offset: 1,
+				                        color: 'rgb(255, 70, 131)'
+				                    }])
+				                }
+				            },
+				            data: data2
+				        }
+				    ]
+				};
+	
+	
+				myChart.setOption(option);
+			},
+			error: (error, b, c) => {
+	
+			}
+		})
+		// var data = [Math.random() * 300];
+	
+		// for (var i = 1; i < 2000; i++) {
+		//     var now = new Date(base += oneDay);
+		//     date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+		//     data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+		// }
+	
+		
+		document.addEventListener('keypress',function(e){
+			console.log(e)
+			if(e.charCode === 13){
+				console.log('1')
+				window.location.href = 'http://localhost:3000/table.html'
+			}
+		},false)
+	  function zoom() {
+	    var width = $(window).width();
+	    var height = $(window).height();
+	    if (height > width) {
+	        $('html').css({zoom: width / 1080});
+	        $('html').height(1080);
+	        $('html').css({top: '-1080px'});
+	    } else {
+	        $('html').css({zoom: width / 1920});
+	        console.log(width)
+	        console.log(height)
+	    }
+	    console.log(width/1080)
+	  }
+	  // zoom();
+	  window.onresize = function() {
+	      // zoom();
+	  };
+	  
+	  
+	</script>

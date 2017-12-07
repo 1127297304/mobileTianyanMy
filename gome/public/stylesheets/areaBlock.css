@@ -1,0 +1,242 @@
+	 
+	*{
+		margin:0;
+		padding:0;
+		list-style: none;
+		text-decoration: none;
+	}
+	html{
+		width: 1280px;
+		height: 1024px;
+		overflow: hidden;
+	}
+	body{
+		position: relative;
+		font-size: 30px;
+		cursor:auto;
+		font-family: MicroSoft Yahei;
+		background: url(../images/bg.png) no-repeat;
+		background-size: 1280px 1024px;
+	}
+	.topMost{
+		/*background: lightblue;*/
+		height: 80px;
+	}
+	.leftBlock{
+		position: absolute;
+		top: 226px;
+		width: 138px;
+		height: 570px;
+		color: white;
+		left: 22px;
+
+	}
+	.active{
+		background-color:#00bbec;
+	}
+	 
+	.rightBlock{
+		width: 57%;
+		position:absolute;
+		left: 187px;
+		height: 794px;
+		top:190%;
+	}
+	.rts_time{
+  		zoom:.4;
+		width: 545px;
+		height: 207px;
+		border-radius: 5px;
+		background-color:#1B6A99;
+		position:absolute;
+		top:50px;
+		left:55px;
+		opacity: .9;
+		float: left;
+	}
+	.rts_time_left{
+		float:left;
+		font-size: 120px;
+	}
+	.rts_time_left span{
+		font-size: 110px;
+		display: inline-block;
+		width:auto;
+		height:168px;
+		margin:20px;
+		padding: 0px 10px;
+		background-color:#ABC3D1;
+		vertical-align: middle;
+		line-height: 178px;
+		text-align: center;
+		font-weight: 900;
+		border-radius: 5px;
+		box-shadow: 0px 0px 3px black;
+		margin-right: 14px;
+	}
+	.rts_time_right{
+		float:left;
+		width:auto;
+		height: 207px;
+		color:white;
+		font-size:32px!important;
+		text-align:center;
+		margin-top: 0;
+	}
+	h4{
+		font-size: 28px;
+	}
+	span,a{
+		font-size: 16px;
+	}
+	ul li{
+		height:80px;
+		text-align: center;
+		line-height: 30px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		background: rgba(255,255,255,.1);
+		cursor: pointer;
+	}
+	ul li span{
+		display: block;
+		padding-top: 6px;
+		/*padding-bottom: 15px;*/
+	}
+	.echartsBlock{
+		width: 418px;
+		height: 89%;
+		left: 2%;
+	}
+	.tableBlock{
+		width: 60%;
+		height: 100%;
+		/*background: lightpink;*/
+		left: 59%;
+	}
+	.echartsBlock,.tableBlock{
+		position:absolute;
+		top: 0;
+	}
+	.echartsTop,.echartsBot{
+		height: 50%;
+		border-bottom:1px solid;
+	}
+	.title.top{
+		color: white;
+		height: 86px;
+		font-size: 36px;
+		zoom: .5;
+		line-height: 86px;
+		background: url(../../../images/new1.png) no-repeat left center;
+		padding-left: 80px;
+	}
+	.title.bottom{
+		color: white;
+		zoom:.5;
+		margin-bottom: 20px;
+		font-size: 36px;
+		height: 86px;
+		line-height: 86px;
+		background: url(../../images/new2.png) no-repeat left center;
+		padding-left: 80px;
+	}
+	#month{
+		margin-top: 10px;
+		font-size: 32px;
+	}
+	#week{
+		margin-top: 16px;
+		font-size: 32px;
+	}
+	#day{
+		font-size: 60px;
+	}
+	.tableBlock{
+		width: 594px;
+		height:550px;
+		background:url(../../images/two_07.png);
+		background-size: 100% 100%;
+		margin-top: 2%;
+		color: white;
+		padding: 67px 30px;
+		padding-right: 22px;
+		
+	}
+	.tableBlock table{
+		width: 568px;
+	}
+	.tableBlock  .tableTitle li{
+		font-weight: bold;
+		font-size: 20px;
+		height: 44px;
+		float: left;
+		line-height: 44px;
+		text-align: center;
+		margin-right: 2px;
+	}
+	.tableBlock .tableTitle{
+		height: 44px;
+		clear: both;
+	}
+	.tableBlock  .tableTitle li:nth-of-type(1){
+		width: 85px;
+		background: url(../images/tab_03.png) no-repeat;
+		background-size : 100% 100%;
+	}
+	.tableBlock  .tableTitle li:nth-of-type(2){
+		width: 111px;
+		background: url(../images/tab_05.png) no-repeat;
+		background-size : 100% 100%;
+	}
+	.tableBlock  .tableTitle li:nth-of-type(4){
+		width: 140px;
+		background: url(../images/tab_07.png) no-repeat;
+		background-size : 100% 100%;
+	}
+	.tableBlock  .tableTitle li:nth-of-type(3){
+		width: 226px;
+		background: url(../images/tab_09.png) no-repeat;
+		background-size : 100% 100%;
+	}
+	.tableBlock table tbody td{
+		font-size: 18px;
+		height: 50px;
+		text-align: center;
+	}
+	.tableBlock table tbody{
+		height: 520px;
+		overflow-y: hidden;
+	}
+	.tableBlock table tr{
+		background: #1f3f65;
+	}
+	.overH{
+		height: 522px;
+    	overflow-y: scroll;
+    	width: 586px;
+	}
+	.tableBlock  table tbody tr:first-child td:nth-of-type(1){
+		width: 85px;
+	}
+	.tableBlock  table tbody tr:first-child td:nth-of-type(2){
+		width: 114px;
+	}
+	.tableBlock  table tbody tr:first-child td:nth-of-type(4){
+		width: 141px;
+	}
+	.tableBlock  table tbody tr:first-child td:nth-of-type(3){
+		width: 226px;
+	}
+	.tableBlock .overH{
+		margin-top:3px;
+	}
+	.bigDataLogo{
+		position: absolute;
+		right: -16%;
+    	bottom: -1058%;
+	}
+	.bigDataLogo img{
+		width: 56%;
+		height: auto;
+	}

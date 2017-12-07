@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="refresh" content="300">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="stylesheets/areaBlock.css" />
+	<style>
+		
+		#tab_control_con li.active{
+			background: none;
+		}
+		#tab_control_con li{
+			height: 130px;
+		}
+		#tab_control_con li span{
+			float: left;
+			font-size: 40px;
+			font-weight: bolder;
+			padding-top: 20px;
+		}
+		#tab_control_con li span:last-child{
+			padding-left: 20px;
+		}
+		.leftBlock{
+			left: 38%;
+			top: 12%;
+			width: 50%;
+			height: initial;
+		}
+		.rts_time_right{
+			padding-left: 14px;
+		}
+	</style>
+	
+	<body>
+		<div class="topMost">
+			
+			<div class="bigDataLogo">
+				<img src="../../../images/new5.png" alt="" />
+			</div>
+			<div class="rts_time">
+			  <div class="rts_time_left">
+			    <span>--:--</span>
+			  </div>
+			  <div class="rts_time_right">
+			    <p id="week">-</p>
+			    <p id="day" class="day">-</p>
+			    <p id="month">-</p>
+			  </div>
+			</div>
+		</div>
+		<div class="leftBlock" >
+			<ul id="tab_control_con">
+				
+			</ul>
+		</div>
+		<div class="rightBlock">
+			<div class="echartsBlock">
+				<div class="echartsTop">
+					<div class="title top">期数金额占比</div>
+					<div id="scale_occupy" style="width:100%;height:88%"></div>
+				</div>
+				<div class="echartsBot">
+					<div class="title bottom">商品TOP排行</div>
+					<div id="bs_mon_invest" style="width:100%;height:92%"></div>
+				</div>
+			</div>
+			<div class="tableBlock">
+				<ol class="tableTitle">
+					<li>排序</li><li>城市</li><li>放款金额(元)</li><li>放款件数</li>
+				</ol>
+				<div class="overH">
+					<table>
+						<tbody id="tableDetailContent">
+
+						</tbody>
+					</table>
+				</div>
+				
+				<script id="tableDetail-template" type="text/x-handlebars-template" >
+					{{#each this}}
+						<tr>
+							<td>{{sortNum}}</td><td>{{cityName}}</td><td>{{loanMoneyNum}}</td><td>{{loanPiecesNum}}</td>
+						</tr>
+					{{/each}}
+				</script>
+				
+			</div>
+		</div>
+		 
+
+		<script src="/javascripts/echarts.js"></script>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/handlebars.js"></script>
+		<script src="/javascripts/secondPageHuabei.js"></script>
+	</body>
+</html>

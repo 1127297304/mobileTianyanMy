@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table</title>
+  <link rel="stylesheet" href="stylesheets/bootstrap.css">
+  <style>
+  body{
+    margin:15px;
+  }
+  .table_div>div{
+    width: 630px;
+    height: 330px;
+    border-radius: 5px;
+    border:1px solid #eee;
+    box-shadow: 0px 0px 0px 2px #999;
+    float: left;
+  }
+  #middle{
+    margin-left:315px;
+  }
+  *{
+    font-size:30px;
+  }
+  #three_column_table{
+  }
+  #three_column_table table{
+    width:48%;
+    margin:0px 5px;
+    border-radius: 3px;
+    border:0.5px solid #eee;
+    box-shadow: 0px 0px 0px 2px #eee;
+    height:auto;
+    float:left;
+  }
+  table thead{
+    background-color: #ccc;
+  }
+  #three_column_table table td{
+    text-align:center;
+  }
+  </style>
+</head>
+<body>
+  <div id="three_column_table">
+    <table class="table table-striped" >
+      <thead>
+         <tr>
+          <td>大区</td>
+          <td>城市</td>
+          
+          <td>放款件数</td>
+          <td>放款金额</td>
+        </tr>
+      </thead>
+      <tbody id="north">
+        
+      </tbody>
+    </table>
+    <table class="table table-striped" >
+      <thead>
+         <tr>
+          <td>大区</td>
+          <td>城市</td>
+          
+          <td>放款件数</td>
+          <td>放款金额</td>
+        </tr>
+      </thead>
+      <tbody id="south">
+        
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <thead>
+         <tr>
+          <td>大区</td>
+          <td>城市</td>
+          
+          <td>放款件数</td>
+          <td>放款金额</td>
+        </tr>
+      </thead>
+      <tbody id="enorth">
+        
+      </tbody>
+    </table>
+    <table class="table table-striped" >
+      <thead>
+         <tr>
+          <td>大区</td>
+          <td>城市</td>
+          
+          <td>放款件数</td>
+          <td>放款金额</td>
+        </tr>
+      </thead>
+      <tbody id="west">
+        
+      </tbody>
+    </table>
+    <table class="table table-striped" >
+      <thead>
+         <tr>
+          <td>大区</td>
+          <td>城市</td>
+          <td>放款件数</td>
+          <td>放款金额</td>
+        </tr>
+      </thead>
+      <tbody id="east">
+        
+      </tbody>
+    </table>
+  </div>
+ <!--  <section class="table_div">
+    <div>
+      <span>东北:</span>
+      <table id="east_north">
+        
+      </table>
+    </div>
+    <div>
+      <table id="east"></table>
+    </div>
+    <div id="middle">
+      <br/>
+      <table id="middle_area" ></table>
+      <br/>
+    </div>
+    <div>
+      <table id="north"></table>
+    </div>
+    <div>
+      <table id="west"></table>
+    </div>
+    
+    
+    
+  </section> -->
+  <script src="javascripts/jquery.min.js"></script>
+  <script>
+  //get data
+  document.addEventListener('keypress',function(e){
+    console.log(e)
+    if(e.charCode === 13){
+      console.log('1')
+      window.location.href = 'http://localhost:3000/module.html?idx=6'
+    }
+  },false)
+  var bigArea = setInterval(function(){
+    var myDate = new Date();
+    var year = myDate.getFullYear();
+    var month = myDate.getMonth();
+    var day = myDate.getDate();
+    var miliSecond = myDate.getMilliseconds();
+    if(month < 10 ){
+      month = '0'+ month;
+    }
+    if(day < 10 ){
+      day = '0'+ day;
+    }
+    $.ajax({
+      url: window.localStorage.ip+'big_screen_branch/battle/getBigChange.do?times='+year+'-'+(month+1)+'-'+day,
+      type: 'get',
+      success:(data) => {
+        console.log(data)
+        var arr = tranverseData(data.totalList)
+        console.log(arr)
+        for(var i=0,len = arr.length;i<len;i++){
+          if(arr[i].length !== 0){
+            createTable(arr[i])
+          }
+        }
+      },
+      error: (error,b,c) => {
+        console.log(error)
+        console.log(b)
+        console.log(c)
+      }
+    })
+  }, 3000);
+   
+  function tranverseData(data){
+    var arr = [],
+      arrSouth = [],
+      arrNorth = [],
+      arrEast = [],
+      arrWest = [],
+      arrENorth = [];
+    for(var i=0,len=data.length;i<len;i++){
+      if(data[i].bigArea === '华北区')  arrNorth.push(data[i]);
+      if(data[i].bigArea === '华南A') arrSouth.push(data[i]);
+      if(data[i].bigArea === '华东区')  arrEast.push(data[i]);
+      if(data[i].bigArea === '西部区')  arrWest.push(data[i]);
+      if(data[i].bigArea === '东北区')  arrENorth.push(data[i]);
+    }
+    arrNorth.sort(function(a,b){
+      return b.famountCount - a.famountCount 
+    })
+    arrSouth.sort(function(a,b){
+      return b.famountCount - a.famountCount 
+    })
+    arrEast.sort(function(a,b){
+      return b.famountCount - a.famountCount 
+    })
+    arrWest.sort(function(a,b){
+      return b.famountCount - a.famountCount 
+    })
+    arrENorth.sort(function(a,b){
+      return b.famountCount - a.famountCount 
+    })
+    arr.push(arrNorth)
+    arr.push(arrSouth)
+    arr.push(arrEast)
+    arr.push(arrWest)
+    arr.push(arrENorth)
+
+    return arr;
+  }
+  function createTable(data){
+    var len = data.length;
+    var target;
+    if(data[0].bigArea === '华北区')  {
+      $('#north>*').remove();
+      target = document.querySelector('#north')
+    }
+    if(data[0].bigArea === '华南A') 
+    {
+      $('#south>*').remove();
+      target = document.querySelector('#south')
+    }
+    if(data[0].bigArea === '华东区') {
+      $('#east>*').remove();
+      target = document.querySelector('#east')
+    } 
+    if(data[0].bigArea === '西部区')  {
+      $('#west>*').remove();
+      target = document.querySelector('#west')
+    }
+    if(data[0].bigArea === '东北区')  {
+       $('#enorth>*').remove();
+      target = document.querySelector('#enorth')
+    }
+    console.log(target)
+    var loanNum = 0,
+      loanTotal = 0;
+    for(var i=0;i<len;i++){
+      loanNum += data[i].fAppNoCount
+      loanTotal += data[i].famountCount
+    }
+    var tr = document.createElement('tr');
+    var tdArea = document.createElement('td');
+    var tdCity = document.createElement('td');
+    var tdloanNum = document.createElement('td');
+    var tdloanTotal = document.createElement('td');
+    console.log(data.city)
+    tdArea.innerHTML = '累计'
+    tdCity.innerHTML = ' '
+    tdloanNum.innerHTML =  loanNum.toFixed(0)
+    tdloanTotal.innerHTML = loanTotal.toFixed(2)
+    tr.appendChild(tdArea)
+    tr.appendChild(tdCity)
+    tr.appendChild(tdloanNum)
+    tr.appendChild(tdloanTotal)
+    target.appendChild(tr)
+    for(var i=0;i<len;i++){
+      target.appendChild(createRow(data[i]))
+      loanNum += data[i].fAppNoCount
+      loanTotal += data[i].famountCount
+    }
+    }
+  function createRow(data){
+    var tr = document.createElement('tr');
+    var tdArea = document.createElement('td');
+    var tdCity = document.createElement('td');
+    var tdloanNum = document.createElement('td');
+    var tdloanTotal = document.createElement('td');
+    tdArea.innerHTML = data.bigArea
+    tdCity.innerHTML = data.city
+    tdloanNum.innerHTML =  data.fAppNoCount
+    tdloanTotal.innerHTML = data.famountCount
+    tr.appendChild(tdArea)
+    tr.appendChild(tdCity)
+    tr.appendChild(tdloanNum)
+    tr.appendChild(tdloanTotal)
+
+    return tr
+  }
+  </script>
+</body>
+</html>

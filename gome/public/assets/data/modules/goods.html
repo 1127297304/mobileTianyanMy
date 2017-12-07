@@ -1,0 +1,327 @@
+<link rel="stylesheet" href="stylesheets/animate.css" />
+
+<style>
+	.goods .widget
+	{
+		position: absolute;
+	}
+
+	.goods .widget .header .title
+	{
+		color: #FFFFFF;
+		font-family: "黑体";
+		font-size: 27px;
+	}
+	/* widget4 */
+	.goods .widget4
+	{
+    bottom: 319px;
+    right: 672px;
+	}
+	.goods .widget5
+	{
+    left: 178px;
+    bottom: 88px;
+    width: 785px;
+    height: 264px;
+	}
+	.goods .widget5 .chart{
+		position: absolute;
+		background-image: url(assets/images/goods/1.png);
+		width: 707px;
+		height: 250px;
+		top:55px;
+	}
+	.logo2{
+    position: absolute;
+    top:32px;
+    right:50px;
+
+  }
+  .logo1{
+    position: absolute;
+    top:32px;
+    left:50px;
+
+  }
+	.goods .widget4 .chart
+	{
+		position: absolute;
+		background-image: url(assets/images/goods/1.png);
+		width: 707px;
+		height: 250px;
+		top:55px;
+	}
+	.bubbleLine{
+		width: 100%;
+		height:750px;
+		padding-right: 192px;
+		padding-left: 192px;
+	}
+	.bubbleLeft,.bubbleRight{
+		width: 40%;
+		height:750px;
+		position: relative;
+		display: inline-block;
+		float: left;
+	}
+	.bubbleRight{
+		margin-left:100px;
+	}
+	.textHead{
+		width: 100%;
+		height:100px;
+		padding-top: 121px;
+	}
+	.textHead #projectName{
+		color:white;
+		font-size: 30px;
+	}
+	.textHead #projectName1{
+		color:white;
+		font-size: 30px;
+	}
+	.pos_commit{
+		color:rgb(210,171,37);
+		font-size: 60px;
+	}
+	.neg_commit{
+		color:#35bfff;
+		font-size: 60px;
+	}
+	#bubbleContainer,#bubbleContainer1{
+		height:500px;
+    background:url(images/008.png) no-repeat center;
+    opacity: 1.6;
+
+	}
+	.rotateStar{
+	}
+	.unStar{
+    width: 401px;
+    height: 400px;
+    background: url('images/circle.png') no-repeat;
+    background-size: 400px 400px;
+    position: absolute;
+    top: 300px;
+    left: 200px;
+    opacity: .3;
+	}
+	.unStar {
+      animation: mymove2 30s infinite;
+      -webkit-animation: mymove2 30s linear infinite;
+      /*Safari and Chrome*/
+    }
+     @keyframes mymove2 {
+      from {
+        transform: rotateZ(360deg);
+      }
+      to {
+        transform: rotateZ(0);
+      }
+    }
+</style>
+<style type="text/css">
+    text {
+      font: 32px sans-serif;
+    }
+    body{
+      font-size:28px;
+      font-family:  'MicroSoft Yahei';
+    }
+    .divMiddle {
+      animation: mymove 5s infinite;
+      -webkit-animation: mymove 5s linear infinite;
+      /*Safari and Chrome*/
+    }
+    @keyframes mymove {
+      from {
+        transform: rotateZ(0);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+.moveTop {
+  animation: mymove1 5s infinite;
+  -webkit-animation: mymove1 5s linear infinite;
+    /*Safari and Chrome*/
+  }
+  @keyframes mymove1 {
+      from {
+  -webkit-transform: translate3d(0, 50px, 0) ;
+  transform: translate3d(0, 50px, 0) ;
+  }
+  to {
+  -webkit-transform: none;
+  transform: none;
+  }
+}
+.moveLeft {
+  animation: mymove1 5s infinite;
+  -webkit-animation: mymove1 5s linear infinite;
+    /*Safari and Chrome*/
+  }
+  @keyframes mymove1 {
+      from {
+  -webkit-transform: translate3d(50px, 0, 0) ;
+  transform: translate3d(50px,0 , 0) ;
+  }
+  to {
+  -webkit-transform: none;
+  transform: none;
+  }
+}
+.moveRight {
+  /*animation: mymove2 5s infinite;
+  -webkit-animation: mymove2 5s linear infinite;
+    /*Safari and Chrome*/
+  }
+  @keyframes mymove21 {
+      from {
+  -webkit-transform: translate3d(-100px, 0, 0) ;
+  transform: translate3d(-100px, 0, 0) ;
+  }
+  to {
+  -webkit-transform: none;
+  transform: none;
+  }
+}
+.moveTop {
+  animation: mymove3 5s infinite;
+  -webkit-animation: mymove3 5s linear infinite;
+    /*Safari and Chrome*/
+  }
+  @keyframes mymove3 {
+      from {
+  -webkit-transform: translate3d(0, 100px, 0) ;
+  transform: translate3d(0, 100px, 0) ;
+  }
+  to {
+  -webkit-transform: none;
+  transform: none;
+  }
+}
+.moveBottom {
+  animation: mymove4 5s infinite;
+  -webkit-animation: mymove4 5s linear infinite;
+    /*Safari and Chrome*/
+  }
+  @keyframes mymove4 {
+      from {
+  -webkit-transform: translate3d(0, -100px, 0) ;
+  transform: translate3d(0, -100px, 0) ;
+  }
+  to {
+  -webkit-transform: none;
+  transform: none;
+  }
+}
+
+
+
+
+
+
+
+    .divIn {
+      animation: mymoveIn 5s infinite;
+      -webkit-animation: mymoveIn 5s linear infinite;
+      /*Safari and Chrome*/
+    }
+    @keyframes mymoveIn {
+      from {
+        transform: rotateZ(360deg);
+      }
+      to {
+        transform: rotateZ(0);
+      }
+    }
+
+    .divOut{
+      border-radius: 50%;
+      position: absolute;
+    }
+    .divMiddle{
+      color:white;
+      vertical-align: middle;
+      text-align: center;
+      overflow: hidden;
+      position: absolute;
+    }
+    .divIn{
+      position: absolute;
+      text-align:center;
+    }
+    </style>
+<div class="logo1">
+  <img src="images/logo1.png" alt="">
+</div>
+<div class="logo2">
+  <img src="images/logo2.png" alt="" style="width: 284px">
+</div>
+<div class="bubbleLine">
+	<div class="bubbleLeft">
+		<div class="textHead">
+			<div id="projectName1">
+			</div>
+			<div class="pos_commit">正面评论</div>
+		</div>
+		<div class="rotateStar">
+			<div class="unStar"></div>
+			<div id="bubbleContainer1" ></div>
+		</div>
+	</div>
+	<div class="bubbleRight">
+		<div class="textHead">
+			<div id="projectName">
+			</div>
+			<div class="neg_commit">负面评论</div>
+		</div>
+		<div class="rotateStar">
+			<div class="unStar"></div>
+			<div id="bubbleContainer" ></div>
+		</div>
+	</div>
+</div>
+
+<div class="goods">
+	<div class="widget widget4">
+		<div class="header">
+			<div class="title">每日新增评论</div>
+		</div>
+		<div class="chart"></div>
+	</div>
+	<div class="widget widget5">
+		<div class="header">
+			<div class="title">每日新增评论</div>
+		</div>
+		<div class="chart"></div>
+	</div>
+</div>
+<script type="text/javascript" src="javascripts/rotateBubble.js"></script>
+<script>
+  function zoom() {
+    var width = $(window).width();
+    var height = $(window).height();
+    if (height > width) {
+        $('html').css({zoom: width / 1080});
+        $('html').height(1080);
+        $('html').css({top: '-1080px'});
+    } else {
+        $('html').css({zoom: width / 1920});
+    }
+  }
+  zoom();
+  window.onresize = function() {
+      zoom();
+  };
+</script>
+<script src="/javascripts/socket.io.js"></script>
+<script type="text/javascript">
+  
+</script>
+
+
+

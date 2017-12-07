@@ -1,0 +1,497 @@
+{
+    "code": 200,
+    "data": {
+        "dataInfo": {
+            "southChinaArea": {
+                "rosePieData": [
+                    {
+                        "name": "12期  63.19%",
+                        "itemStyle": "{ normal: {color: '#a5c332', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 5150.4
+                    },
+                    {
+                        "name": "15期  12.27%",
+                        "itemStyle": "{ normal: {color: '#56c3e8', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 1000
+                    },
+                    {
+                        "name": "18期  12.27%",
+                        "itemStyle": "{ normal: {color: '#ac378f', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 1000
+                    },
+                    {
+                        "name": "24期  12.27%",
+                        "itemStyle": "{ normal: {color: '#154c80', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 1000
+                    },
+                    {
+                        "name": "3期  0.00%",
+                        "itemStyle": "{ normal: {color: '#f5bd37', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 0
+                    },
+                    {
+                        "name": "6期  0.00%",
+                        "itemStyle": "{ normal: {color: '#ec672c', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 0
+                    },
+                    {
+                        "name": "9期  0.00%",
+                        "itemStyle": "{ normal: {color: '#f0e827', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 0
+                    }
+                ],
+                "productsSaleRanking": {
+                    "horiAxis": [
+                        "手机/通讯",
+                        "洗衣机",
+                        "小家电配件"
+                    ],
+                    "productsData": [
+                        6150.4,
+                        2000,
+                        0
+                    ]
+                },
+                "tableDetailList": [
+                    {
+                        "cityName": "佛山市",
+                        "loanMoneyNum": 4150.4,
+                        "sortNum": 1,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "长春市",
+                        "loanMoneyNum": 2000,
+                        "sortNum": 2,
+                        "loanPiecesNum": 2
+                    },
+                    {
+                        "cityName": "北京市",
+                        "loanMoneyNum": 1000,
+                        "sortNum": 3,
+                        "loanPiecesNum": 4
+                    },
+                    {
+                        "cityName": "邯郸市",
+                        "loanMoneyNum": 1000,
+                        "sortNum": 4,
+                        "loanPiecesNum": 1
+                    }
+                ]
+            },
+            "northEastArea": {
+                "rosePieData": [
+                    {
+                        "name": "12期  39.63%",
+                        "itemStyle": "{ normal: {color: '#a5c332', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 29374
+                    },
+                    {
+                        "name": "15期  46.14%",
+                        "itemStyle": "{ normal: {color: '#56c3e8', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 34200
+                    },
+                    {
+                        "name": "9期  10.14%",
+                        "itemStyle": "{ normal: {color: '#f0e827', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 7517
+                    }
+                ],
+                "productsSaleRanking": {
+                    "horiAxis": [
+                        "手机/通讯",
+                        "洗衣机",
+                        "彩电",
+                        "电脑",
+                        "其它"
+                    ],
+                    "productsData": [
+                        36726,
+                        10770,
+                        7650,
+                        6299,
+                        0
+                    ]
+                },
+                "tableDetailList": [
+                    {
+                        "cityName": "沈阳市",
+                        "loanMoneyNum": 34282,
+                        "sortNum": 1,
+                        "loanPiecesNum": 7
+                    },
+                    {
+                        "cityName": "哈尔滨市",
+                        "loanMoneyNum": 13815,
+                        "sortNum": 2,
+                        "loanPiecesNum": 6
+                    },
+                    {
+                        "cityName": "大连市",
+                        "loanMoneyNum": 9689,
+                        "sortNum": 3,
+                        "loanPiecesNum": 4
+                    },
+                    {
+                        "cityName": "齐齐哈尔市",
+                        "loanMoneyNum": 5697,
+                        "sortNum": 4,
+                        "loanPiecesNum": 3
+                    },
+                    {
+                        "cityName": "鞍山市",
+                        "loanMoneyNum": 4489,
+                        "sortNum": 5,
+                        "loanPiecesNum": 2
+                    },
+                    {
+                        "cityName": "吉林市",
+                        "loanMoneyNum": 2520,
+                        "sortNum": 6,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "绥化市",
+                        "loanMoneyNum": 599,
+                        "sortNum": 7,
+                        "loanPiecesNum": 1
+                    }
+                ]
+            },
+            "northChinaArea": {
+                "rosePieData": [
+                    {
+                        "name": "12期  45.83%",
+                        "itemStyle": "{ normal: {color: '#a5c332', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 55033
+                    },
+                    {
+                        "name": "15期  40.74%",
+                        "itemStyle": "{ normal: {color: '#56c3e8', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 48922
+                    },
+                    {
+                        "name": "9期  13.43%",
+                        "itemStyle": "{ normal: {color: '#f0e827', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 16132
+                    }
+                ],
+                "productsSaleRanking": {
+                    "horiAxis": [
+                        "手机/通讯",
+                        "电脑",
+                        "彩电",
+                        "水家电",
+                        "其它"
+                    ],
+                    "productsData": [
+                        103893,
+                        12120,
+                        2482,
+                        1332,
+                        0
+                    ]
+                },
+                "tableDetailList": [
+                    {
+                        "cityName": "北京市",
+                        "loanMoneyNum": 37625,
+                        "sortNum": 1,
+                        "loanPiecesNum": 11
+                    },
+                    {
+                        "cityName": "天津市",
+                        "loanMoneyNum": 16185,
+                        "sortNum": 2,
+                        "loanPiecesNum": 5
+                    },
+                    {
+                        "cityName": "泰安市",
+                        "loanMoneyNum": 15173,
+                        "sortNum": 3,
+                        "loanPiecesNum": 3
+                    },
+                    {
+                        "cityName": "济南市",
+                        "loanMoneyNum": 13991,
+                        "sortNum": 4,
+                        "loanPiecesNum": 4
+                    },
+                    {
+                        "cityName": "郑州市",
+                        "loanMoneyNum": 10151,
+                        "sortNum": 5,
+                        "loanPiecesNum": 4
+                    },
+                    {
+                        "cityName": "太原市",
+                        "loanMoneyNum": 7648,
+                        "sortNum": 6,
+                        "loanPiecesNum": 4
+                    },
+                    {
+                        "cityName": "晋中市",
+                        "loanMoneyNum": 5911,
+                        "sortNum": 7,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "大同市",
+                        "loanMoneyNum": 5111,
+                        "sortNum": 8,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "青岛市",
+                        "loanMoneyNum": 4710,
+                        "sortNum": 9,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "漯河市",
+                        "loanMoneyNum": 1332,
+                        "sortNum": 10,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "石家庄市",
+                        "loanMoneyNum": 1170,
+                        "sortNum": 11,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "安阳市",
+                        "loanMoneyNum": 1080,
+                        "sortNum": 12,
+                        "loanPiecesNum": 1
+                    }
+                ]
+            },
+            "areaNameRankin": [
+                "华北区",
+                "东北区",
+                "华东区",
+                "西部区",
+                "华中区",
+                "华南A"
+            ],
+            "eastChinaArea": {
+                "rosePieData": [
+                    {
+                        "name": "12期  32.37%",
+                        "itemStyle": "{ normal: {color: '#a5c332', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 21903
+                    },
+                    {
+                        "name": "15期  25.79%",
+                        "itemStyle": "{ normal: {color: '#56c3e8', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 17450
+                    },
+                    {
+                        "name": "24期  17.67%",
+                        "itemStyle": "{ normal: {color: '#154c80', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 11959
+                    },
+                    {
+                        "name": "9期  24.17%",
+                        "itemStyle": "{ normal: {color: '#f0e827', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 16358
+                    }
+                ],
+                "productsSaleRanking": {
+                    "horiAxis": [
+                        "手机/通讯",
+                        "电脑",
+                        "洗衣机",
+                        "空调",
+                        "厨房小家电"
+                    ],
+                    "productsData": [
+                        43576,
+                        12869,
+                        6727,
+                        3199,
+                        1299
+                    ]
+                },
+                "tableDetailList": [
+                    {
+                        "cityName": "上海市",
+                        "loanMoneyNum": 30300,
+                        "sortNum": 1,
+                        "loanPiecesNum": 10
+                    },
+                    {
+                        "cityName": "南通市",
+                        "loanMoneyNum": 14388,
+                        "sortNum": 2,
+                        "loanPiecesNum": 4
+                    },
+                    {
+                        "cityName": "常州市",
+                        "loanMoneyNum": 8869,
+                        "sortNum": 3,
+                        "loanPiecesNum": 2
+                    },
+                    {
+                        "cityName": "苏州市",
+                        "loanMoneyNum": 3014,
+                        "sortNum": 4,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "泰州市",
+                        "loanMoneyNum": 2520,
+                        "sortNum": 5,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "宁波市",
+                        "loanMoneyNum": 2520,
+                        "sortNum": 6,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "合肥市",
+                        "loanMoneyNum": 2240,
+                        "sortNum": 7,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "淮南市",
+                        "loanMoneyNum": 1620,
+                        "sortNum": 8,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "六安市",
+                        "loanMoneyNum": 900,
+                        "sortNum": 9,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "湖州市",
+                        "loanMoneyNum": 799,
+                        "sortNum": 10,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "扬州市",
+                        "loanMoneyNum": 500,
+                        "sortNum": 11,
+                        "loanPiecesNum": 1
+                    }
+                ]
+            },
+            "id": 0,
+            "areaDataValue": [
+                "northChinaArea",
+                "northEastArea",
+                "eastChinaArea",
+                "westArea",
+                "centralChinaArea",
+                "southChinaArea"
+            ],
+            "westArea": {
+                "rosePieData": [
+                    {
+                        "name": "12期  65.86%",
+                        "itemStyle": "{ normal: {color: '#a5c332', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 27755
+                    },
+                    {
+                        "name": "15期  18.49%",
+                        "itemStyle": "{ normal: {color: '#56c3e8', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 7791
+                    },
+                    {
+                        "name": "9期  15.65%",
+                        "itemStyle": "{ normal: {color: '#f0e827', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 6597
+                    }
+                ],
+                "productsSaleRanking": {
+                    "horiAxis": [
+                        "手机/通讯",
+                        "电脑",
+                        "洗衣机",
+                        "厨房小家电"
+                    ],
+                    "productsData": [
+                        34647,
+                        4400,
+                        2197,
+                        899
+                    ]
+                },
+                "tableDetailList": [
+                    {
+                        "cityName": "西安市",
+                        "loanMoneyNum": 21380,
+                        "sortNum": 1,
+                        "loanPiecesNum": 7
+                    },
+                    {
+                        "cityName": "重庆市",
+                        "loanMoneyNum": 12655,
+                        "sortNum": 2,
+                        "loanPiecesNum": 3
+                    },
+                    {
+                        "cityName": "贵阳市",
+                        "loanMoneyNum": 5911,
+                        "sortNum": 3,
+                        "loanPiecesNum": 1
+                    },
+                    {
+                        "cityName": "昆明市",
+                        "loanMoneyNum": 2197,
+                        "sortNum": 4,
+                        "loanPiecesNum": 2
+                    }
+                ]
+            },
+            "areaLoanMoneyRanking": [
+                120087,
+                74121,
+                67670,
+                42143,
+                16691,
+                8150.4
+            ],
+            "centralChinaArea": {
+                "rosePieData": [
+                    {
+                        "name": "12期  52.55%",
+                        "itemStyle": "{ normal: {color: '#a5c332', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 8771
+                    },
+                    {
+                        "name": "9期  47.45%",
+                        "itemStyle": "{ normal: {color: '#f0e827', shadowBlur: 200,shadowColor: 'rgba(10, 1, 1, 0.5)'}}",
+                        "value": 7920
+                    }
+                ],
+                "productsSaleRanking": {
+                    "horiAxis": [
+                        "手机/通讯",
+                        "电脑"
+                    ],
+                    "productsData": [
+                        11291,
+                        5400
+                    ]
+                },
+                "tableDetailList": [
+                    {
+                        "cityName": "武汉市",
+                        "loanMoneyNum": 16691,
+                        "sortNum": 1,
+                        "loanPiecesNum": 5
+                    }
+                ]
+            }
+        },
+        "status": "ok"
+    }
+}

@@ -1,0 +1,92 @@
+.loanPiecesNum {
+  left: 0;
+  top: 136%;
+  margin-left: 420px;
+}
+.loanMoneyNum {
+  margin-left: 442px;
+}
+.loanMoneyNum b {
+  left: -8%;
+}
+.rightBlock {
+  width: 1400px;
+  height: 1000px;
+  position: absolute;
+  left: 31%;
+  top: 9.8%;
+}
+.rightBlockBot {
+  width: 1400px;
+  height: 1000px;
+  position: absolute;
+  bottom: -160px;
+  left: 31%;
+}
+.leftBottomBlock .botLeft,
+.leftBottomBlock .botRight {
+  float: left;
+  width: 50%;
+  height: 100%;
+  background: url(../images/vls_1.png) no-repeat 20% 54%, url(../images/vls_2.png) no-repeat 80% 54%;
+  background-size: auto 30%;
+}
+.leftBottomBlock .botLeft h4,
+.leftBottomBlock .botRight h4,
+.leftBottomBlock .botLeft p,
+.leftBottomBlock .botRight p {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+.leftBottomBlock .botLeft h4,
+.leftBottomBlock .botRight h4 {
+  padding-top: 40px;
+}
+.leftBottomBlock .botLeft p,
+.leftBottomBlock .botRight p {
+  padding-top: 46%;
+}
+.leftBottomBlock .botLeft p span,
+.leftBottomBlock .botRight p span {
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+.leftTopBlock h4 {
+  color: white;
+  font-size: 32px;
+  height: 70px;
+  line-height: 70px;
+  background: url(../images/s_trend.png) no-repeat left center;
+  background-size: auto 100%;
+  padding-left: 6.5%;
+  margin-top: 3%;
+}
+.mainLogo {
+  height: 310px;
+  width: 402px;
+  position: absolute;
+  top: -20%;
+  background: url(../images/jkLogo.png) no-repeat left center;
+  background-size: auto 100%;
+  text-align: center;
+}
+.mainLogo span {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  font-size: 30px;
+  font-weight: bolder;
+}
+.rightBlock h4,
+.rightBlockBot h4 {
+  color: white;
+  font-size: 36px;
+  height: 80px;
+  line-height: 80px;
+  background: url(../images/s_trend.png) no-repeat left center;
+  background-size: auto 100%;
+  padding-left: 6.5%;
+  margin-top: 3%;
+}
